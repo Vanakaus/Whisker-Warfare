@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0yxhmun4v8ue"]
+
+[ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://level/tileMap.png" id="1_ao3m3"]
+[ext_resource type="Texture2D" uid="uid://b7rosh7fs855f" path="res://level/selection.png" id="2_5tmjp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v01ww"]
+texture = ExtResource("1_ao3m3")
+texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 3
+0:0/0 = 0
+1:0/next_alternative_id = 5
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gkjwq"]
+texture = ExtResource("2_5tmjp")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_k7to6"]
+tile_size = Vector2i(64, 64)
+terrain_set_0/mode = 0
+sources/0 = SubResource("TileSetAtlasSource_v01ww")
+sources/1 = SubResource("TileSetAtlasSource_gkjwq")
+
+[sub_resource type="GDScript" id="GDScript_yj3yt"]
+script/source = "extends TileMap
+
+
+var GridSizeX = 9;
+var GridSizeY = 5;
+var Dict = {};
+
+
+
+
+func _ready():
+	
+	for x in GridSizeX:
+		for y in GridSizeY:
+			if (x+y) % 2:
+				set_cell(0, Vector2(x, y), 0, Vector2i(0, 0), 0)
+			else:
+				set_cell(0, Vector2(x, y), 0, Vector2i(1, 0), 0)
+			
+			Dict[str(Vector2(x, y))] = {
+				\"used\" : \"false\"
+			}
+
+
+func _process(delta):
+	var tile = local_to_map(get_global_mouse_position())
+	
+	if Dict.has(str(tile));
+		set_cell(1, tile, 1, Vector2i(0, 0), 0)
+	
+"
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_k7to6")
+rendering_quadrant_size = 64
+format = 2
+script = SubResource("GDScript_yj3yt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 324)
