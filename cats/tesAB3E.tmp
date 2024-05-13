@@ -24,15 +24,25 @@ func atualizaPosicao(posicao, mundod):
 
 
 
-func _input(event):
-	# Verificar se o evento é um clique de mouse
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
-		var mouseClick = get_local_mouse_position()
-		if mouseClick[0] > 0 and mouseClick[0] < 64:
-			if mouseClick[1] > 0 and mouseClick[1] < 64:
-				mundo.limpaSetTile(get_global_mouse_position())
-				print(get_local_mouse_position()[0])
-				queue_free()
+#func _on_InputEvent(viewport, event, shape_idx):
+	#if event is InputEventMouseButton:
+		#if event.button_index == BUTTON_LEFT and event.pressed:
+			## Verificar se o clique ocorreu sobre o StaticBody2D
+			#if shape_idx == 0:
+				## Faça algo quando o StaticBody2D for clicado
+				#print(\"Você clicou em cima do StaticBody2D!\")
+
+#func _input(event):
+	## Verificar se o evento é um clique de mouse
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+		
+		   
+		
+		
+			
+			
+			#$/root/Word/Cats/Test.atualizaPosicao(tileSelect)
+			#$/root/Word/Cats/Test.atualizaPosicao(get_global_mouse_position())
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r5vg"]

@@ -1,7 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0yxhmun4v8ue"]
+[gd_scene load_steps=9 format=3 uid="uid://d0yxhmun4v8ue"]
 
 [ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/tileMap.png" id="1_ao3m3"]
 [ext_resource type="Texture2D" uid="uid://b7rosh7fs855f" path="res://assets/selection.png" id="2_5tmjp"]
+
+[sub_resource type="GDScript" id="GDScript_j2iaa"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v01ww"]
 texture = ExtResource("1_ao3m3")
@@ -65,17 +79,17 @@ func _process(delta):
 
 
 
-func _input(event):
-	# Verificar se o evento é um clique de mouse
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		var tileSelect = local_to_map(get_global_mouse_position())
-		
-		if Dict.has(str(tileSelect)):
-			if Dict[str(tileSelect)][\"used\"] == \"false\":
-				Dict[str(tileSelect)][\"used\"] = \"true\"
-				var gatoTeste = gatoTest.instantiate()
-				add_child(gatoTeste)
-				gatoTeste.atualizaPosicao(tileSelect, self)
+#func _input(event):
+	## Verificar se o evento é um clique de mouse
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+		#var tileSelect = local_to_map(get_global_mouse_position())
+		#
+		#if Dict.has(str(tileSelect)):
+			#if Dict[str(tileSelect)][\"used\"] == \"false\":
+				#Dict[str(tileSelect)][\"used\"] = \"true\"
+				#var gatoTeste = gatoTest.instantiate()
+				#add_child(gatoTeste)
+				#gatoTeste.atualizaPosicao(tileSelect, self)
 
 
 func limpaSetTile(mousePosition):
@@ -99,6 +113,7 @@ func atualizar_texto(novo_texto: String):
 "
 
 [node name="Word" type="Node2D"]
+script = SubResource("GDScript_j2iaa")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_k7to6")
