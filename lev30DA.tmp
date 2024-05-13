@@ -25,10 +25,12 @@ sources/1 = SubResource("TileSetAtlasSource_gkjwq")
 [sub_resource type="GDScript" id="GDScript_yj3yt"]
 script/source = "extends TileMap
 
+
 var GridSizeX = 9;
 var GridSizeY = 5;
 var Dict = {};
 var tileSelect;
+var gatos = [];
 var gatoTest = preload(\"res://cats/test.tscn\")
 
 
@@ -74,8 +76,13 @@ func _input(event):
 			if Dict[str(tileSelect)][\"used\"] == \"false\":
 				Dict[str(tileSelect)][\"used\"] = \"true\"
 				var gatoTeste = gatoTest.instantiate()
-				add_child(gatoTeste)
-				gatoTeste.atualizaPosicao(tileSelect)
+				gatoTest.instantiate().atualizaPosicao(tileSelect)
+				#gatoTeste.atualizaPosicao(tileSelect)
+				$/root/Word/Label2.atualizar_texto(\"\")
+
+			else:
+				$/root/Word/Label2.atualizar_texto(\"Tu é burro?\")
+				
 			
 			
 			#$/root/Word/Cats/Test.atualizaPosicao(tileSelect)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://d0yxhmun4v8ue"]
 
-[ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/tileMap.png" id="1_ao3m3"]
-[ext_resource type="Texture2D" uid="uid://b7rosh7fs855f" path="res://assets/selection.png" id="2_5tmjp"]
+[ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://level/tileMap.png" id="1_ao3m3"]
+[ext_resource type="Texture2D" uid="uid://b7rosh7fs855f" path="res://level/selection.png" id="2_5tmjp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v01ww"]
 texture = ExtResource("1_ao3m3")
@@ -25,11 +25,12 @@ sources/1 = SubResource("TileSetAtlasSource_gkjwq")
 [sub_resource type="GDScript" id="GDScript_yj3yt"]
 script/source = "extends TileMap
 
+
 var GridSizeX = 9;
 var GridSizeY = 5;
 var Dict = {};
 var tileSelect;
-var gatoTest = preload(\"res://cats/test.tscn\")
+
 
 
 
@@ -46,6 +47,15 @@ func _ready():
 				\"used\" : \"false\"
 			}
 
+func _input(event):
+	# Verificar se o evento é um clique de mouse
+	if event is InputEventMouseButton:
+		var tileSelect = local_to_map(get_global_mouse_position())
+		
+		if Dict.has(str(tileSelect)):
+			Dict[str(tileSelect)][\"used\"] = \"true\"
+
+
 
 
 func _process(delta):
@@ -60,43 +70,23 @@ func _process(delta):
 	
 	if Dict.has(str(tileSelect)):
 		set_cell(1, tileSelect, 1, Vector2i(0, 0), 0)
-		$/root/Word/Label.atualizar_texto(str(Dict[str(tileSelect)][\"used\"]))
+		$Label.atualizar_texto(\"Novo texto!\")
 	
-
-
-
-func _input(event):
-	# Verificar se o evento é um clique de mouse
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		var tileSelect = local_to_map(get_global_mouse_position())
-		
-		if Dict.has(str(tileSelect)):
-			if Dict[str(tileSelect)][\"used\"] == \"false\":
-				Dict[str(tileSelect)][\"used\"] = \"true\"
-				var gatoTeste = gatoTest.instantiate()
-				add_child(gatoTeste)
-				gatoTeste.atualizaPosicao(tileSelect)
-			
-			
-			#$/root/Word/Cats/Test.atualizaPosicao(tileSelect)
-			#$/root/Word/Cats/Test.atualizaPosicao(get_global_mouse_position())
 "
 
-[sub_resource type="GDScript" id="GDScript_682gq"]
+[sub_resource type="GDScript" id="GDScript_1vapb"]
 script/source = "extends Label
-
 
 func _ready():
 	# Define o texto inicial do Label
 	text = \"Olá, Mundo!\"
-	atualizar_texto(\"asdasd\")
 
 # Função para atualizar o texto do Label
 func atualizar_texto(novo_texto: String):
 	text = novo_texto
 "
 
-[node name="Word" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_k7to6")
@@ -113,11 +103,4 @@ offset_left = 753.0
 offset_top = 13.0
 offset_right = 793.0
 offset_bottom = 36.0
-script = SubResource("GDScript_682gq")
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 753.0
-offset_top = 62.0
-offset_right = 793.0
-offset_bottom = 85.0
-script = SubResource("GDScript_682gq")
+script = SubResource("GDScript_1vapb")
