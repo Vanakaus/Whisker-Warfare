@@ -31,13 +31,13 @@ var Dict = {};
 var tileSelect;
 
 @onready var gatos = $Gatos
-@onready var gatoTest = load(\"res://cats/test.tscn\")
+var gatoTest = preload(\"res://cats/test.tscn\")
 var roboTest = preload(\"res://robots/testMal.tscn\")
 
 
 
 func _ready():
-	
+	var gatos = $Gatos
 	for x in GridSizeX:
 		for y in GridSizeY:
 			#if (x+y) % 2:
@@ -79,8 +79,8 @@ func _input(event):
 				var gatoTeste = gatoTest.instantiate()
 				#add_child(gatoTeste)
 				gatoTeste.atualizaPosicao(tileSelect, self)
-				gatos.call_deferred(\"add_child\", gatoTeste)
-				print(tileSelect)
+				print(gatos)
+				#gatos.call_deferred(\"add_child\", gatoTeste)
 	
 	
 	
@@ -125,9 +125,6 @@ layer_0/tile_data = PackedInt32Array(1, 0, 0, 3, 0, 0, 4, 65536, 0, 5, 0, 0, 6, 
 layer_1/tile_data = PackedInt32Array()
 script = SubResource("GDScript_yj3yt")
 
-[node name="Gatos" type="Node2D" parent="TileMap"]
-position = Vector2(-3, -1)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(334, 202)
 zoom = Vector2(1.5, 1.5)
@@ -145,3 +142,5 @@ offset_top = -29.0
 offset_right = 400.0
 offset_bottom = -6.0
 script = SubResource("GDScript_682gq")
+
+[node name="Gatos" type="Node2D" parent="."]
