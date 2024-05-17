@@ -1,46 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfur220877306"]
 
 [ext_resource type="Texture2D" uid="uid://dgebir0wi7cew" path="res://assets/cypherMal.png" id="1_4fep8"]
-
-[sub_resource type="GDScript" id="GDScript_28v5k"]
-script/source = "extends StaticBody2D
-
-var mundo;
-var gridSize = 64;
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	global_position = global_position - Vector2(0.5, 0)
-
-
-
-
-func atualizaPosicao(posicao):
-	#posicao = (posicao * gridSize)
-	#global_position = posicao
-	global_position = Vector2(9, posicao) * 64
-
-
-
-func _input(event):
-	# Verificar se o evento é um clique de mouse
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE and event.is_pressed():
-		var mouseClick = get_local_mouse_position()
-		if mouseClick[0] > 0 and mouseClick[0] < 64:
-			if mouseClick[1] > 0 and mouseClick[1] < 64:
-				queue_free()
-"
+[ext_resource type="Script" path="res://robots/robo.gd" id="1_btagr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r5vg"]
-radius = 6.0
 
-[node name="Test" type="StaticBody2D"]
-script = SubResource("GDScript_28v5k")
+[node name="Test" type="Area2D"]
+script = ExtResource("1_btagr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(32, 32)
@@ -49,3 +15,5 @@ texture = ExtResource("1_4fep8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(31, 31)
 shape = SubResource("CapsuleShape2D_7r5vg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
