@@ -31,13 +31,12 @@ var Dict = {};
 var tileSelect;
 
 @onready var gatos = $Gatos
-@onready var gatoTest = load(\"res://cats/test.tscn\")
-var roboTest = preload(\"res://robots/testMal.tscn\")
+@onready var gatoTest = preload(\"res://cats/test.tscn\")
+@onready var roboTest = preload(\"res://robots/testMal.tscn\")
 
 
 
-func _ready():
-	
+func _ready():	
 	for x in GridSizeX:
 		for y in GridSizeY:
 			#if (x+y) % 2:
@@ -46,7 +45,7 @@ func _ready():
 				#set_cell(0, Vector2(x, y), 0, Vector2i(1, 0), 0)
 			
 			Dict[str(Vector2(x, y))] = {
-				\"used\" : \"false\"
+				\"used\" : false
 			}
 
 
@@ -74,16 +73,15 @@ func _input(event):
 		var tileSelect = local_to_map(get_global_mouse_position())
 		
 		if Dict.has(str(tileSelect)):
-			if Dict[str(tileSelect)][\"used\"] == \"false\":
-				Dict[str(tileSelect)][\"used\"] = \"true\"
+			if not Dict[str(tileSelect)][\"used\"]:
+				Dict[str(tileSelect)][\"used\"] = true
 				var gatoTeste = gatoTest.instantiate()
-				#add_child(gatoTeste)
+				add_child(gatoTeste)
 				gatoTeste.atualizaPosicao(tileSelect, self)
-				gatos.call_deferred(\"add_child\", gatoTeste)
-				print(tileSelect)
-	
-	
-	
+
+
+
+
 	# Verificar se o evento é um clique de mouse
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 		var tileSelect = local_to_map(get_global_mouse_position())
@@ -91,13 +89,13 @@ func _input(event):
 		if Dict.has(str(tileSelect)):
 			var roboTeste = roboTest.instantiate()
 			add_child(roboTeste)
-			#roboTeste.atualizaPosicao(tileSelect, self)
+			roboTeste.atualizaPosicao(tileSelect, self)
 
 
 func limpaSetTile(mousePosition):
 	var tileSelect = local_to_map(mousePosition)
 	if Dict.has(str(tileSelect)):
-		Dict[str(tileSelect)][\"used\"] = \"false\"
+		Dict[str(tileSelect)][\"used\"] = false
 "
 
 [sub_resource type="GDScript" id="GDScript_682gq"]
@@ -117,16 +115,12 @@ func atualizar_texto(novo_texto: String):
 [node name="Word" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(3, 1)
 tile_set = SubResource("TileSet_k7to6")
 rendering_quadrant_size = 64
 format = 2
 layer_0/tile_data = PackedInt32Array(1, 0, 0, 3, 0, 0, 4, 65536, 0, 5, 0, 0, 6, 65536, 0, 7, 0, 0, 8, 65536, 0, 65536, 0, 0, 65537, 65536, 0, 65539, 65536, 0, 65540, 0, 0, 65541, 65536, 0, 65542, 0, 0, 65543, 65536, 0, 131073, 0, 0, 131074, 65536, 0, 131075, 0, 0, 131076, 65536, 0, 131077, 0, 0, 131078, 65536, 0, 131079, 0, 0, 131080, 65536, 0, 196608, 0, 0, 196609, 65536, 0, 196610, 0, 0, 196611, 65536, 0, 196612, 0, 0, 196613, 65536, 0, 196614, 0, 0, 196615, 65536, 0, 262145, 0, 0, 262146, 65536, 0, 262147, 0, 0, 262148, 65536, 0, 262149, 0, 0, 262150, 65536, 0, 262151, 0, 0, 262152, 65536, 0, 196616, 0, 0, 65544, 0, 0, 262144, 65536, 0, 131072, 65536, 0, 2, 65536, 0, 0, 65536, 0, 65538, 0, 0)
 layer_1/tile_data = PackedInt32Array()
 script = SubResource("GDScript_yj3yt")
-
-[node name="Gatos" type="Node2D" parent="TileMap"]
-position = Vector2(-3, -1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(334, 202)

@@ -20,14 +20,14 @@ func _process(delta):
 
 
 func atualizaPosicao(posicao, mundoPai):
-	$Area2D/CollisionShape2D.shape.extents = Vector2((9 - posicao[0]) * 32, 32)
-	$Area2D/CollisionShape2D.position = Vector2((9 - posicao[0]) * 32, 32)
+	get_node(\"Area2D/CollisionShape2D\").shape = get_node(\"Area2D/CollisionShape2D\").shape.duplicate()
+	get_node(\"Area2D/CollisionShape2D\").shape.extents = Vector2((9 - posicao[0]) * 32, 32)
+	get_node(\"Area2D/CollisionShape2D\").position = Vector2((9 - posicao[0]) * 32, 32)
 	
 	mundo = mundoPai
 	posicao = (posicao * gridSize)
 	global_position = posicao
-	print(\"Mexeu\")
-	
+
 
 
 
@@ -39,10 +39,6 @@ func _input(event):
 			if mouseClick[1] > 0 and mouseClick[1] < 64:
 				mundo.limpaSetTile(get_global_mouse_position())
 				queue_free()
-
-
-func _on_target_detector_body_entered(body: StaticBody2D) -> void:
-	print(\"Algo aconteceu\")
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1so3"]
@@ -98,11 +94,10 @@ size = Vector2(25, 32)
 size = Vector2(64, 64)
 
 [node name="Test" type="Area2D"]
-position = Vector2(-3, -1)
 script = SubResource("GDScript_28v5k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(34, 32)
+position = Vector2(31, 31)
 sprite_frames = SubResource("SpriteFrames_o2fqj")
 animation = &"idle"
 autoplay = "idle"
@@ -113,12 +108,11 @@ position = Vector2(32, 32)
 texture = ExtResource("1_tq4o5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(34, 32)
+position = Vector2(31, 31)
 shape = SubResource("RectangleShape2D_dgo47")
 debug_color = Color(0.846966, 0.376408, 3.85046e-07, 0.42)
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(3, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(32, 32)
