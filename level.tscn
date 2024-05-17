@@ -1,7 +1,70 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0yxhmun4v8ue"]
+[gd_scene load_steps=9 format=3 uid="uid://d0yxhmun4v8ue"]
 
 [ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/tileMap.png" id="1_ao3m3"]
 [ext_resource type="Texture2D" uid="uid://b7rosh7fs855f" path="res://assets/selection.png" id="2_5tmjp"]
+
+[sub_resource type="GDScript" id="GDScript_l4m8p"]
+script/source = "extends Node2D
+
+
+var GridSizeX = 9;
+var GridSizeY = 5;
+var grid = {};
+
+@onready var gatoTest = preload(\"res://cats/test.tscn\")
+@onready var roboTest = preload(\"res://robots/testMal.tscn\")
+@onready var tileMap = $TileMap
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	for x in GridSizeX:
+		for y in GridSizeY:
+			grid[str(Vector2(x, y))] = {
+				\"used\" : false
+			}
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+
+
+func _input(event):
+	# Verificar se o evento é um clique de mouse
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+		var tileSelect = tileMap.local_to_map(get_global_mouse_position())
+		
+		if grid.has(str(tileSelect)):
+			if not grid[str(tileSelect)][\"used\"]:
+				grid[str(tileSelect)][\"used\"] = true
+				var gatoTeste = gatoTest.instantiate()
+				add_child(gatoTeste)
+				gatoTeste.atualizaPosicao(tileSelect, self)
+
+
+
+
+	# Verificar se o evento é um clique de mouse
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+		var tileSelect = tileMap.local_to_map(get_global_mouse_position())
+		
+		if grid.has(str(tileSelect)):
+			var roboTeste = roboTest.instantiate()
+			add_child(roboTeste)
+			roboTeste.atualizaPosicao(tileSelect[1])
+
+
+
+
+func limpaGridTile(mousePosition):
+	var tileSelect = tileMap.local_to_map(mousePosition)
+	if grid.has(str(tileSelect)):
+		grid[str(tileSelect)][\"used\"] = false
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v01ww"]
 texture = ExtResource("1_ao3m3")
@@ -25,9 +88,6 @@ sources/1 = SubResource("TileSetAtlasSource_gkjwq")
 [sub_resource type="GDScript" id="GDScript_yj3yt"]
 script/source = "extends TileMap
 
-var GridSizeX = 9;
-var GridSizeY = 5;
-var Dict = {};
 var tileSelect;
 
 @onready var gatos = $Gatos
@@ -37,21 +97,10 @@ var tileSelect;
 
 
 func _ready():	
-	for x in GridSizeX:
-		for y in GridSizeY:
-			#if (x+y) % 2:
-				#set_cell(0, Vector2(x, y), 0, Vector2i(0, 0), 0)
-			#else:
-				#set_cell(0, Vector2(x, y), 0, Vector2i(1, 0), 0)
-			
-			Dict[str(Vector2(x, y))] = {
-				\"used\" : false
-			}
-
+	pass
 
 
 func _process(delta):
-	
 	if tileSelect != null and tileSelect[0] >= 0 and tileSelect[1] >= 0 and tileSelect[0] < 9  && tileSelect[1] < 5:
 		if (tileSelect[0] + tileSelect[1]) % 2:
 			set_cell(1, tileSelect, 0, Vector2i(0, 0), 0)
@@ -60,42 +109,8 @@ func _process(delta):
 	
 	tileSelect = local_to_map(get_global_mouse_position())
 	
-	if Dict.has(str(tileSelect)):
+	if tileSelect[0] >= 0 and tileSelect[1] >= 0 and tileSelect[0] < 9  && tileSelect[1] < 5:
 		set_cell(1, tileSelect, 1, Vector2i(0, 0), 0)
-		$/root/Word/Label.atualizar_texto(str(Dict[str(tileSelect)][\"used\"]))
-	
-
-
-
-func _input(event):
-	# Verificar se o evento é um clique de mouse
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		var tileSelect = local_to_map(get_global_mouse_position())
-		
-		if Dict.has(str(tileSelect)):
-			if not Dict[str(tileSelect)][\"used\"]:
-				Dict[str(tileSelect)][\"used\"] = true
-				var gatoTeste = gatoTest.instantiate()
-				add_child(gatoTeste)
-				gatoTeste.atualizaPosicao(tileSelect, self)
-
-
-
-
-	# Verificar se o evento é um clique de mouse
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
-		var tileSelect = local_to_map(get_global_mouse_position())
-		
-		if Dict.has(str(tileSelect)):
-			var roboTeste = roboTest.instantiate()
-			add_child(roboTeste)
-			roboTeste.atualizaPosicao(tileSelect, self)
-
-
-func limpaSetTile(mousePosition):
-	var tileSelect = local_to_map(mousePosition)
-	if Dict.has(str(tileSelect)):
-		Dict[str(tileSelect)][\"used\"] = false
 "
 
 [sub_resource type="GDScript" id="GDScript_682gq"]
@@ -113,6 +128,7 @@ func atualizar_texto(novo_texto: String):
 "
 
 [node name="Word" type="Node2D"]
+script = SubResource("GDScript_l4m8p")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_k7to6")

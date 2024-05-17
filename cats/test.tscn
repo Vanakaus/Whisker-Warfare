@@ -37,7 +37,7 @@ func _input(event):
 		var mouseClick = get_local_mouse_position()
 		if mouseClick[0] > 0 and mouseClick[0] < 64:
 			if mouseClick[1] > 0 and mouseClick[1] < 64:
-				mundo.limpaSetTile(get_global_mouse_position())
+				mundo.limpaGridTile(get_global_mouse_position())
 				queue_free()
 "
 
