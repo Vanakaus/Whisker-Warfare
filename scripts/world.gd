@@ -5,6 +5,8 @@ var GridSizeX = 9;
 var GridSizeY = 5;
 var grid = {};
 
+@onready var lanes = [$Lanes/Lane1, $Lanes/Lane2, $Lanes/Lane3, $Lanes/Lane4, $Lanes/Lane5]
+
 @onready var gatoTest = preload("res://cats/test.tscn")
 @onready var roboTest = preload("res://robots/testMal.tscn")
 @onready var tileMap = $TileMap
@@ -18,6 +20,8 @@ func _ready():
 			grid[str(Vector2(x, y))] = {
 				"used" : false
 			}
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,10 +40,9 @@ func _input(event):
 			if not grid[str(tileSelect)]["used"]:
 				grid[str(tileSelect)]["used"] = true
 				var gatoTeste = gatoTest.instantiate()
-				add_child(gatoTeste)
 				gatoTeste.atualizaPosicao(tileSelect, self)
-
-
+				
+				lanes[tileSelect[1]].call_deferred("add_child", gatoTeste)
 
 
 	# Verificar se o evento é um clique de mouse
@@ -48,8 +51,9 @@ func _input(event):
 		
 		if grid.has(str(tileSelect)):
 			var roboTeste = roboTest.instantiate()
-			add_child(roboTeste)
 			roboTeste.atualizaPosicao(tileSelect[1])
+			#add_child(roboTeste)
+			lanes[tileSelect[1]].call_deferred("add_child", roboTeste)
 
 
 
@@ -58,6 +62,8 @@ func limpaGridTile(mousePosition):
 	var tileSelect = tileMap.local_to_map(mousePosition)
 	if grid.has(str(tileSelect)):
 		grid[str(tileSelect)]["used"] = false
+
+
 
 
 func _on_game_over_area_entered(area):
