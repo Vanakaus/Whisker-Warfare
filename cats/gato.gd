@@ -7,6 +7,10 @@ var gridIncrementX = gridSizeX/2
 var gridIncrementY = gridSizeY/2
 var enemies_at_area = 0
 var shooting = false
+var fire_counter = 0
+var delay = 1.5
+
+@onready var bolaPelo = preload("res://cats/projetil.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,10 +19,26 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	if enemies_at_area:
-		shooting = true
+		
+		if fire_counter > delay:
+			var bola = bolaPelo.instantiate()
+			bola.cospe(global_position)
+			add_child(bola)
+			fire_counter = 0
+			#anim.play("dead")
+			$AnimatedSprite2D.play("attack")
+
+		else:
+			fire_counter += delta;
+			if fire_counter > 0.2:
+				$AnimatedSprite2D.play("idle")
+	
 	else:
-		shooting = false
+		fire_counter = 0
+		$AnimatedSprite2D.play("idle")
+
 
 
 func atualizaPosicao(posicao, mundoPai):

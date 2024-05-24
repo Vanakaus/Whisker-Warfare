@@ -1,7 +1,7 @@
 extends TileMap
 
 var tileSelect;
-var tileType = 6;
+var tileType = 1;
 
 @onready var word = $/root/Word
 @onready var gatoTest = preload("res://cats/test.tscn")
@@ -13,7 +13,7 @@ func _ready():
 			if (x + y) % 2:
 				set_cell(0, Vector2(x, y), 0, Vector2(0, tileType), 0)
 			else:
-				set_cell(0, Vector2(x, y), 0, Vector2(1, tileType), 0)				
+				set_cell(0, Vector2(x, y), 0, Vector2(1, tileType), 0)
 
 
 

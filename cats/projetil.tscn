@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqn28854fccuv"]
+
+[ext_resource type="Script" path="res://cats/projetil.gd" id="1_dbofr"]
+[ext_resource type="Texture2D" uid="uid://lbokaw3vf6hs" path="res://assets/projetil.png" id="1_uqhba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vo8t"]
+size = Vector2(11, 12)
+
+[node name="Projetil" type="Area2D"]
+script = ExtResource("1_dbofr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 11)
+texture = ExtResource("1_uqhba")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(16.5, 6)
+shape = SubResource("RectangleShape2D_7vo8t")
+debug_color = Color(0.846966, 0.376408, 3.85046e-07, 0.42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

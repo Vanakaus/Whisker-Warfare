@@ -4,7 +4,8 @@ var moving = true
 var mundo;
 var gridSizeX = 34
 var gridSizeY = 24
-
+var speed = 0.5
+var life
 
 
 
@@ -13,6 +14,7 @@ var gridSizeY = 24
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	name = "Robot"
+	life = 100
 
 
 
@@ -20,7 +22,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if moving:
-		global_position = global_position - Vector2(1, 0)
+		global_position = global_position - Vector2(speed, 0)
 
 
 
@@ -47,8 +49,14 @@ func _input(event):
 func _on_area_entered(area):
 	if "Gato" in area.name:
 		moving = false
+	
+	if "projetil" in area.name:
+		life -= area.dano
+		
+		if life == 0:
+			queue_free()
 
 
 func _on_area_exited(area):
-	if "Gato" not in area.name:
+	if "Gato" in area.name:
 		moving = true

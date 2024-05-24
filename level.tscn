@@ -47,7 +47,7 @@ script = ExtResource("4_oudqi")
 [node name="Cenario" type="Node2D" parent="."]
 
 [node name="Aquario" type="Sprite2D" parent="Cenario"]
-position = Vector2(152, -64)
+position = Vector2(136, -63)
 texture = ExtResource("4_14flb")
 
 [node name="Racao" type="Sprite2D" parent="Cenario"]
