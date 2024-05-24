@@ -1,12 +1,20 @@
 extends TileMap
 
 var tileSelect;
+var tileType = 6;
 
+@onready var word = $/root/Word
 @onready var gatoTest = preload("res://cats/test.tscn")
 @onready var roboTest = preload("res://robots/testMal.tscn")
 
-func _ready():	
-	pass
+func _ready():
+	for x in range(-1, word.GridSizeX):
+		for y in range(-1, word.GridSizeY):
+			if (x + y) % 2:
+				set_cell(0, Vector2(x, y), 0, Vector2(0, tileType), 0)
+			else:
+				set_cell(0, Vector2(x, y), 0, Vector2(1, tileType), 0)				
+
 
 
 func _process(delta):
@@ -17,4 +25,4 @@ func _process(delta):
 	tileSelect = local_to_map(get_global_mouse_position())
 	
 	if tileSelect[0] >= 0 and tileSelect[1] >= 0 and tileSelect[0] < 9  && tileSelect[1] < 5:
-		set_cell(1, tileSelect, 0, Vector2i(1, 2), 0)
+		set_cell(1, tileSelect, 0, Vector2i(0, 0), 0)

@@ -47,3 +47,8 @@ func _input(event):
 func _on_area_entered(area):
 	if "Gato" in area.name:
 		moving = false
+
+
+func _on_area_exited(area):
+	if "Gato" not in area.name:
+		moving = true
