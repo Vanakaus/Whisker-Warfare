@@ -10,12 +10,10 @@ var life
 
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	name = "Robot"
 	life = 100
-
 
 
 
@@ -28,8 +26,6 @@ func _process(delta):
 
 
 func atualizaPosicao(posicao):
-	#posicao = (posicao * gridSize)
-	#global_position = posicao
 	global_position = Vector2(9, posicao) * Vector2(gridSizeX, gridSizeY)
 
 
@@ -49,12 +45,17 @@ func _input(event):
 func _on_area_entered(area):
 	if "Gato" in area.name:
 		moving = false
+		
+	if "porrada" in area.name:
+		print(life)
+		life -= area.dano
 	
 	if "projetil" in area.name:
 		life -= area.dano
 		
-		if life == 0:
-			queue_free()
+	if life <= 0:
+		queue_free()
+
 
 
 func _on_area_exited(area):

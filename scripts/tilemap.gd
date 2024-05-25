@@ -2,18 +2,20 @@ extends TileMap
 
 var tileSelect;
 var tileType = 1;
+var tileVariation1 = 0;
+var tileVariation2 = 1;
 
 @onready var word = $/root/Word
-@onready var gatoTest = preload("res://cats/test.tscn")
+@onready var gatoTest = preload("res://cats/bolaDePelo/gatoPelo.tscn")
 @onready var roboTest = preload("res://robots/testMal.tscn")
 
 func _ready():
 	for x in range(-1, word.GridSizeX):
 		for y in range(-1, word.GridSizeY):
 			if (x + y) % 2:
-				set_cell(0, Vector2(x, y), 0, Vector2(0, tileType), 0)
+				set_cell(0, Vector2(x, y), 0, Vector2(tileVariation1, tileType), 0)
 			else:
-				set_cell(0, Vector2(x, y), 0, Vector2(1, tileType), 0)
+				set_cell(0, Vector2(x, y), 0, Vector2(tileVariation2, tileType), 0)
 
 
 

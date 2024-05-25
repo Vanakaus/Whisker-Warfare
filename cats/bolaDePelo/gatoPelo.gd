@@ -7,10 +7,11 @@ var gridIncrementX = gridSizeX/2
 var gridIncrementY = gridSizeY/2
 var enemies_at_area = 0
 var shooting = false
-var fire_counter = 0
+var atira = 100
+var fire_counter = atira
 var delay = 1.5
 
-@onready var bolaPelo = preload("res://cats/projetil.tscn")
+@onready var bolaPelo = preload("res://cats/bolaDePelo/bolaPelo.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,17 +28,15 @@ func _process(delta):
 			bola.cospe(global_position)
 			add_child(bola)
 			fire_counter = 0
-			#anim.play("dead")
 			$AnimatedSprite2D.play("attack")
+			await get_tree().create_timer(0.35).timeout
+			$AnimatedSprite2D.play("idle")
 
 		else:
 			fire_counter += delta;
-			if fire_counter > 0.2:
-				$AnimatedSprite2D.play("idle")
 	
 	else:
-		fire_counter = 0
-		$AnimatedSprite2D.play("idle")
+		fire_counter = atira
 
 
 
@@ -69,7 +68,6 @@ func _input(event):
 
 func _on_detection_area_area_entered(area):
 	if "Robot" in area.name:
-		print("Entrou")
 		enemies_at_area += 1
 
 
@@ -77,5 +75,4 @@ func _on_detection_area_area_entered(area):
 
 func _on_detection_area_area_exited(area):
 	if "Robot" in area.name:
-		print("Saiu")
 		enemies_at_area -= 1

@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://e7qvxqfvm0su"]
+
+[ext_resource type="Script" path="res://cats/sonico/ondas.gd" id="1_erbsu"]
+[ext_resource type="Texture2D" uid="uid://bjw4np5ggxg1u" path="res://assets/gatoSonico.png" id="2_mg3ae"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwnv6"]
+atlas = ExtResource("2_mg3ae")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evgi0"]
+atlas = ExtResource("2_mg3ae")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20r3e"]
+atlas = ExtResource("2_mg3ae")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5l1lk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwnv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evgi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20r3e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vo8t"]
+size = Vector2(11, 12)
+
+[node name="Projetil" type="Area2D"]
+script = ExtResource("1_erbsu")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 6)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_5l1lk")
+autoplay = "default"
+frame_progress = 0.814981
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(16.5, 6)
+shape = SubResource("RectangleShape2D_7vo8t")
+debug_color = Color(0.846966, 0.376408, 3.85046e-07, 0.42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

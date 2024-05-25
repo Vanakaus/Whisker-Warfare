@@ -6,10 +6,14 @@ var GridSizeY = 5;
 var grid = {};
 
 @onready var lanes = [$Lanes/Lane1, $Lanes/Lane2, $Lanes/Lane3, $Lanes/Lane4, $Lanes/Lane5]
-
-@onready var gatoTest = preload("res://cats/test.tscn")
-@onready var roboTest = preload("res://robots/testMal.tscn")
 @onready var tileMap = $TileMap
+
+@onready var gatoPelo = preload("res://cats/bolaDePelo/gatoPelo.tscn")
+@onready var gatoPau = preload("res://cats/pau/gatoPau.tscn")
+@onready var gatoSonico = preload("res://cats/sonico/gatoSonico.tscn")
+@onready var roboTest = preload("res://robots/testMal.tscn")
+
+@onready var gato = gatoPau
 
 
 
@@ -39,7 +43,7 @@ func _input(event):
 		if grid.has(str(tileSelect)):
 			if not grid[str(tileSelect)]["used"]:
 				grid[str(tileSelect)]["used"] = true
-				var gatoTeste = gatoTest.instantiate()
+				var gatoTeste = gato.instantiate()
 				gatoTeste.atualizaPosicao(tileSelect, self)
 				
 				lanes[tileSelect[1]].call_deferred("add_child", gatoTeste)
@@ -52,7 +56,6 @@ func _input(event):
 		if grid.has(str(tileSelect)):
 			var roboTeste = roboTest.instantiate()
 			roboTeste.atualizaPosicao(tileSelect[1])
-			#add_child(roboTeste)
 			lanes[tileSelect[1]].call_deferred("add_child", roboTeste)
 
 

@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://dj35g72pgrxld"]
+
+[ext_resource type="Script" path="res://cats/bolaDePelo/gatoPelo.gd" id="1_w5gi5"]
+[ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/gatoBolaPelo.png" id="2_rmm6m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujnue"]
+atlas = ExtResource("2_rmm6m")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6x7m"]
+atlas = ExtResource("2_rmm6m")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iw2w"]
+atlas = ExtResource("2_rmm6m")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iryi"]
+atlas = ExtResource("2_rmm6m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxm1r"]
+atlas = ExtResource("2_rmm6m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2fqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujnue")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6x7m")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iw2w")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iryi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxm1r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgo47"]
+size = Vector2(25.5, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhufm"]
+size = Vector2(34, 24)
+
+[node name="Gato" type="Area2D"]
+script = ExtResource("1_w5gi5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 6)
+sprite_frames = SubResource("SpriteFrames_o2fqj")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(16.75, 12)
+shape = SubResource("RectangleShape2D_dgo47")
+debug_color = Color(0.846966, 0.376408, 3.85046e-07, 0.42)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="DetectionCollision" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(17, 12)
+shape = SubResource("RectangleShape2D_vhufm")
+debug_color = Color(0, 0.590072, 0.753842, 0.42)
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]

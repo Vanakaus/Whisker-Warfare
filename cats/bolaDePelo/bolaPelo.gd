@@ -1,5 +1,5 @@
 extends Area2D
-
+#16x11
 var dano
 
 # Called when the node enters the scene tree for the first time.

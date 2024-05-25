@@ -1,17 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqn28854fccuv"]
+[gd_scene load_steps=4 format=3 uid="uid://p7givqare6bt"]
 
-[ext_resource type="Script" path="res://cats/projetil.gd" id="1_dbofr"]
-[ext_resource type="Texture2D" uid="uid://lbokaw3vf6hs" path="res://assets/projetil.png" id="1_uqhba"]
+[ext_resource type="Script" path="res://cats/pau/gatoPau.gd" id="1_71iop"]
+[ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/gatoBolaPelo.png" id="2_we5ik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vo8t"]
 size = Vector2(11, 12)
 
 [node name="Projetil" type="Area2D"]
-script = ExtResource("1_dbofr")
+script = ExtResource("1_71iop")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16, 11)
-texture = ExtResource("1_uqhba")
+visible = false
+position = Vector2(17, 6)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_we5ik")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(16.5, 6)
