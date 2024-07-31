@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcodjyhjsb2db"
-path="res://.godot/imported/gatoPau.png-cac9aef623d94b3cdab0af9f317d6711.ctex"
+uid="uid://dvyac2y16o5i0"
+path="res://.godot/imported/tileMap.png-c3d180459392a712a0c157dd1e8d3e86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gatoPau.png"
-dest_files=["res://.godot/imported/gatoPau.png-cac9aef623d94b3cdab0af9f317d6711.ctex"]
+source_file="res://assets/world/tileMap.png"
+dest_files=["res://.godot/imported/tileMap.png-c3d180459392a712a0c157dd1e8d3e86.ctex"]
 
 [params]
 

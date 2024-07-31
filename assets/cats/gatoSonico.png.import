@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvyac2y16o5i0"
-path="res://.godot/imported/tileMap.png-3478c7709c9557124dc587a6458bf5f1.ctex"
+uid="uid://bjw4np5ggxg1u"
+path="res://.godot/imported/gatoSonico.png-c6da26f4a7cd5f24c648b429f455ba45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tileMap.png"
-dest_files=["res://.godot/imported/tileMap.png-3478c7709c9557124dc587a6458bf5f1.ctex"]
+source_file="res://assets/cats/gatoSonico.png"
+dest_files=["res://.godot/imported/gatoSonico.png-c6da26f4a7cd5f24c648b429f455ba45.ctex"]
 
 [params]
 

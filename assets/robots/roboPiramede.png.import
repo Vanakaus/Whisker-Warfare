@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btu0sy5do6a8y"
-path="res://.godot/imported/roboPiramede.png-025a01c95a13fc207ebdb2d5a7c06bd1.ctex"
+path="res://.godot/imported/roboPiramede.png-2f79eb59751b965020990afa9d3a0b1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/roboPiramede.png"
-dest_files=["res://.godot/imported/roboPiramede.png-025a01c95a13fc207ebdb2d5a7c06bd1.ctex"]
+source_file="res://assets/robots/roboPiramede.png"
+dest_files=["res://.godot/imported/roboPiramede.png-2f79eb59751b965020990afa9d3a0b1a.ctex"]
 
 [params]
 

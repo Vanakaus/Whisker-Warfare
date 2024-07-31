@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfur220877306"]
 
-[ext_resource type="Texture2D" uid="uid://dgebir0wi7cew" path="res://assets/cypherMal.png" id="1_4fep8"]
 [ext_resource type="Script" path="res://robots/robo.gd" id="1_btagr"]
+[ext_resource type="Texture2D" uid="uid://dgebir0wi7cew" path="res://assets/misc/cypherMal.png" id="2_pppf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hpcs"]
 size = Vector2(16, 22)
@@ -14,7 +14,7 @@ script = ExtResource("1_btagr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(17, 11)
-texture = ExtResource("1_4fep8")
+texture = ExtResource("2_pppf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 12)

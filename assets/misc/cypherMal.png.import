@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckv1w22ca8ihp"
-path="res://.godot/imported/roboBranco.png-914d1fd12b88270b3b1fa963deea74c3.ctex"
+uid="uid://dgebir0wi7cew"
+path="res://.godot/imported/cypherMal.png-6c8734483e753d8878b359604eb22006.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/roboBranco.png"
-dest_files=["res://.godot/imported/roboBranco.png-914d1fd12b88270b3b1fa963deea74c3.ctex"]
+source_file="res://assets/misc/cypherMal.png"
+dest_files=["res://.godot/imported/cypherMal.png-6c8734483e753d8878b359604eb22006.ctex"]
 
 [params]
 

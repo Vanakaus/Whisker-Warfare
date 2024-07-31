@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://d0yxhmun4v8ue"]
 
-[ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/tileMap.png" id="1_ao3m3"]
+[ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/world/tileMap.png" id="1_ao3m3"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_sia1f"]
-[ext_resource type="Texture2D" uid="uid://bt5n6mv866mme" path="res://assets/tigelaRacao2.jpg" id="3_sedi7"]
-[ext_resource type="Texture2D" uid="uid://bapaw2nceh57h" path="res://assets/aquario.png" id="4_14flb"]
+[ext_resource type="Texture2D" uid="uid://bt5n6mv866mme" path="res://assets/world/tigelaRacao2.jpg" id="3_sedi7"]
+[ext_resource type="Texture2D" uid="uid://bapaw2nceh57h" path="res://assets/world/aquario.png" id="4_14flb"]
 [ext_resource type="Script" path="res://scripts/tilemap.gd" id="4_oudqi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v01ww"]

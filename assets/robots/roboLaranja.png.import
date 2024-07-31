@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6vncte55otew"
-path="res://.godot/imported/gatoDeBotas.png-8ad3460cedb1622332968afe329b8c85.ctex"
+uid="uid://b35lmah4omb8t"
+path="res://.godot/imported/roboLaranja.png-61c597f8055e8f9d8d521b2ce1c28d9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gatoDeBotas.png"
-dest_files=["res://.godot/imported/gatoDeBotas.png-8ad3460cedb1622332968afe329b8c85.ctex"]
+source_file="res://assets/robots/roboLaranja.png"
+dest_files=["res://.godot/imported/roboLaranja.png-61c597f8055e8f9d8d521b2ce1c28d9b.ctex"]
 
 [params]
 

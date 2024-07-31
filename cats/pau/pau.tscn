@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://p7givqare6bt"]
 
 [ext_resource type="Script" path="res://cats/pau/gatoPau.gd" id="1_71iop"]
-[ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/gatoBolaPelo.png" id="2_we5ik"]
+[ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/cats/gatoBolaPelo.png" id="2_we5ik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vo8t"]
 size = Vector2(11, 12)

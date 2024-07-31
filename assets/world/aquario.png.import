@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt5n6mv866mme"
-path="res://.godot/imported/tigelaRacao2.jpg-4509aa842c379428e95e7cf7eb6bf8a4.ctex"
+uid="uid://bapaw2nceh57h"
+path="res://.godot/imported/aquario.png-762ff86539029352dfa6a706181bf0cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tigelaRacao2.jpg"
-dest_files=["res://.godot/imported/tigelaRacao2.jpg-4509aa842c379428e95e7cf7eb6bf8a4.ctex"]
+source_file="res://assets/world/aquario.png"
+dest_files=["res://.godot/imported/aquario.png-762ff86539029352dfa6a706181bf0cd.ctex"]
 
 [params]
 

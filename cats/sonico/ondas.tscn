@@ -1,31 +1,31 @@
 [gd_scene load_steps=8 format=3 uid="uid://e7qvxqfvm0su"]
 
 [ext_resource type="Script" path="res://cats/sonico/ondas.gd" id="1_erbsu"]
-[ext_resource type="Texture2D" uid="uid://bjw4np5ggxg1u" path="res://assets/gatoSonico.png" id="2_mg3ae"]
+[ext_resource type="Texture2D" uid="uid://bjw4np5ggxg1u" path="res://assets/cats/gatoSonico.png" id="2_hfjvr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mwnv6"]
-atlas = ExtResource("2_mg3ae")
+[sub_resource type="AtlasTexture" id="AtlasTexture_otg8y"]
+atlas = ExtResource("2_hfjvr")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_evgi0"]
-atlas = ExtResource("2_mg3ae")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j3xt"]
+atlas = ExtResource("2_hfjvr")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_20r3e"]
-atlas = ExtResource("2_mg3ae")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxth6"]
+atlas = ExtResource("2_hfjvr")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5l1lk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mwnv6")
+"texture": SubResource("AtlasTexture_otg8y")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_evgi0")
+"texture": SubResource("AtlasTexture_0j3xt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_20r3e")
+"texture": SubResource("AtlasTexture_hxth6")
 }],
 "loop": true,
 "name": &"default",

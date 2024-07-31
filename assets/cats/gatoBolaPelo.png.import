@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgebir0wi7cew"
-path="res://.godot/imported/cypherMal.png-626bebc4c08657fa09fcf0ea4ffb0171.ctex"
+uid="uid://q8bwegeqbvb2"
+path="res://.godot/imported/gatoBolaPelo.png-003268684c8378a25f9f5a5f14f808f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cypherMal.png"
-dest_files=["res://.godot/imported/cypherMal.png-626bebc4c08657fa09fcf0ea4ffb0171.ctex"]
+source_file="res://assets/cats/gatoBolaPelo.png"
+dest_files=["res://.godot/imported/gatoBolaPelo.png-003268684c8378a25f9f5a5f14f808f4.ctex"]
 
 [params]
 

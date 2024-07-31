@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bapaw2nceh57h"
-path="res://.godot/imported/aquario.png-333ff93a18336d013a81391d69c39728.ctex"
+uid="uid://bcodjyhjsb2db"
+path="res://.godot/imported/gatoPau.png-dec38fc5db03db1b83d63a1d202710f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aquario.png"
-dest_files=["res://.godot/imported/aquario.png-333ff93a18336d013a81391d69c39728.ctex"]
+source_file="res://assets/cats/gatoPau.png"
+dest_files=["res://.godot/imported/gatoPau.png-dec38fc5db03db1b83d63a1d202710f9.ctex"]
 
 [params]
 

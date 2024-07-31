@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b35lmah4omb8t"
-path="res://.godot/imported/roboLaranja.png-b5c04fee4d56c0097a5709cf9c60a4ae.ctex"
+uid="uid://bt5n6mv866mme"
+path="res://.godot/imported/tigelaRacao2.jpg-ba5374bd88560533831a465dcaf02a84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/roboLaranja.png"
-dest_files=["res://.godot/imported/roboLaranja.png-b5c04fee4d56c0097a5709cf9c60a4ae.ctex"]
+source_file="res://assets/world/tigelaRacao2.jpg"
+dest_files=["res://.godot/imported/tigelaRacao2.jpg-ba5374bd88560533831a465dcaf02a84.ctex"]
 
 [params]
 

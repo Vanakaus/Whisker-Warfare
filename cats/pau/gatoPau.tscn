@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://b8vx2rhbeu1mu"]
 
 [ext_resource type="Script" path="res://cats/pau/gatoPau.gd" id="1_75ibh"]
-[ext_resource type="Texture2D" uid="uid://bcodjyhjsb2db" path="res://assets/gatoPau.png" id="2_wovh3"]
+[ext_resource type="Texture2D" uid="uid://bcodjyhjsb2db" path="res://assets/cats/gatoPau.png" id="2_wovh3"]
 [ext_resource type="Script" path="res://cats/pau/Porrada.gd" id="3_qyur0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6kgl"]
@@ -84,7 +84,7 @@ script = ExtResource("1_75ibh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(17, 6)
 sprite_frames = SubResource("SpriteFrames_o2fqj")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Collision" type="CollisionShape2D" parent="."]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4uqp62c7rm75"
-path="res://.godot/imported/gatoAreia.png-31acdc3dc650306ff7a0420a8b27452a.ctex"
+uid="uid://6vncte55otew"
+path="res://.godot/imported/gatoDeBotas.png-4741f5ee3bbf7aed27b321b23ea63f61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gatoAreia.png"
-dest_files=["res://.godot/imported/gatoAreia.png-31acdc3dc650306ff7a0420a8b27452a.ctex"]
+source_file="res://assets/cats/gatoDeBotas.png"
+dest_files=["res://.godot/imported/gatoDeBotas.png-4741f5ee3bbf7aed27b321b23ea63f61.ctex"]
 
 [params]
 
