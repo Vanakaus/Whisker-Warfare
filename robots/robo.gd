@@ -43,11 +43,10 @@ func _input(event):
 
 
 func _on_area_entered(area):
-	if "Gato" in area.name:
+	if "Cat" in area.name:
 		moving = false
 		
 	if "porrada" in area.name:
-		print(life)
 		life -= area.dano
 	
 	if "projetil" in area.name:
@@ -59,5 +58,5 @@ func _on_area_entered(area):
 
 
 func _on_area_exited(area):
-	if "Gato" in area.name:
+	if "Cat" in area.name:
 		moving = true

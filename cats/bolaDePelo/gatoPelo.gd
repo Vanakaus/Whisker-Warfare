@@ -10,12 +10,14 @@ var shooting = false
 var atira = 100
 var fire_counter = atira
 var delay = 1.5
+var life
 
 @onready var bolaPelo = preload("res://cats/bolaDePelo/bolaPelo.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	name = "Gato"
+	name = "Cat"
+	life = 100
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -76,3 +78,11 @@ func _on_detection_area_area_entered(area):
 func _on_detection_area_area_exited(area):
 	if "Robot" in area.name:
 		enemies_at_area -= 1
+
+
+func _on_area_entered(area):
+	if "soco" in area.name:
+		life -= area.dano
+		
+	if life <= 0:
+		queue_free()

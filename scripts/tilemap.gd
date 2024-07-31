@@ -6,8 +6,6 @@ var tileVariation1 = 0;
 var tileVariation2 = 1;
 
 @onready var word = $/root/Word
-@onready var gatoTest = preload("res://cats/bolaDePelo/gatoPelo.tscn")
-@onready var roboTest = preload("res://robots/testMal.tscn")
 
 func _ready():
 	for x in range(-1, word.GridSizeX):

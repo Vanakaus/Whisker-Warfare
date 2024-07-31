@@ -11,9 +11,12 @@ var grid = {};
 @onready var gatoPelo = preload("res://cats/bolaDePelo/gatoPelo.tscn")
 @onready var gatoPau = preload("res://cats/pau/gatoPau.tscn")
 @onready var gatoSonico = preload("res://cats/sonico/gatoSonico.tscn")
+
+@onready var chappie = preload("res://robots/chappie/chappie.tscn")
+
 @onready var roboTest = preload("res://robots/testMal.tscn")
 
-@onready var gato = gatoPau
+@onready var gato = gatoPelo
 
 
 
@@ -54,8 +57,9 @@ func _input(event):
 		var tileSelect = tileMap.local_to_map(get_global_mouse_position())
 		
 		if grid.has(str(tileSelect)):
-			var roboTeste = roboTest.instantiate()
+			var roboTeste = chappie.instantiate()
 			roboTeste.atualizaPosicao(tileSelect[1])
+			
 			lanes[tileSelect[1]].call_deferred("add_child", roboTeste)
 
 
