@@ -1,22 +1,34 @@
 extends Node2D
 
 var game_over = false
+
+var tileSizeX = 34
+var tileSizeY = 24
+var detectionIncrementX = tileSizeX/2
+var detectionIncrementY = tileSizeY/2
+
 var GridSizeX = 9;
 var GridSizeY = 5;
 var grid = {};
 
+
 @onready var lanes = [$Lanes/Lane1, $Lanes/Lane2, $Lanes/Lane3, $Lanes/Lane4, $Lanes/Lane5]
 @onready var tileMap = $TileMap
+
 
 @onready var gatoPelo = preload("res://cats/bolaDePelo/gatoPelo.tscn")
 @onready var gatoPau = preload("res://cats/pau/gatoPau.tscn")
 @onready var gatoSonico = preload("res://cats/sonico/gatoSonico.tscn")
 
-@onready var chappie = preload("res://robots/chappie/chappie.tscn")
 
+@onready var chappie = preload("res://robots/chappie/chappie.tscn")
 @onready var roboTest = preload("res://robots/testMal.tscn")
 
-@onready var gato = gatoPelo
+
+
+@onready var gato = gatoPau
+@onready var robo = chappie
+
 
 
 
@@ -30,26 +42,28 @@ func _ready():
 
 
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
 
-
 func _input(event):
+	
 	# Verificar se o evento é um clique de mouse
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		var tileSelect = tileMap.local_to_map(get_global_mouse_position())
 		
 		if grid.has(str(tileSelect)):
+			
 			if not grid[str(tileSelect)]["used"]:
 				grid[str(tileSelect)]["used"] = true
-				var gatoTeste = gato.instantiate()
-				gatoTeste.atualizaPosicao(tileSelect, self)
 				
+				var gatoTeste = gato.instantiate()
+				
+				gatoTeste.atualizaPosicao(tileSelect, self)
 				lanes[tileSelect[1]].call_deferred("add_child", gatoTeste)
+
 
 
 	# Verificar se o evento é um clique de mouse
@@ -58,18 +72,17 @@ func _input(event):
 		
 		if grid.has(str(tileSelect)):
 			var roboTeste = chappie.instantiate()
-			roboTeste.atualizaPosicao(tileSelect[1])
 			
+			roboTeste.atualizaPosicao(tileSelect[1], self)
 			lanes[tileSelect[1]].call_deferred("add_child", roboTeste)
-
 
 
 
 func limpaGridTile(mousePosition):
 	var tileSelect = tileMap.local_to_map(mousePosition)
+	
 	if grid.has(str(tileSelect)):
 		grid[str(tileSelect)]["used"] = false
-
 
 
 

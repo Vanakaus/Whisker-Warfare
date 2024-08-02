@@ -1,56 +1,59 @@
 extends Area2D
 
 var mundo
-var gridSizeX = 34
-var gridSizeY = 24
-var gridIncrementX = gridSizeX/2
-var gridIncrementY = gridSizeY/2
-var enemies_at_area = 0
-var shooting = false
-var atira = 100
-var fire_counter = atira
-var delay = 1.5
 
+
+var enemies_at_area = 0
+var ativa_ataque = 100
+var verificador_ataque = ativa_ataque
+var delay_ataque = 1.5
+
+var life
 @onready var ondas = preload("res://cats/sonico/ondas.tscn")
 
-# Called when the node enters the scene tree for the first time.
+
+
+
 func _ready():
-	name = "Cat"
+	name = "Gato Sonico"
+	set_meta("tipo", "Cat")
+	life = 100
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	
 	if enemies_at_area:
 		
-		if fire_counter > delay:
+		if verificador_ataque > delay_ataque:
 			var bola = ondas.instantiate()
 			bola.cospe(global_position)
 			add_child(bola)
-			fire_counter = 0
+			verificador_ataque = 0
 			$AnimatedSprite2D.play("attack")
 
 		else:
-			fire_counter += delta;
-			if fire_counter > 0.2:
+			verificador_ataque += delta;
+			if verificador_ataque > 0.2:
 				$AnimatedSprite2D.play("idle")
 	
 	else:
-		fire_counter = atira
+		verificador_ataque = ativa_ataque
 		$AnimatedSprite2D.play("idle")
 
 
 
 func atualizaPosicao(posicao, mundoPai):
-	var gridIncrementVector = Vector2( (9 - posicao[0]) * gridIncrementX, gridIncrementY)
+	mundo = mundoPai
+	
+	var gridIncrementVector = Vector2( (9 - posicao[0]) * mundo.detectionIncrementX, mundo.detectionIncrementY)
 	
 	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
 	get_node("DetectionArea/DetectionCollision").shape.extents = gridIncrementVector
 	get_node("DetectionArea/DetectionCollision").position = gridIncrementVector
 	
-	mundo = mundoPai
-	posicao = posicao * Vector2i(gridSizeX, gridSizeY)
-	global_position = posicao
+	global_position = posicao * Vector2i(mundo.tileSizeX, mundo.tileSizeY)
+
 
 
 
@@ -59,23 +62,38 @@ func _input(event):
 	# Verificar se o evento é um clique de mouse
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE and event.is_pressed():
 		var mouseClick = get_local_mouse_position()
-		if mouseClick[0] > 0 and mouseClick[0] < 34:
-			if mouseClick[1] > 0 and mouseClick[1] < 24:
-				mundo.limpaGridTile(get_global_mouse_position())
-				queue_free()
+		if mouseClick[0] > 0 and mouseClick[0] < mundo.tileSizeX:
+			if mouseClick[1] > 0 and mouseClick[1] < mundo.tileSizeY:
+				excluir()
+
+
+
+func excluir():
+	mundo.limpaGridTile(get_global_mouse_position())
+	queue_free()
+
 
 
 
 
 func _on_detection_area_area_entered(area):
-	if "Robot" in area.name:
-		print("Entrou")
-		enemies_at_area += 1
+	if area.has_meta("tipo"):
+		if area.get_meta("tipo") == "Robot":
+			enemies_at_area += 1
 
 
 
 
 func _on_detection_area_area_exited(area):
-	if "Robot" in area.name:
-		print("Saiu")
-		enemies_at_area -= 1
+	if area.has_meta("tipo"):
+		if area.get_meta("tipo") == "Robot":
+			enemies_at_area -= 1
+
+
+func _on_area_entered(area):
+	if area.has_meta("tipo"):
+		if area.get_meta("tipo") == "soco":
+			life -= area.dano
+		
+		if life <= 0:
+			excluir()

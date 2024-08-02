@@ -1,22 +1,24 @@
 extends Area2D
-#16x11
+
 var dano
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	name = 'projetil'
+	name = 'bola de pelo'
+	set_meta("tipo", "projetil")
 	dano = 25
 
 
-func cospe(posicao):
+func ataca(posicao):
 	global_position = position
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	global_position += Vector2(1, 0)
 
 
+
 func _on_area_entered(area):
-	if 'Robot' in area.name:
-		queue_free()
+	if area.has_meta("tipo"):
+		if area.get_meta("tipo") == "Robot":
+			queue_free()
