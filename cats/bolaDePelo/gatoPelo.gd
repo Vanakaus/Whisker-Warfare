@@ -1,6 +1,6 @@
 extends Area2D
 
-var mundo
+@onready var mundo = $/root/Word
 
 var enemies_at_area = 0
 var ativa_ataque = 100
@@ -44,9 +44,7 @@ func _process(delta):
 
 
 
-func atualizaPosicao(posicao, mundoPai):
-	mundo = mundoPai
-	
+func atualizaPosicao(posicao, mundo):
 	var gridIncrementVector = Vector2( (9 - posicao[0]) * mundo.detectionIncrementX, mundo.detectionIncrementY)
 	
 	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()

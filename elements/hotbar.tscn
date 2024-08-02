@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://k8wpbqqbyid2"]
+
+[ext_resource type="Texture2D" uid="uid://bkv4xjxnv7p2m" path="res://assets/pexe.webp" id="1_5bdkp"]
+[ext_resource type="PackedScene" uid="uid://dj35g72pgrxld" path="res://cats/bolaDePelo/gatoPelo.tscn" id="1_go8nq"]
+[ext_resource type="Script" path="res://scripts/hotbar.gd" id="1_xwrf6"]
+[ext_resource type="PackedScene" uid="uid://dxxneuri6dj54" path="res://cats/sonico/gatoSonico.tscn" id="3_kbcsd"]
+[ext_resource type="PackedScene" uid="uid://b8vx2rhbeu1mu" path="res://cats/pau/gatoPau.tscn" id="4_aj2ut"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vg8uw"]
+
+[node name="Hotbar" type="Node2D"]
+script = ExtResource("1_xwrf6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.194271, 0.155017, 0.0128148, 1)
+self_modulate = Color(0.964742, 0.964742, 0.964742, 1)
+position = Vector2(250, 32)
+scale = Vector2(500, 64)
+texture = SubResource("CanvasTexture_vg8uw")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 14.0
+offset_right = 68.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 16
+text = "Level 1"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 30.0
+offset_right = 98.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 16
+text = "275
+"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+self_modulate = Color(0.964742, 0.964742, 0.964742, 1)
+position = Vector2(35, 27)
+rotation = 1.5708
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_5bdkp")
+centered = false
+
+[node name="Gato1" type="Node2D" parent="."]
+position = Vector2(93, 23)
+
+[node name="botaoGato1" type="Button" parent="Gato1"]
+offset_left = -7.0
+offset_top = -20.0
+offset_right = 41.0
+offset_bottom = 28.0
+focus_mode = 1
+
+[node name="quadro" type="Sprite2D" parent="Gato1"]
+modulate = Color(0.1582, 0.0850058, 0.00708246, 1)
+self_modulate = Color(0.964742, 0.964742, 0.964742, 1)
+position = Vector2(17, 4)
+scale = Vector2(48, 48)
+texture = SubResource("CanvasTexture_vg8uw")
+
+[node name="GatoDePelo" parent="Gato1" instance=ExtResource("1_go8nq")]
+
+[node name="Gato2" type="Node2D" parent="."]
+position = Vector2(152, 23)
+
+[node name="botaoGato2" type="Button" parent="Gato2"]
+offset_left = -7.0
+offset_top = -20.0
+offset_right = 41.0
+offset_bottom = 28.0
+
+[node name="quadro" type="Sprite2D" parent="Gato2"]
+modulate = Color(0.1582, 0.0850058, 0.00708246, 1)
+self_modulate = Color(0.964742, 0.964742, 0.964742, 1)
+position = Vector2(17, 4)
+scale = Vector2(48, 48)
+texture = SubResource("CanvasTexture_vg8uw")
+
+[node name="GatoSonico" parent="Gato2" instance=ExtResource("3_kbcsd")]
+
+[node name="Gato3" type="Node2D" parent="."]
+position = Vector2(212, 23)
+
+[node name="botaoGato3" type="Button" parent="Gato3"]
+offset_left = -7.0
+offset_top = -20.0
+offset_right = 41.0
+offset_bottom = 28.0
+
+[node name="quadro" type="Sprite2D" parent="Gato3"]
+modulate = Color(0.1582, 0.0850058, 0.00708246, 1)
+self_modulate = Color(0.964742, 0.964742, 0.964742, 1)
+position = Vector2(17, 4)
+scale = Vector2(48, 48)
+texture = SubResource("CanvasTexture_vg8uw")
+
+[node name="GatoPau" parent="Gato3" instance=ExtResource("4_aj2ut")]
+
+[connection signal="pressed" from="Gato1/botaoGato1" to="." method="_on_botao_gato_1_pressed"]
+[connection signal="pressed" from="Gato2/botaoGato2" to="." method="_on_botao_gato_2_pressed"]
+[connection signal="pressed" from="Gato3/botaoGato3" to="." method="_on_botao_gato_3_pressed"]

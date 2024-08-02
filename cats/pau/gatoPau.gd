@@ -1,12 +1,12 @@
 extends Area2D
 
-var mundo
+@onready var mundo = $/root/Word
 
 var enemies_at_area = 0
 var ativa_ataque = 100
 var verificador_ataque = ativa_ataque
 var delay_ataque = 0.3
-
+var porrete
 
 var life
 
@@ -27,10 +27,10 @@ func _process(delta):
 			verificador_ataque = 0
 			
 			$AnimatedSprite2D.play("attack")
-			get_node("porrada").position = Vector2(0, 0)
+			porrete.atacar(global_position)
 			await get_tree().create_timer(0.2).timeout
 			$AnimatedSprite2D.play("idle")
-			get_node("porrada").position = Vector2(-1000, -1000)
+			porrete.carregar()
 			
 
 		else:
@@ -55,7 +55,8 @@ func atualizaPosicao(posicao, mundoPai):
 	get_node("Porrada/CollisionShape2D").shape.extents = gridIncrementVector
 	get_node("Porrada/CollisionShape2D").position = gridIncrementVector
 	
-	get_node("Porrada").position = Vector2(-1000, -1000)
+	porrete = get_node("Porrada")
+	porrete.carregar()
 	
 	global_position = posicao * Vector2i(mundo.tileSizeX, mundo.tileSizeY)
 
@@ -90,6 +91,7 @@ func _on_detection_area_area_exited(area):
 	if area.has_meta("tipo"):
 		if area.get_meta("tipo") == "Robot":
 			enemies_at_area -= 1
+
 
 
 func _on_area_entered(area):

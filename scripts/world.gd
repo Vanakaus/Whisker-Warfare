@@ -22,7 +22,6 @@ var grid = {};
 
 
 @onready var chappie = preload("res://robots/chappie/chappie.tscn")
-@onready var roboTest = preload("res://robots/testMal.tscn")
 
 
 
@@ -45,6 +44,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+
+func selecionarGato(gatoEscolhido):
+	gato = gatoEscolhido
+
 
 
 
