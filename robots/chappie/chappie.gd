@@ -4,6 +4,7 @@ extends Area2D
 var mundo
 
 var moving = true
+var in_cat_area : bool = false
 var speed = 0.5
 var atira = 100
 var fire_counter = atira
@@ -29,7 +30,7 @@ func _process(delta):
 		get_node("soco").position = Vector2(-1000, -1000)
 		$AnimatedSprite2D.play("idle")
 		
-	else:
+	elif not moving and in_cat_area:
 		if fire_counter > delay:
 			fire_counter = 0
 			
@@ -70,10 +71,17 @@ func _on_detection_area_area_entered(area):
 		
 	if area.has_meta("tipo"):
 		if area.get_meta("tipo") == "Cat":
+			in_cat_area = true
 			moving = false
 		
 		if area.get_meta("tipo") == "porrada" or area.get_meta("tipo") == "projetil":
 			life -= area.dano
+			
+		if area.get_meta("tipo") == "onda" and not in_cat_area:
+			moving = false
+			await get_tree().create_timer(1).timeout
+			moving = true
+		
 		
 		if life <= 0:
 			queue_free()

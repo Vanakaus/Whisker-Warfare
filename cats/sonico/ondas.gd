@@ -5,7 +5,7 @@ var dano
 
 func _ready():
 	name = 'projetil'
-	set_meta("tipo", "projetil")
+	set_meta("tipo", "onda")
 	dano = 17
 
 
