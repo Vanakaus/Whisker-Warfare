@@ -9,8 +9,12 @@ func _ready():
 	dano = 25
 
 
-func ataca(posicao):
-	global_position = Vector2(0, 0)
+func atacar(posicao):
+	global_position = posicao
+	
+	
+func excluir():
+	queue_free()
 
 
 func _process(delta):

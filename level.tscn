@@ -136,4 +136,6 @@ shape = SubResource("RectangleShape2D_3k68r")
 [node name="Hotbar" parent="." instance=ExtResource("6_sqnmg")]
 position = Vector2(-116, 122)
 
+[node name="Projeteis" type="Node2D" parent="."]
+
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_entered"]

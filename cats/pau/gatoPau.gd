@@ -9,6 +9,7 @@ var delay_ataque = 0.3
 var porrete
 
 var life
+var cost
 
 
 
@@ -16,7 +17,8 @@ var life
 func _ready():
 	name = "Gato da Dn Chica"
 	set_meta("tipo", "Cat")
-	life = 100
+	life = 500
+	cost = 75
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,7 +44,7 @@ func _process(delta):
 
 
 
-func atualizaPosicao(posicao, mundoPai):
+func colocar(posicao, mundoPai):
 	mundo = mundoPai
 	
 	var gridIncrementVector = Vector2( 1.2 * mundo.detectionIncrementX, mundo.detectionIncrementY)

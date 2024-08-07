@@ -59,14 +59,20 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		var tileSelect = tileMap.local_to_map(get_global_mouse_position())
 		
+		print('\n')
+		print('Tile: ', tileSelect)
+		print('Tile.has: ', grid.has(str(tileSelect)))
+		
 		if grid.has(str(tileSelect)):
+			
+			print('Usado: ', grid[str(tileSelect)]["used"])
 			
 			if not grid[str(tileSelect)]["used"]:
 				grid[str(tileSelect)]["used"] = true
 				
 				var gatoTeste = gato.instantiate()
 				
-				gatoTeste.atualizaPosicao(tileSelect, self)
+				gatoTeste.colocar(tileSelect, self)
 				lanes[tileSelect[1]].call_deferred("add_child", gatoTeste)
 
 

@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var mundo = $/root/Word
+@onready var projeteis = $/root/Word/Projeteis
 
 var enemies_at_area = 0
 var ativa_ataque = 100
@@ -9,6 +10,7 @@ var delay_ataque = 1.5
 
 
 var life
+var cost
 @onready var bolaPelo = preload("res://cats/bolaDePelo/bolaPelo.tscn")
 
 
@@ -18,6 +20,7 @@ func _ready():
 	name = "Cat"
 	set_meta("tipo", "Cat")
 	life = 100
+	cost = 100
 
 
 
@@ -27,8 +30,8 @@ func _process(delta):
 		if verificador_ataque > delay_ataque:
 			var bola = bolaPelo.instantiate()
 			
-			bola.ataca(global_position)
-			add_child(bola)
+			bola.atacar(global_position)
+			mundo.get_node('Projeteis').add_child(bola)
 			
 			verificador_ataque = 0
 			
@@ -44,7 +47,7 @@ func _process(delta):
 
 
 
-func atualizaPosicao(posicao, mundo):
+func colocar(posicao, mundo):
 	var gridIncrementVector = Vector2( (9 - posicao[0]) * mundo.detectionIncrementX, mundo.detectionIncrementY)
 	
 	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()

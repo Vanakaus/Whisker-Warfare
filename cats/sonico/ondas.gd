@@ -1,16 +1,23 @@
 extends Area2D
 
 var dano
+var lentidao
 
 
 func _ready():
 	name = 'projetil'
-	set_meta("tipo", "onda")
+	set_meta("tipo", "projetil")
+	set_meta("efeito", "lentidao")
 	dano = 17
+	lentidao = 0.6
 
 
-func cospe(posicao):
-	global_position = position
+func atacar(posicao):
+	global_position = posicao
+	
+	
+func excluir():
+	queue_free()
 
 
 func _process(delta):

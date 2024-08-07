@@ -9,6 +9,7 @@ var verificador_ataque = ativa_ataque
 var delay_ataque = 1.5
 
 var life
+var cost
 @onready var ondas = preload("res://cats/sonico/ondas.tscn")
 
 
@@ -18,6 +19,7 @@ func _ready():
 	name = "Gato Sonico"
 	set_meta("tipo", "Cat")
 	life = 100
+	cost = 125
 
 
 
@@ -26,9 +28,9 @@ func _process(delta):
 	if enemies_at_area:
 		
 		if verificador_ataque > delay_ataque:
-			var bola = ondas.instantiate()
-			bola.cospe(global_position)
-			add_child(bola)
+			var onda = ondas.instantiate()
+			onda.atacar(global_position)
+			mundo.get_node('Projeteis').add_child(onda)
 			verificador_ataque = 0
 			$AnimatedSprite2D.play("attack")
 
@@ -43,7 +45,7 @@ func _process(delta):
 
 
 
-func atualizaPosicao(posicao, mundo):
+func colocar(posicao, mundo):
 	
 	var gridIncrementVector = Vector2( (9 - posicao[0]) * mundo.detectionIncrementX, mundo.detectionIncrementY)
 	

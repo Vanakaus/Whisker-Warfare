@@ -4,8 +4,10 @@ extends Area2D
 var mundo
 
 var moving = true
-var in_cat_area : bool = false
 var speed = 0.5
+var lentidao = 1
+var lentidaoTimer = 1
+
 var atira = 100
 var fire_counter = atira
 var delay = 0.3
@@ -24,13 +26,13 @@ func _ready():
 func _process(delta):
 	
 	if moving:
-		global_position -= Vector2(speed, 0)
+		global_position -= Vector2((speed * lentidao), 0)
 		
 		fire_counter = atira
 		get_node("soco").position = Vector2(-1000, -1000)
 		$AnimatedSprite2D.play("idle")
 		
-	elif not moving and in_cat_area:
+	elif not moving:
 		if fire_counter > delay:
 			fire_counter = 0
 			
@@ -42,6 +44,11 @@ func _process(delta):
 
 		else:
 			fire_counter += delta;
+	
+	if lentidaoTimer > 0:
+		lentidaoTimer -= delta
+	else:
+		lentidao = 1
 
 
 
@@ -68,23 +75,29 @@ func atualizaPosicao(posicao, mundoPai):
 
 
 func _on_detection_area_area_entered(area):
-		
-	if area.has_meta("tipo"):
-		if area.get_meta("tipo") == "Cat":
-			in_cat_area = true
-			moving = false
-		
-		if area.get_meta("tipo") == "porrada" or area.get_meta("tipo") == "projetil":
-			life -= area.dano
-			
-		if area.get_meta("tipo") == "onda" and not in_cat_area:
-			moving = false
-			await get_tree().create_timer(1).timeout
-			moving = true
-		
-		
-		if life <= 0:
-			queue_free()
+	
+	
+	if area.get_meta("tipo") == "Cat":
+		moving = false
+	
+	
+	if area.get_meta("tipo") == "projetil":
+		life -= area.dano
+		area.excluir()
+	
+	
+	if area.get_meta("tipo") == "porrada":
+		life -= area.dano
+	
+	
+	if area.get_meta("efeito") == "lentidao":
+		if area.lentidao < lentidao:
+			lentidao = area.lentidao
+			lentidaoTimer = 2
+	
+	
+	if life <= 0:
+		queue_free()
 
 
 

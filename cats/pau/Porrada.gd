@@ -11,8 +11,8 @@ func _ready():
 
 func atacar(posicao):
 	global_position = posicao
-	
-	
+
+
 func carregar():
 	global_position = Vector2(-1000, -1000)
 
