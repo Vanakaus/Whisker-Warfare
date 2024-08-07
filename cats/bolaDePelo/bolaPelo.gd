@@ -10,7 +10,7 @@ func _ready():
 
 
 func ataca(posicao):
-	global_position = posicao
+	global_position = Vector2(0, 0)
 
 
 func _process(delta):

@@ -4,20 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/cats/gatoBolaPelo.png" id="2_xu64p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vo8t"]
-size = Vector2(11, 12)
+size = Vector2(11, 11)
 
 [node name="Projetil" type="Area2D"]
 script = ExtResource("1_epylv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(17, 6)
+position = Vector2(19, 8)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_xu64p")
 region_enabled = true
 region_rect = Rect2(96, 0, 32, 32)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(16.5, 6)
+position = Vector2(18.5, 8.5)
 shape = SubResource("RectangleShape2D_7vo8t")
 debug_color = Color(0.846966, 0.376408, 3.85046e-07, 0.42)
 
