@@ -20,6 +20,14 @@ func _ready():
 
 
 
+func criar(posicao):
+	name = "Gato Sonico"
+	set_meta("tipo", "Cat")
+	life = 100
+	price = 125
+
+
+
 func colocar(posicao, mundo):
 	
 	var gridIncrementVector = Vector2( (9 - posicao[0]) * mundo.detectionIncrementX, mundo.detectionIncrementY)
@@ -30,10 +38,6 @@ func colocar(posicao, mundo):
 	
 	global_position = posicao * Vector2i(mundo.tileSizeX, mundo.tileSizeY)
 	
-	name = "Gato Sonico"
-	set_meta("tipo", "Cat")
-	life = 100
-	price = 125
 
 
 
@@ -70,7 +74,8 @@ func _input(event):
 
 
 func excluir():
-	mundo.limpaGridTile(get_global_mouse_position())
+	if global_position:
+		mundo.limpaGridTile(global_position)
 	queue_free()
 
 

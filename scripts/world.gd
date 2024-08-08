@@ -1,6 +1,7 @@
 extends Node2D
 
 var game_over = false
+var timer = 0
 
 var tileSizeX = 34
 var tileSizeY = 24
@@ -27,7 +28,6 @@ var grid = {};
 
 
 @onready var gato = null
-@onready var robo = chappie
 
 @onready var money = 1000
 
@@ -48,7 +48,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	timer += delta
+	
+	if timer >= 5:
+		var roboTeste = chappie.instantiate()
+		var rng = RandomNumberGenerator.new()
+		var tile = rng.randi_range(0, 4)
+		
+		roboTeste.atualizaPosicao(tile, self)
+		lanes[tile].call_deferred("add_child", roboTeste)
+		
+		timer = 0
+		
 
 
 
@@ -74,18 +85,21 @@ func _input(event):
 			
 			if not grid[str(tileSelect)]["used"] and gato:
 				
-				grid[str(tileSelect)]["used"] = true
-				
 				var novoGato = gato.instantiate()
-				novoGato.colocar(tileSelect, self)
-				lanes[tileSelect[1]].call_deferred("add_child", novoGato)
+				novoGato.criar(tileSelect)
 				
+				if money >= novoGato.price:
+					grid[str(tileSelect)]["used"] = true
+					
+					novoGato.colocar(tileSelect, self)
+					lanes[tileSelect[1]].call_deferred("add_child", novoGato)
+					
+					money -= novoGato.price
+					hotbar.setMoney(money)
+				else:
+					novoGato.excluir()
 				
-				money -= novoGato.price
-				hotbar.setMoney(money)
 				hotbar.limparEscolhas(0)
-				
-				
 				gato = null
 
 

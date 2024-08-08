@@ -17,7 +17,16 @@ var price
 
 
 func _ready():
+	print('asdasd')
 	pass
+
+
+
+func criar(posicao):
+	name = "Gato de Pelo"
+	set_meta("tipo", "Cat")
+	life = 100
+	price = 100
 
 
 
@@ -29,11 +38,6 @@ func colocar(posicao, mundo):
 	get_node("DetectionArea/DetectionCollision").position = gridIncrementVector
 	
 	global_position = posicao * Vector2i(mundo.tileSizeX, mundo.tileSizeY)
-	
-	name = "Gato de Pelo"
-	set_meta("tipo", "Cat")
-	life = 100
-	price = 100
 
 
 
@@ -71,7 +75,8 @@ func _input(event):
 
 
 func excluir():
-	mundo.limpaGridTile(get_global_mouse_position())
+	if global_position:
+		mundo.limpaGridTile(global_position)
 	queue_free()
 
 

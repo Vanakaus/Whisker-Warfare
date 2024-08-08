@@ -19,9 +19,15 @@ func _ready():
 
 
 
-func colocar(posicao, mundoPai):
-	mundo = mundoPai
-	
+func criar(posicao):
+	name = "Gato da Dn Chica"
+	set_meta("tipo", "Cat")
+	life = 500
+	price = 75
+
+
+
+func colocar(posicao, mundo):	
 	var gridIncrementVector = Vector2( 1.2 * mundo.detectionIncrementX, mundo.detectionIncrementY)
 
 	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
@@ -37,10 +43,6 @@ func colocar(posicao, mundoPai):
 	
 	global_position = posicao * Vector2i(mundo.tileSizeX, mundo.tileSizeY)
 
-	name = "Gato da Dn Chica"
-	set_meta("tipo", "Cat")
-	life = 500
-	price = 75
 
 
 
@@ -78,7 +80,8 @@ func _input(event):
 
 
 func excluir():
-	mundo.limpaGridTile(get_global_mouse_position())
+	if global_position:
+		mundo.limpaGridTile(global_position)
 	queue_free()
 
 
