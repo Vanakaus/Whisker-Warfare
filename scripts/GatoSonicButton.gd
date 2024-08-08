@@ -18,3 +18,9 @@ func _on_pressed():
 		release_focus()
 		$GatoSonico.play("idle")
 		selected = false
+
+
+func deselaciona():
+		release_focus()
+		$GatoSonico.play("idle")
+		selected = false

@@ -10,17 +10,30 @@ var delay_ataque = 1.5
 
 
 var life
-var cost
+var price
 @onready var bolaPelo = preload("res://cats/bolaDePelo/bolaPelo.tscn")
 
 
 
 
 func _ready():
-	name = "Cat"
+	pass
+
+
+
+func colocar(posicao, mundo):
+	var gridIncrementVector = Vector2( (9 - posicao[0]) * mundo.detectionIncrementX, mundo.detectionIncrementY)
+	
+	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
+	get_node("DetectionArea/DetectionCollision").shape.extents = gridIncrementVector
+	get_node("DetectionArea/DetectionCollision").position = gridIncrementVector
+	
+	global_position = posicao * Vector2i(mundo.tileSizeX, mundo.tileSizeY)
+	
+	name = "Gato de Pelo"
 	set_meta("tipo", "Cat")
 	life = 100
-	cost = 100
+	price = 100
 
 
 
@@ -44,17 +57,6 @@ func _process(delta):
 	
 	else:
 		verificador_ataque = ativa_ataque
-
-
-
-func colocar(posicao, mundo):
-	var gridIncrementVector = Vector2( (9 - posicao[0]) * mundo.detectionIncrementX, mundo.detectionIncrementY)
-	
-	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
-	get_node("DetectionArea/DetectionCollision").shape.extents = gridIncrementVector
-	get_node("DetectionArea/DetectionCollision").position = gridIncrementVector
-	
-	global_position = posicao * Vector2i(mundo.tileSizeX, mundo.tileSizeY)
 
 
 

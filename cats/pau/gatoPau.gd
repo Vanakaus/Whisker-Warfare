@@ -9,16 +9,39 @@ var delay_ataque = 0.3
 var porrete
 
 var life
-var cost
+var price
 
 
 
 
 func _ready():
+	pass
+
+
+
+func colocar(posicao, mundoPai):
+	mundo = mundoPai
+	
+	var gridIncrementVector = Vector2( 1.2 * mundo.detectionIncrementX, mundo.detectionIncrementY)
+
+	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
+	get_node("DetectionArea/DetectionCollision").shape.extents = gridIncrementVector
+	get_node("DetectionArea/DetectionCollision").position = gridIncrementVector
+	
+	get_node("Porrada/CollisionShape2D").shape = get_node("Porrada/CollisionShape2D").shape.duplicate()
+	get_node("Porrada/CollisionShape2D").shape.extents = gridIncrementVector
+	get_node("Porrada/CollisionShape2D").position = gridIncrementVector
+	
+	porrete = get_node("Porrada")
+	porrete.carregar()
+	
+	global_position = posicao * Vector2i(mundo.tileSizeX, mundo.tileSizeY)
+
 	name = "Gato da Dn Chica"
 	set_meta("tipo", "Cat")
 	life = 500
-	cost = 75
+	price = 75
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,27 +64,6 @@ func _process(delta):
 	
 	else:
 		verificador_ataque = ativa_ataque
-
-
-
-func colocar(posicao, mundoPai):
-	mundo = mundoPai
-	
-	var gridIncrementVector = Vector2( 1.2 * mundo.detectionIncrementX, mundo.detectionIncrementY)
-
-	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
-	get_node("DetectionArea/DetectionCollision").shape.extents = gridIncrementVector
-	get_node("DetectionArea/DetectionCollision").position = gridIncrementVector
-	
-	get_node("Porrada/CollisionShape2D").shape = get_node("Porrada/CollisionShape2D").shape.duplicate()
-	get_node("Porrada/CollisionShape2D").shape.extents = gridIncrementVector
-	get_node("Porrada/CollisionShape2D").position = gridIncrementVector
-	
-	porrete = get_node("Porrada")
-	porrete.carregar()
-	
-	global_position = posicao * Vector2i(mundo.tileSizeX, mundo.tileSizeY)
-
 
 
 

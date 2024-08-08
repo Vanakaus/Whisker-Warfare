@@ -21,9 +21,7 @@ func _on_pressed():
 		selected = false
 
 
-func _on_gato_de_pau_button_pressed():
-	pass # Replace with function body.
-
-
-func _on_gato_sonic_button_pressed():
-	pass # Replace with function body.
+func deselaciona():
+		release_focus()
+		$GatoBolaDePelo.play("idle")
+		selected = false

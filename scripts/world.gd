@@ -14,6 +14,7 @@ var grid = {};
 
 @onready var lanes = [$Lanes/Lane1, $Lanes/Lane2, $Lanes/Lane3, $Lanes/Lane4, $Lanes/Lane5]
 @onready var tileMap = $TileMap
+@onready var hotbar = $Hotbar
 
 
 @onready var gatoPelo = preload("res://cats/bolaDePelo/gatoPelo.tscn")
@@ -25,8 +26,10 @@ var grid = {};
 
 
 
-@onready var gato = gatoPau
+@onready var gato = null
 @onready var robo = chappie
+
+@onready var money = 1000
 
 
 
@@ -38,6 +41,8 @@ func _ready():
 			grid[str(Vector2(x, y))] = {
 				"used" : false
 			}
+	
+	hotbar.setMoney(money)
 
 
 
@@ -67,13 +72,21 @@ func _input(event):
 			
 			print('Usado: ', grid[str(tileSelect)]["used"])
 			
-			if not grid[str(tileSelect)]["used"]:
+			if not grid[str(tileSelect)]["used"] and gato:
+				
 				grid[str(tileSelect)]["used"] = true
 				
-				var gatoTeste = gato.instantiate()
+				var novoGato = gato.instantiate()
+				novoGato.colocar(tileSelect, self)
+				lanes[tileSelect[1]].call_deferred("add_child", novoGato)
 				
-				gatoTeste.colocar(tileSelect, self)
-				lanes[tileSelect[1]].call_deferred("add_child", gatoTeste)
+				
+				money -= novoGato.price
+				hotbar.setMoney(money)
+				hotbar.limparEscolhas(0)
+				
+				
+				gato = null
 
 
 
