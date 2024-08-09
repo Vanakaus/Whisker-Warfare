@@ -1,7 +1,6 @@
 extends Node2D
 
 var game_over = false
-var timer = 0
 
 var tileSizeX = 34
 var tileSizeY = 24
@@ -29,7 +28,12 @@ var grid = {};
 
 @onready var gato = null
 
-@onready var money = 1000
+@onready var level = $levels/level1
+@onready var index = 0
+@onready var money = 100
+@onready var timerMoney = 0
+@onready var timer = 0
+@onready var esperando = false
 
 
 
@@ -48,17 +52,73 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	timerMoney += delta
 	timer += delta
 	
-	if timer >= 5:
-		var roboTeste = chappie.instantiate()
-		var rng = RandomNumberGenerator.new()
-		var tile = rng.randi_range(0, 4)
+	if timerMoney >= 5:
+		money += 20;
+		hotbar.setMoney(money)
+		timerMoney = 0
+	
+	
+	if timer >= level.tempos[index] and not esperando:
 		
-		roboTeste.atualizaPosicao(tile, self)
-		lanes[tile].call_deferred("add_child", roboTeste)
+		if level.inimigo[index] == 'unico':
+			
+			var roboTeste = chappie.instantiate()
+			var rng = RandomNumberGenerator.new()
+			var tile = rng.randi_range(0, 4)
+			
+			roboTeste.atualizaPosicao(tile, self)
+			lanes[tile].call_deferred("add_child", roboTeste)
 		
-		timer = 0
+		
+		if level.inimigo[index] == 'duplo':
+			
+			var roboTeste = chappie.instantiate()
+			var rng = RandomNumberGenerator.new()
+			var tile1 = rng.randi_range(0, 4)
+			var tile2 = rng.randi_range(0, 4)
+			
+			while(tile2 == tile1):
+				tile2 = rng.randi_range(0, 4)
+			
+			roboTeste.atualizaPosicao(tile1, self)
+			lanes[tile1].call_deferred("add_child", roboTeste)
+			
+			esperando = true
+			await get_tree().create_timer(0.5).timeout
+			esperando = false
+			
+			roboTeste = chappie.instantiate()
+			roboTeste.atualizaPosicao(tile2, self)
+			lanes[tile2].call_deferred("add_child", roboTeste)
+		
+		
+		
+		if level.inimigo[index] == 'onda':
+			
+			var numInimigos = 0
+			
+			esperando = true
+			
+			while (numInimigos < 12):
+				
+				var roboTeste = chappie.instantiate()
+				var rng = RandomNumberGenerator.new()
+				var tile = rng.randi_range(0, 4)
+				
+				roboTeste.atualizaPosicao(tile, self)
+				lanes[tile].call_deferred("add_child", roboTeste)
+				
+				numInimigos = numInimigos + 1
+				
+				await get_tree().create_timer(0.15).timeout
+			
+			esperando = false
+		
+		
+		index = index + 1
 		
 
 

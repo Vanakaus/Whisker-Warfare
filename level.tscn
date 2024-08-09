@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0yxhmun4v8ue"]
+[gd_scene load_steps=11 format=3 uid="uid://d0yxhmun4v8ue"]
 
 [ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/world/tileMap.png" id="1_ao3m3"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_sia1f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bapaw2nceh57h" path="res://assets/world/aquario.png" id="4_14flb"]
 [ext_resource type="Script" path="res://scripts/tilemap.gd" id="4_oudqi"]
 [ext_resource type="PackedScene" uid="uid://k8wpbqqbyid2" path="res://elements/hotbar.tscn" id="6_sqnmg"]
+[ext_resource type="Script" path="res://scripts/leveis/level_1.gd" id="7_sdtbq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v01ww"]
 texture = ExtResource("1_ao3m3")
@@ -137,5 +138,10 @@ shape = SubResource("RectangleShape2D_3k68r")
 position = Vector2(-116, 122)
 
 [node name="Projeteis" type="Node2D" parent="."]
+
+[node name="levels" type="Node2D" parent="."]
+
+[node name="level1" type="Node2D" parent="levels"]
+script = ExtResource("7_sdtbq")
 
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_entered"]
