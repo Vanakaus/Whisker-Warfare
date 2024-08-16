@@ -12,33 +12,35 @@ var GridSizeY = 5;
 var grid = {};
 
 
-@onready var lanes = [$Lanes/Lane1, $Lanes/Lane2, $Lanes/Lane3, $Lanes/Lane4, $Lanes/Lane5]
+@onready var gatos = [$Gatos/Lane1, $Gatos/Lane2, $Gatos/Lane3, $Gatos/Lane4, $Gatos/Lane5]
+@onready var robos = [$Robos/Lane1, $Robos/Lane2, $Robos/Lane3, $Robos/Lane4, $Robos/Lane5]
 @onready var tileMap = $TileMap
 @onready var hotbar = $Hotbar
 
 
-@onready var gatoPelo = preload("res://cats/bolaDePelo/gatoPelo.tscn")
-@onready var gatoPau = preload("res://cats/pau/gatoPau.tscn")
-@onready var gatoSonico = preload("res://cats/sonico/gatoSonico.tscn")
-
-
-@onready var chappie = preload("res://robots/chappie/chappie.tscn")
+@onready var inimigos = [
+	preload("res://robots/chappie/chappie.tscn"),
+	]
 
 
 
 @onready var gato = null
 
-@onready var level = $levels/level1
-@onready var index = 0
-@onready var money = 100
+@onready var level
+
+@onready var money = 10000
+
 @onready var timerMoney = 0
 @onready var timer = 0
+@onready var index = 0
+
 @onready var esperando = false
+@onready var fimInimigos = false
+@onready var fimFase = false
 
 
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	for x in GridSizeX:
 		for y in GridSizeY:
@@ -47,6 +49,16 @@ func _ready():
 			}
 	
 	hotbar.setMoney(money)
+	
+#	Carregando o script do level 1
+	var file = FileAccess.open("res://scripts/leveis/level_1.json", FileAccess.READ)
+	var content = file.get_as_text()
+	file.close()
+	
+	level = JSON.new()
+	var error = level.parse(content)
+	if not error == OK:
+		print("JSON Parse Error: ", level.get_error_message(), " in ", content, " at line ", level.get_error_line())
 
 
 
@@ -55,71 +67,45 @@ func _process(delta):
 	timerMoney += delta
 	timer += delta
 	
+	if fimFase:
+		return
+	
 	if timerMoney >= 5:
 		money += 20;
 		hotbar.setMoney(money)
 		timerMoney = 0
 	
-	
-	if timer >= level.tempos[index] and not esperando:
-		
-		if level.inimigo[index] == 'unico':
-			
-			var roboTeste = chappie.instantiate()
-			var rng = RandomNumberGenerator.new()
-			var tile = rng.randi_range(0, 4)
-			
-			roboTeste.atualizaPosicao(tile, self)
-			lanes[tile].call_deferred("add_child", roboTeste)
+	if fimInimigos:
+		if  robos[0].get_child_count() == 0:
+			if robos[1].get_child_count() == 0:
+				if robos[2].get_child_count() == 0:
+					if robos[3].get_child_count() == 0:
+						if robos[4].get_child_count() == 0:
+							print("Acabou a fase")
+							fimFase = true
 		
 		
-		if level.inimigo[index] == 'duplo':
-			
-			var roboTeste = chappie.instantiate()
-			var rng = RandomNumberGenerator.new()
-			var tile1 = rng.randi_range(0, 4)
-			var tile2 = rng.randi_range(0, 4)
-			
-			while(tile2 == tile1):
-				tile2 = rng.randi_range(0, 4)
-			
-			roboTeste.atualizaPosicao(tile1, self)
-			lanes[tile1].call_deferred("add_child", roboTeste)
-			
-			esperando = true
-			await get_tree().create_timer(0.5).timeout
-			esperando = false
-			
-			roboTeste = chappie.instantiate()
-			roboTeste.atualizaPosicao(tile2, self)
-			lanes[tile2].call_deferred("add_child", roboTeste)
-		
-		
-		
-		if level.inimigo[index] == 'onda':
-			
-			var numInimigos = 0
+	else:
+		if timer >= level.data[index].tempo and not esperando:
 			
 			esperando = true
 			
-			while (numInimigos < 12):
+			for inimigo in level.data[index].inimigos:
+				var robo = inimigos[inimigo].instantiate()
+				var tile = RandomNumberGenerator.new().randi_range(0, 4)
 				
-				var roboTeste = chappie.instantiate()
-				var rng = RandomNumberGenerator.new()
-				var tile = rng.randi_range(0, 4)
+				robo.atualizaPosicao(tile, self)
+				robos[tile].call_deferred("add_child", robo)
 				
-				roboTeste.atualizaPosicao(tile, self)
-				lanes[tile].call_deferred("add_child", roboTeste)
-				
-				numInimigos = numInimigos + 1
-				
-				await get_tree().create_timer(0.15).timeout
+				await get_tree().create_timer(0.25).timeout
+			
+			
+			if level.data[index].fim:
+				fimInimigos = true
+			else:
+				index = index + 1
 			
 			esperando = false
-		
-		
-		index = index + 1
-		
 
 
 
@@ -152,7 +138,7 @@ func _input(event):
 					grid[str(tileSelect)]["used"] = true
 					
 					novoGato.colocar(tileSelect, self)
-					lanes[tileSelect[1]].call_deferred("add_child", novoGato)
+					gatos[tileSelect[1]].call_deferred("add_child", novoGato)
 					
 					money -= novoGato.price
 					hotbar.setMoney(money)
@@ -169,10 +155,10 @@ func _input(event):
 		var tileSelect = tileMap.local_to_map(get_global_mouse_position())
 		
 		if grid.has(str(tileSelect)):
-			var roboTeste = chappie.instantiate()
+			var roboTeste = robos[0].instantiate()
 			
 			roboTeste.atualizaPosicao(tileSelect[1], self)
-			lanes[tileSelect[1]].call_deferred("add_child", roboTeste)
+			robos[tileSelect[1]].call_deferred("add_child", roboTeste)
 
 
 

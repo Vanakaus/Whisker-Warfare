@@ -67,7 +67,7 @@ func atualizaPosicao(posicao, mundoPai):
 	
 	get_node("Soco").position = Vector2(0, 0)
 	
-	global_position = Vector2(9, posicao) * Vector2(mundo.tileSizeX, mundo.tileSizeY)
+	global_position = Vector2(12, posicao) * Vector2(mundo.tileSizeX, mundo.tileSizeY)
 
 
 
