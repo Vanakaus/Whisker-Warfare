@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckv1w22ca8ihp"
-path="res://.godot/imported/roboBranco.png-64b395ad3a5774dfc3fca75a8331b109.ctex"
+uid="uid://cu536ep2bk4nk"
+path="res://.godot/imported/camaverde.png-ca6945519143d8c27ec0de07153897ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/robots/roboBranco.png"
-dest_files=["res://.godot/imported/roboBranco.png-64b395ad3a5774dfc3fca75a8331b109.ctex"]
+source_file="res://assets/world/camaverde.png"
+dest_files=["res://.godot/imported/camaverde.png-ca6945519143d8c27ec0de07153897ec.ctex"]
 
 [params]
 

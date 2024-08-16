@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btu0sy5do6a8y"
-path="res://.godot/imported/roboPiramede.png-2f79eb59751b965020990afa9d3a0b1a.ctex"
+uid="uid://b3yigk05jt3m7"
+path="res://.godot/imported/camavermelha.png-2394ef0f94fbfc799322a25919e3f765.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/robots/roboPiramede.png"
-dest_files=["res://.godot/imported/roboPiramede.png-2f79eb59751b965020990afa9d3a0b1a.ctex"]
+source_file="res://assets/world/camavermelha.png"
+dest_files=["res://.godot/imported/camavermelha.png-2394ef0f94fbfc799322a25919e3f765.ctex"]
 
 [params]
 
