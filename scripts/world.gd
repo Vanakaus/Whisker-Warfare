@@ -20,6 +20,7 @@ var grid = {};
 
 @onready var inimigos = [
 	preload("res://robots/chappie/chappie.tscn"),
+	preload("res://robots/aspirobo/aspirobo.tscn"),
 	]
 
 
@@ -155,7 +156,7 @@ func _input(event):
 		var tileSelect = tileMap.local_to_map(get_global_mouse_position())
 		
 		if grid.has(str(tileSelect)):
-			var roboTeste = inimigos[0].instantiate()
+			var roboTeste = inimigos[1].instantiate()
 			
 			roboTeste.atualizaPosicao(tileSelect[1], self)
 			robos[tileSelect[1]].call_deferred("add_child", roboTeste)

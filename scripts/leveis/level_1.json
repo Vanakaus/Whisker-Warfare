@@ -21,7 +21,7 @@
 	},
 	{
 		"tempo": 82,
-		"inimigos": [0],
+		"inimigos": [1],
 		"fim": false
 	},
 	{
@@ -31,22 +31,22 @@
 	},
 	{
 		"tempo": 125,
-		"inimigos": [0, 0],
+		"inimigos": [0, 1],
 		"fim": false
 	},
 	{
 		"tempo": 140,
-		"inimigos": [0, 0],
+		"inimigos": [0, 1],
 		"fim": false
 	},
 	{
 		"tempo": 155,
-		"inimigos": [0, 0],
+		"inimigos": [0, 1],
 		"fim": false
 	},
 	{
 		"tempo": 190,
-		"inimigos": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		"inimigos": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1],
 		"fim": true
 	},
 ]

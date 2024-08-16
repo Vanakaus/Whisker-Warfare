@@ -4,22 +4,22 @@ extends Area2D
 var mundo
 
 var moving = true
-var speed = 0.25
+var speed = 0.2
 var lentidao = 1
 var lentidaoTimer = 1
 
 var atira = 100
 var fire_counter = atira
-var delay = 1
+var delay = 0.3
 
 
 var life
 
 
 func _ready():
-	name = "Chappie"
+	name = "Aspirobo"
 	set_meta("tipo", "Robot")
-	life = 100
+	life = 150
 
 
 
@@ -36,11 +36,9 @@ func _process(delta):
 		if fire_counter > delay:
 			fire_counter = 0
 			
-			$AnimatedSprite2D.play("idle")
 			$AnimatedSprite2D.play("attack")
-			await get_tree().create_timer(0.75).timeout
 			get_node("soco").position = Vector2(0, 0)
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(0.2).timeout
 			get_node("soco").position = Vector2(-1000, -1000)
 
 		else:
