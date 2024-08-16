@@ -76,7 +76,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"action",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -87,7 +87,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s3bu3"]
@@ -137,7 +137,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"action",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -148,7 +148,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47m66"]
@@ -197,7 +197,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"action",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -208,7 +208,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [node name="Hotbar" type="Node2D"]
@@ -259,6 +259,7 @@ texture = ExtResource("5_fwt8m")
 position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_n7gk4")
 animation = &"action"
+frame_progress = 0.38254
 
 [node name="GatoDePauButton" type="Button" parent="."]
 offset_left = 158.0
@@ -292,7 +293,7 @@ texture = ExtResource("5_fwt8m")
 [node name="GatoSonico" type="AnimatedSprite2D" parent="GatoSonicButton"]
 position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_aypya")
-animation = &"action"
+animation = &"idle"
 
 [connection signal="pressed" from="GatoBolaDePeloButton" to="." method="_on_gato_bola_de_pelo_button_pressed"]
 [connection signal="pressed" from="GatoBolaDePeloButton" to="GatoBolaDePeloButton" method="_on_pressed"]

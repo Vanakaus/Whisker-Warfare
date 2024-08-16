@@ -1,31 +1,31 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8vx2rhbeu1mu"]
+[gd_scene load_steps=14 format=3 uid="uid://mb32i7vcq3w"]
 
-[ext_resource type="Script" path="res://cats/pau/gatoPau.gd" id="1_75ibh"]
-[ext_resource type="Texture2D" uid="uid://bcodjyhjsb2db" path="res://assets/cats/gatoPau.png" id="2_wovh3"]
-[ext_resource type="Script" path="res://cats/pau/Porrada.gd" id="3_qyur0"]
+[ext_resource type="Script" path="res://robots/chappie_old/chappie.gd" id="1_alijq"]
+[ext_resource type="Texture2D" uid="uid://bcodjyhjsb2db" path="res://assets/cats/gatoPau.png" id="2_pm5qb"]
+[ext_resource type="Script" path="res://robots/chappie_old/socoChappie.gd" id="3_2q2gy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6kgl"]
-atlas = ExtResource("2_wovh3")
+atlas = ExtResource("2_pm5qb")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dv3bs"]
-atlas = ExtResource("2_wovh3")
+atlas = ExtResource("2_pm5qb")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4kq8"]
-atlas = ExtResource("2_wovh3")
+atlas = ExtResource("2_pm5qb")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wdqvd"]
-atlas = ExtResource("2_wovh3")
+atlas = ExtResource("2_pm5qb")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjacr"]
-atlas = ExtResource("2_wovh3")
+atlas = ExtResource("2_pm5qb")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrtcv"]
-atlas = ExtResource("2_wovh3")
+atlas = ExtResource("2_pm5qb")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o2fqj"]
@@ -66,7 +66,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 2.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgo47"]
@@ -79,13 +79,14 @@ size = Vector2(34, 24)
 size = Vector2(34, 22)
 
 [node name="Gato" type="Area2D"]
-script = ExtResource("1_75ibh")
+script = ExtResource("1_alijq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(17, 6)
 sprite_frames = SubResource("SpriteFrames_o2fqj")
 animation = &"idle"
 autoplay = "idle"
+flip_h = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(16.75, 12)
@@ -99,14 +100,13 @@ position = Vector2(17, 12)
 shape = SubResource("RectangleShape2D_vhufm")
 debug_color = Color(0, 0.590072, 0.753842, 0.42)
 
-[node name="Porrada" type="Area2D" parent="."]
-script = ExtResource("3_qyur0")
+[node name="Soco" type="Area2D" parent="."]
+script = ExtResource("3_2q2gy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Porrada"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Soco"]
 position = Vector2(17, 12)
 shape = SubResource("RectangleShape2D_oa5dm")
 debug_color = Color(0.724584, 0.00248066, 0.940573, 0.42)
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]

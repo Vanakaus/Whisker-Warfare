@@ -6,7 +6,7 @@ var dano
 func _ready():
 	name = 'porrada'
 	set_meta("tipo", "porrada")
-	dano = 15
+	dano = 10
 
 
 func atacar(posicao):

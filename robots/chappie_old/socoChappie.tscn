@@ -1,19 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://xabfcpkxxiki"]
+[gd_scene load_steps=4 format=3 uid="uid://cu5wjifmtkpyp"]
 
-[ext_resource type="Script" path="res://robots/chappie_old/socoChappie.gd" id="1_mymn3"]
-[ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/cats/gatoBolaPelo.png" id="2_eyjva"]
+[ext_resource type="Script" path="res://robots/chappie_old/socoChappie.gd" id="1_sb8pi"]
+[ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/cats/gatoBolaPelo.png" id="2_ky4a0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vo8t"]
 size = Vector2(11, 12)
 
 [node name="Soco" type="Area2D"]
-script = ExtResource("1_mymn3")
+script = ExtResource("1_sb8pi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(17, 6)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_eyjva")
+texture = ExtResource("2_ky4a0")
 region_enabled = true
 region_rect = Rect2(96, 0, 32, 32)
 

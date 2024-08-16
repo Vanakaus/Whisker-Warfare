@@ -58,7 +58,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgo47"]
@@ -73,7 +73,7 @@ script = ExtResource("1_j3vj3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(17, 6)
 sprite_frames = SubResource("SpriteFrames_o2fqj")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Collision" type="CollisionShape2D" parent="."]

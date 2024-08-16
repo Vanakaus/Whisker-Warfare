@@ -1,6 +1,7 @@
 extends Area2D
 
 var dano
+var speed = 0.6
 
 
 func _ready():
@@ -18,7 +19,7 @@ func excluir():
 
 
 func _process(delta):
-	global_position += Vector2(1, 0)
+	global_position += Vector2(speed, 0)
 
 
 

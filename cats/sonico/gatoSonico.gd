@@ -6,7 +6,7 @@ extends Area2D
 var enemies_at_area = 0
 var ativa_ataque = 100
 var verificador_ataque = ativa_ataque
-var delay_ataque = 1.5
+var delay_ataque = 2.4
 
 var life
 var price
@@ -30,7 +30,7 @@ func criar(posicao):
 
 func colocar(posicao, mundo):
 	
-	var gridIncrementVector = Vector2( (9 - posicao[0]) * mundo.detectionIncrementX, mundo.detectionIncrementY)
+	var gridIncrementVector = Vector2( (10 - posicao[0]) * mundo.detectionIncrementX, mundo.detectionIncrementY)
 	
 	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
 	get_node("DetectionArea/DetectionCollision").shape.extents = gridIncrementVector

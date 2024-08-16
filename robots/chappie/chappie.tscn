@@ -1,49 +1,57 @@
-[gd_scene load_steps=14 format=3 uid="uid://mb32i7vcq3w"]
+[gd_scene load_steps=16 format=3 uid="uid://d1on3dvn3gvo0"]
 
-[ext_resource type="Script" path="res://robots/chappie/chappie.gd" id="1_alijq"]
-[ext_resource type="Texture2D" uid="uid://bcodjyhjsb2db" path="res://assets/cats/gatoPau.png" id="2_pm5qb"]
-[ext_resource type="Script" path="res://robots/chappie/socoChappie.gd" id="3_2q2gy"]
+[ext_resource type="Script" path="res://robots/chappie_old/chappie.gd" id="1_s7vv3"]
+[ext_resource type="Texture2D" uid="uid://cc5h7jq1ur57j" path="res://assets/robots/roborobo.png" id="2_dyqgp"]
+[ext_resource type="Script" path="res://robots/chappie_old/socoChappie.gd" id="3_bwvqf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w6kgl"]
-atlas = ExtResource("2_pm5qb")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dv3bs"]
-atlas = ExtResource("2_pm5qb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_iix2g"]
+atlas = ExtResource("2_dyqgp")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q4kq8"]
-atlas = ExtResource("2_pm5qb")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wdqvd"]
-atlas = ExtResource("2_pm5qb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3lu2"]
+atlas = ExtResource("2_dyqgp")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qjacr"]
-atlas = ExtResource("2_pm5qb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7m1e"]
+atlas = ExtResource("2_dyqgp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pym5h"]
+atlas = ExtResource("2_dyqgp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqre7"]
+atlas = ExtResource("2_dyqgp")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mrtcv"]
-atlas = ExtResource("2_pm5qb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1074p"]
+atlas = ExtResource("2_dyqgp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yogcg"]
+atlas = ExtResource("2_dyqgp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbkju"]
+atlas = ExtResource("2_dyqgp")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o2fqj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w6kgl")
+"texture": SubResource("AtlasTexture_iix2g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dv3bs")
+"texture": SubResource("AtlasTexture_a3lu2")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 10.0
+"speed": 1.5
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q4kq8")
+"texture": SubResource("AtlasTexture_n7m1e")
 }],
 "loop": true,
 "name": &"dead",
@@ -51,7 +59,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wdqvd")
+"texture": SubResource("AtlasTexture_pym5h")
 }],
 "loop": true,
 "name": &"hit",
@@ -59,14 +67,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qjacr")
+"texture": SubResource("AtlasTexture_aqre7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mrtcv")
+"texture": SubResource("AtlasTexture_1074p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yogcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbkju")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgo47"]
@@ -79,14 +93,13 @@ size = Vector2(34, 24)
 size = Vector2(34, 22)
 
 [node name="Gato" type="Area2D"]
-script = ExtResource("1_alijq")
+script = ExtResource("1_s7vv3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(17, 6)
 sprite_frames = SubResource("SpriteFrames_o2fqj")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-flip_h = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(16.75, 12)
@@ -101,7 +114,7 @@ shape = SubResource("RectangleShape2D_vhufm")
 debug_color = Color(0, 0.590072, 0.753842, 0.42)
 
 [node name="Soco" type="Area2D" parent="."]
-script = ExtResource("3_2q2gy")
+script = ExtResource("3_bwvqf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Soco"]
 position = Vector2(17, 12)
