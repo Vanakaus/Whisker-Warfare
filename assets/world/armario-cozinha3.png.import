@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btu0sy5do6a8y"
-path="res://.godot/imported/roboPiramede.png-5169a820a1c67f19893e2e4c4c0ae3eb.ctex"
+uid="uid://bx2h1r30uhw33"
+path="res://.godot/imported/armario-cozinha3.png-70ab88d15de309e0b44736eb6101e9fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/robots/old/roboPiramede.png"
-dest_files=["res://.godot/imported/roboPiramede.png-5169a820a1c67f19893e2e4c4c0ae3eb.ctex"]
+source_file="res://assets/world/armario-cozinha3.png"
+dest_files=["res://.godot/imported/armario-cozinha3.png-70ab88d15de309e0b44736eb6101e9fd.ctex"]
 
 [params]
 

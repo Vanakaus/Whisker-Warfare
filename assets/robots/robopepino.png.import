@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btu0sy5do6a8y"
-path="res://.godot/imported/roboPiramede.png-5169a820a1c67f19893e2e4c4c0ae3eb.ctex"
+uid="uid://42dkcgr8ma4q"
+path="res://.godot/imported/robopepino.png-0e56e91e12137b8acb2bb55e1cd9dcd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/robots/old/roboPiramede.png"
-dest_files=["res://.godot/imported/roboPiramede.png-5169a820a1c67f19893e2e4c4c0ae3eb.ctex"]
+source_file="res://assets/robots/robopepino.png"
+dest_files=["res://.godot/imported/robopepino.png-0e56e91e12137b8acb2bb55e1cd9dcd9.ctex"]
 
 [params]
 

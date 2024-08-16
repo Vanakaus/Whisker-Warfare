@@ -1,12 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0yxhmun4v8ue"]
+[gd_scene load_steps=20 format=3 uid="uid://d0yxhmun4v8ue"]
 
 [ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/world/tileMap.png" id="1_ao3m3"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_sia1f"]
-[ext_resource type="Texture2D" uid="uid://bt5n6mv866mme" path="res://assets/world/tigelaRacao2.jpg" id="3_sedi7"]
 [ext_resource type="Texture2D" uid="uid://bapaw2nceh57h" path="res://assets/world/aquario.png" id="4_14flb"]
 [ext_resource type="Script" path="res://scripts/tilemap.gd" id="4_oudqi"]
+[ext_resource type="Texture2D" uid="uid://cyh0vahy480ms" path="res://assets/world/tigelaRacao2.png" id="5_mc1q2"]
+[ext_resource type="Texture2D" uid="uid://cy502vvm38j7t" path="res://assets/world/armario-cozinha.png" id="6_ji4nh"]
 [ext_resource type="PackedScene" uid="uid://k8wpbqqbyid2" path="res://elements/hotbar.tscn" id="6_sqnmg"]
+[ext_resource type="Texture2D" uid="uid://bq5sq1l1byv6l" path="res://assets/world/armario-cozinha4.png" id="7_h12cu"]
 [ext_resource type="Script" path="res://scripts/leveis/level_1.gd" id="7_sdtbq"]
+[ext_resource type="Texture2D" uid="uid://bxa6kkmb31fgx" path="res://assets/world/fogao.png" id="8_5kk3b"]
+[ext_resource type="Texture2D" uid="uid://bx2h1r30uhw33" path="res://assets/world/armario-cozinha3.png" id="8_632vy"]
+[ext_resource type="Texture2D" uid="uid://18ug6k6j7t7c" path="res://assets/world/camadegato.png" id="10_ss6la"]
+[ext_resource type="Texture2D" uid="uid://b3yigk05jt3m7" path="res://assets/world/camavermelha.png" id="11_2yhys"]
+[ext_resource type="Texture2D" uid="uid://cu536ep2bk4nk" path="res://assets/world/camaverde.png" id="12_xxp62"]
+[ext_resource type="Texture2D" uid="uid://ddxqhg2jblqbq" path="res://assets/world/camaamarela.png" id="13_p23l3"]
+[ext_resource type="Texture2D" uid="uid://cd0pc6bh7r4ag" path="res://assets/world/camaazul.png" id="14_wanu3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v01ww"]
 texture = ExtResource("1_ao3m3")
@@ -43,74 +52,103 @@ tile_set = SubResource("TileSet_k7to6")
 rendering_quadrant_size = 64
 format = 2
 layer_0/tile_data = PackedInt32Array(3, 0, 1, 4, 65536, 1, 5, 0, 1, 6, 65536, 1, 7, 0, 1, 8, 65536, 1, 65536, 0, 1, 65537, 65536, 1, 65539, 65536, 1, 65540, 0, 1, 65541, 65536, 1, 65542, 0, 1, 65543, 65536, 1, 131073, 0, 1, 131074, 65536, 1, 131075, 0, 1, 131076, 65536, 1, 131077, 0, 1, 131078, 65536, 1, 131079, 0, 1, 131080, 65536, 1, 196608, 0, 1, 196609, 65536, 1, 196610, 0, 1, 196611, 65536, 1, 196612, 0, 1, 196613, 65536, 1, 196614, 0, 1, 196615, 65536, 1, 262145, 0, 1, 262146, 65536, 1, 262147, 0, 1, 262148, 65536, 1, 262149, 0, 1, 262150, 65536, 1, 262151, 0, 1, 196616, 0, 1, 65544, 0, 1, 262144, 65536, 1, 131072, 65536, 1, 2, 65536, 1, 65538, 0, 1, 0, 65536, 1, 262152, 65536, 1, 327680, 65536, 2, 327681, 65536, 2, 327682, 65536, 2, 327683, 65536, 2, 327684, 65536, 2, 327685, 65536, 2, 327686, 65536, 2, 327687, 65536, 2, 327688, 65536, 2, 1, 0, 1, 65535, 0, 1, 131071, 65536, 1, 196607, 0, 1, 262143, 65536, 1, 327679, 0, 1, 393215, 0, 2, 9, 0, 3, 65545, 0, 3, 131081, 0, 3, 196617, 0, 3, 262153, 0, 3, 327689, 65536, 1, -65527, 65536, 3, -65529, 65536, 1, -65531, 65536, 1, -65533, 65536, 1, -65535, 65536, 1, -1, 65536, 1, -65536, 0, 1, -65534, 0, 1, -65532, 0, 1, -65530, 0, 1, -65528, 0, 1)
-layer_1/tile_data = PackedInt32Array()
+layer_1/name = "Layer1"
 script = ExtResource("4_oudqi")
 
 [node name="Cenario" type="Node2D" parent="."]
 
 [node name="Aquario" type="Sprite2D" parent="Cenario"]
+visible = false
 position = Vector2(136, -63)
 texture = ExtResource("4_14flb")
 
 [node name="Racao" type="Sprite2D" parent="Cenario"]
-position = Vector2(-21, 7)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
+position = Vector2(-58, -3)
+texture = ExtResource("5_mc1q2")
 
 [node name="Racao2" type="Sprite2D" parent="Cenario"]
-position = Vector2(-34, 16)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
+position = Vector2(-82, 9)
+texture = ExtResource("5_mc1q2")
 
 [node name="Racao3" type="Sprite2D" parent="Cenario"]
-position = Vector2(-22, 28)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
+position = Vector2(-51, 18)
+texture = ExtResource("5_mc1q2")
 
 [node name="Racao4" type="Sprite2D" parent="Cenario"]
-position = Vector2(-38, 28)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
+position = Vector2(-49, 88)
+texture = ExtResource("5_mc1q2")
 
 [node name="Racao5" type="Sprite2D" parent="Cenario"]
-position = Vector2(-34, 41)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
+position = Vector2(-74, 28)
+texture = ExtResource("5_mc1q2")
 
 [node name="Racao6" type="Sprite2D" parent="Cenario"]
-position = Vector2(-47, 53)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
+position = Vector2(-57, 43)
+texture = ExtResource("5_mc1q2")
 
 [node name="Racao7" type="Sprite2D" parent="Cenario"]
-position = Vector2(-24, 57)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
+position = Vector2(-55, 112)
+texture = ExtResource("5_mc1q2")
 
 [node name="Racao8" type="Sprite2D" parent="Cenario"]
-position = Vector2(-39, 73)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
+position = Vector2(-87, 53)
+texture = ExtResource("5_mc1q2")
 
 [node name="Racao9" type="Sprite2D" parent="Cenario"]
-position = Vector2(-23, 80)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
-
-[node name="Racao10" type="Sprite2D" parent="Cenario"]
-position = Vector2(-41, 89)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
+position = Vector2(-52, 64)
+texture = ExtResource("5_mc1q2")
 
 [node name="Racao11" type="Sprite2D" parent="Cenario"]
-position = Vector2(-27, 97)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
+position = Vector2(-75, 76)
+texture = ExtResource("5_mc1q2")
 
 [node name="Racao12" type="Sprite2D" parent="Cenario"]
-position = Vector2(-41, 103)
-scale = Vector2(0.0250501, 0.0250501)
-texture = ExtResource("3_sedi7")
+position = Vector2(-80, 97)
+texture = ExtResource("5_mc1q2")
+
+[node name="Armario1" type="Sprite2D" parent="Cenario"]
+position = Vector2(1, -34)
+texture = ExtResource("6_ji4nh")
+
+[node name="Armario2" type="Sprite2D" parent="Cenario"]
+position = Vector2(115, -34)
+texture = ExtResource("7_h12cu")
+
+[node name="Fogao" type="Sprite2D" parent="Cenario"]
+position = Vector2(171, -34)
+texture = ExtResource("8_5kk3b")
+
+[node name="Armario4" type="Sprite2D" parent="Cenario"]
+position = Vector2(229, -34)
+texture = ExtResource("6_ji4nh")
+
+[node name="Armario5" type="Sprite2D" parent="Cenario"]
+position = Vector2(287, -34)
+texture = ExtResource("7_h12cu")
+
+[node name="Armario3" type="Sprite2D" parent="Cenario"]
+position = Vector2(58, -34)
+texture = ExtResource("8_632vy")
+
+[node name="CamaDeGato" type="Sprite2D" parent="Cenario"]
+position = Vector2(-17, 10)
+texture = ExtResource("10_ss6la")
+
+[node name="CamaDeGato2" type="Sprite2D" parent="Cenario"]
+position = Vector2(-17, 36)
+texture = ExtResource("11_2yhys")
+
+[node name="CamaDeGato3" type="Sprite2D" parent="Cenario"]
+position = Vector2(-17, 83)
+texture = ExtResource("12_xxp62")
+
+[node name="CamaDeGato4" type="Sprite2D" parent="Cenario"]
+position = Vector2(-16, 59)
+texture = ExtResource("13_p23l3")
+
+[node name="CamaDeGato5" type="Sprite2D" parent="Cenario"]
+position = Vector2(-17, 108)
+texture = ExtResource("14_wanu3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(130, 22)
@@ -119,7 +157,7 @@ zoom = Vector2(2.2, 2.2)
 [node name="GameOverArea" type="Area2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="GameOverArea"]
-position = Vector2(-33, 159)
+position = Vector2(-23, 161)
 shape = SubResource("RectangleShape2D_3k68r")
 
 [node name="Lanes" type="Node2D" parent="."]

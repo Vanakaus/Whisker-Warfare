@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btu0sy5do6a8y"
-path="res://.godot/imported/roboPiramede.png-5169a820a1c67f19893e2e4c4c0ae3eb.ctex"
+uid="uid://dr6bhgkud4t3m"
+path="res://.godot/imported/gatoDeGarras.png-4b8bda3362fb0265e419cc68116cbf4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/robots/old/roboPiramede.png"
-dest_files=["res://.godot/imported/roboPiramede.png-5169a820a1c67f19893e2e4c4c0ae3eb.ctex"]
+source_file="res://assets/cats/gatoDeGarras.png"
+dest_files=["res://.godot/imported/gatoDeGarras.png-4b8bda3362fb0265e419cc68116cbf4c.ctex"]
 
 [params]
 
