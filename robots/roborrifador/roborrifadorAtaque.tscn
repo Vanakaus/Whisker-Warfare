@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://chg3xv4r73agf"]
+
+[ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/cats/gatoBolaPelo.png" id="2_gksp2"]
+[ext_resource type="Texture2D" uid="uid://b6pxp88ihted7" path="res://assets/robots/roborrifador.png" id="2_xeoc1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiqyl"]
+atlas = ExtResource("2_xeoc1")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrmnq"]
+atlas = ExtResource("2_xeoc1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eixtx"]
+atlas = ExtResource("2_xeoc1")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17422"]
+atlas = ExtResource("2_xeoc1")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0idy"]
+atlas = ExtResource("2_xeoc1")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ean4"]
+atlas = ExtResource("2_xeoc1")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nigoj"]
+atlas = ExtResource("2_xeoc1")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihuvf"]
+atlas = ExtResource("2_xeoc1")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_851nq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiqyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrmnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eixtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17422")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0idy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ean4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nigoj")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihuvf")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vo8t"]
+size = Vector2(11, 12)
+
+[node name="Soco" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(17, 6)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gksp2")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, -2)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_851nq")
+animation = &"attack"
+autoplay = "idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(16.5, 6)
+shape = SubResource("RectangleShape2D_7vo8t")
+debug_color = Color(0.846966, 0.376408, 3.85046e-07, 0.42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
