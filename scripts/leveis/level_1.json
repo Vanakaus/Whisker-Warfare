@@ -5,13 +5,18 @@
 		"fim": false
 	},
 	{
-		"tempo": 32,
+		"tempo": 26,
 		"inimigos": [0],
 		"fim": false
 	},
 	{
-		"tempo": 48,
+		"tempo": 36,
 		"inimigos": [0, 0],
+		"fim": false
+	},
+	{
+		"tempo": 48,
+		"inimigos": [0, 1],
 		"fim": false
 	},
 	{
@@ -31,22 +36,27 @@
 	},
 	{
 		"tempo": 125,
-		"inimigos": [0, 1],
+		"inimigos": [0, 1, 0],
 		"fim": false
 	},
 	{
 		"tempo": 140,
-		"inimigos": [0, 1],
+		"inimigos": [0, 2],
 		"fim": false
 	},
 	{
 		"tempo": 155,
-		"inimigos": [0, 1],
+		"inimigos": [0, 0, 2],
 		"fim": false
 	},
 	{
 		"tempo": 190,
-		"inimigos": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1],
+		"inimigos": [0, 2, 1, 0, 0, 2, 0, 1, 1, 0, 0, 1, 2],
+		"fim": false
+	},
+	{
+		"tempo": 200,
+		"inimigos": [3],
 		"fim": true
 	},
 ]
