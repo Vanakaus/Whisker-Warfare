@@ -1,17 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://d0yxhmun4v8ue"]
+[gd_scene load_steps=17 format=3 uid="uid://d0yxhmun4v8ue"]
 
 [ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/world/tileMap.png" id="1_ao3m3"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_sia1f"]
+[ext_resource type="Texture2D" uid="uid://dhlcisjnhi8mo" path="res://assets/world/cenario2.png" id="2_xx6eu"]
 [ext_resource type="Texture2D" uid="uid://bapaw2nceh57h" path="res://assets/world/aquario.png" id="4_14flb"]
 [ext_resource type="Script" path="res://scripts/tilemap.gd" id="4_oudqi"]
 [ext_resource type="Texture2D" uid="uid://cyh0vahy480ms" path="res://assets/world/tigelaRacao2.png" id="5_mc1q2"]
-[ext_resource type="Texture2D" uid="uid://cy502vvm38j7t" path="res://assets/world/armario-cozinha.png" id="6_ji4nh"]
 [ext_resource type="PackedScene" uid="uid://k8wpbqqbyid2" path="res://elements/hotbar.tscn" id="6_sqnmg"]
-[ext_resource type="Texture2D" uid="uid://bq5sq1l1byv6l" path="res://assets/world/armario-cozinha4.png" id="7_h12cu"]
-[ext_resource type="Texture2D" uid="uid://bxa6kkmb31fgx" path="res://assets/world/fogao.png" id="8_5kk3b"]
-[ext_resource type="Texture2D" uid="uid://bx2h1r30uhw33" path="res://assets/world/armario-cozinha3.png" id="8_632vy"]
 [ext_resource type="Texture2D" uid="uid://18ug6k6j7t7c" path="res://assets/world/camadegato.png" id="10_ss6la"]
 [ext_resource type="Texture2D" uid="uid://b3yigk05jt3m7" path="res://assets/world/camavermelha.png" id="11_2yhys"]
+[ext_resource type="Texture2D" uid="uid://bv4giepyjqs16" path="res://assets/world/cenario1.png" id="11_bl8rt"]
 [ext_resource type="Texture2D" uid="uid://cu536ep2bk4nk" path="res://assets/world/camaverde.png" id="12_xxp62"]
 [ext_resource type="Texture2D" uid="uid://ddxqhg2jblqbq" path="res://assets/world/camaamarela.png" id="13_p23l3"]
 [ext_resource type="Texture2D" uid="uid://cd0pc6bh7r4ag" path="res://assets/world/camaazul.png" id="14_wanu3"]
@@ -56,14 +54,14 @@ script = ExtResource("4_oudqi")
 
 [node name="Cenario" type="Node2D" parent="."]
 
+[node name="Parede" type="Sprite2D" parent="Cenario"]
+position = Vector2(141, -77)
+texture = ExtResource("2_xx6eu")
+
 [node name="Aquario" type="Sprite2D" parent="Cenario"]
 visible = false
 position = Vector2(136, -63)
 texture = ExtResource("4_14flb")
-
-[node name="Racao" type="Sprite2D" parent="Cenario"]
-position = Vector2(-58, -3)
-texture = ExtResource("5_mc1q2")
 
 [node name="Racao2" type="Sprite2D" parent="Cenario"]
 position = Vector2(-82, 9)
@@ -105,30 +103,6 @@ texture = ExtResource("5_mc1q2")
 position = Vector2(-80, 97)
 texture = ExtResource("5_mc1q2")
 
-[node name="Armario1" type="Sprite2D" parent="Cenario"]
-position = Vector2(1, -34)
-texture = ExtResource("6_ji4nh")
-
-[node name="Armario2" type="Sprite2D" parent="Cenario"]
-position = Vector2(115, -34)
-texture = ExtResource("7_h12cu")
-
-[node name="Fogao" type="Sprite2D" parent="Cenario"]
-position = Vector2(171, -34)
-texture = ExtResource("8_5kk3b")
-
-[node name="Armario4" type="Sprite2D" parent="Cenario"]
-position = Vector2(229, -34)
-texture = ExtResource("6_ji4nh")
-
-[node name="Armario5" type="Sprite2D" parent="Cenario"]
-position = Vector2(287, -34)
-texture = ExtResource("7_h12cu")
-
-[node name="Armario3" type="Sprite2D" parent="Cenario"]
-position = Vector2(58, -34)
-texture = ExtResource("8_632vy")
-
 [node name="CamaDeGato" type="Sprite2D" parent="Cenario"]
 position = Vector2(-17, 10)
 texture = ExtResource("10_ss6la")
@@ -148,6 +122,10 @@ texture = ExtResource("13_p23l3")
 [node name="CamaDeGato5" type="Sprite2D" parent="Cenario"]
 position = Vector2(-17, 108)
 texture = ExtResource("14_wanu3")
+
+[node name="Cenario1" type="Sprite2D" parent="Cenario"]
+position = Vector2(127, -53)
+texture = ExtResource("11_bl8rt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(130, 22)
