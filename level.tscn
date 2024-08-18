@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0yxhmun4v8ue"]
+[gd_scene load_steps=20 format=3 uid="uid://d0yxhmun4v8ue"]
 
 [ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/world/tileMap.png" id="1_ao3m3"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_sia1f"]
@@ -38,6 +38,10 @@ texture_region_size = Vector2i(34, 24)
 tile_size = Vector2i(34, 24)
 terrain_set_0/mode = 0
 sources/0 = SubResource("TileSetAtlasSource_v01ww")
+
+[sub_resource type="Theme" id="Theme_1pfkt"]
+
+[sub_resource type="Theme" id="Theme_v8wqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3k68r"]
 size = Vector2(33.25, 130)
@@ -155,10 +159,10 @@ offset_right = -258.0
 offset_bottom = -191.0
 
 [node name="EndScreen" type="MarginContainer" parent="UI"]
-offset_left = 341.0
-offset_top = 185.0
-offset_right = 484.0
-offset_bottom = 243.0
+offset_left = 454.0
+offset_top = 304.0
+offset_right = 597.0
+offset_bottom = 362.0
 metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/EndScreen"]
@@ -166,7 +170,19 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/EndScreen/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_1pfkt")
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 35
 text = "Teste testoso >.<"
+
+[node name="Label2" type="Label" parent="UI/EndScreen/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_v8wqr")
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 26
+text = "asdasdasd"
 
 [node name="PlayAgainButton" type="Button" parent="UI/EndScreen/VBoxContainer"]
 layout_mode = 2
@@ -175,7 +191,7 @@ text = "Jogar Novamente"
 [node name="GameOverArea" type="Area2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="GameOverArea"]
-position = Vector2(-17.375, 59)
+position = Vector2(-18, 60)
 shape = SubResource("RectangleShape2D_3k68r")
 
 [node name="Gatos" type="Node2D" parent="."]

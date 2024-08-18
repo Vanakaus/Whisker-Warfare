@@ -116,11 +116,13 @@ func _process(delta):
 func gameover():
 	# talvez limpar o cenário ou só fazer os bicho parar tem que ver isso dps
 	print("entrou na func do gameover")
-	$UI/EndScreen/VBoxContainer/Label.text = "Fim de Jogo. Os robôs penetraram a defensa felina."
+	$UI/EndScreen/VBoxContainer/Label.text = "Game Over"
+	$UI/EndScreen/VBoxContainer/Label2.text = "Os robôs penetraram a defensa felina. :c"
 	end_screen.visible = true
 
 func gamewon():
-	$UI/EndScreen/VBoxContainer/Label.text = "Level Concluído! Os gatinhos salvam o dia!"
+	$UI/EndScreen/VBoxContainer/Label.text = "Level Concluído!"
+	$UI/EndScreen/VBoxContainer/Label2.text =  "Os gatinhos salvam o dia! :D"
 	end_screen.visible = true
 
 func selecionarGato(gatoEscolhido):
