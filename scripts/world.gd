@@ -1,6 +1,6 @@
 extends Node2D
 
-var game_over = false
+var paused = false
 
 var tileSizeX = 34
 var tileSizeY = 24
@@ -11,12 +11,12 @@ var GridSizeX = 9;
 var GridSizeY = 5;
 var grid = {};
 
-
 @onready var gatos = [$Gatos/Lane1, $Gatos/Lane2, $Gatos/Lane3, $Gatos/Lane4, $Gatos/Lane5]
 @onready var robos = [$Robos/Lane1, $Robos/Lane2, $Robos/Lane3, $Robos/Lane4, $Robos/Lane5]
 @onready var tileMap = $TileMap
 @onready var hotbar = $Hotbar
-
+@onready var pause_menu = $UI/PauseMenu
+@onready var end_screen = $UI/EndScreen
 
 @onready var inimigos = [
 	preload("res://robots/chappie/chappie.tscn"),
@@ -63,10 +63,13 @@ func _ready():
 	if not error == OK:
 		print("JSON Parse Error: ", level.get_error_message(), " in ", content, " at line ", level.get_error_line())
 
+	pause_menu.visible = false
+	end_screen.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	timerMoney += delta
 	timer += delta
 	
@@ -110,11 +113,18 @@ func _process(delta):
 			
 			esperando = false
 
+func gameover():
+	# talvez limpar o cenário ou só fazer os bicho parar tem que ver isso dps
+	print("entrou na func do gameover")
+	$UI/EndScreen/VBoxContainer/Label.text = "Fim de Jogo. Os robôs penetraram a defensa felina."
+	end_screen.visible = true
 
+func gamewon():
+	$UI/EndScreen/VBoxContainer/Label.text = "Level Concluído! Os gatinhos salvam o dia!"
+	end_screen.visible = true
 
 func selecionarGato(gatoEscolhido):
 	gato = gatoEscolhido
-
 
 
 
@@ -174,6 +184,11 @@ func limpaGridTile(mousePosition):
 
 
 func _on_game_over_area_entered(area):
-	if "Robot" in area.name:
-		game_over = true
-		print("Perdemo")
+	if area.get_meta("tipo") == "Robot":
+		print("entrou na area do gameover")
+		gameover()
+		
+
+
+func _on_play_again_button_pressed() -> void:
+	get_tree().reload_current_scene()

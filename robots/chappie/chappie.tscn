@@ -92,7 +92,7 @@ size = Vector2(34, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oa5dm"]
 size = Vector2(34, 22)
 
-[node name="Gato" type="Area2D"]
+[node name="Chappie" type="Area2D"]
 script = ExtResource("1_354e8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
