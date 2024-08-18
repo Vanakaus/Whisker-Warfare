@@ -1,0 +1,191 @@
+[gd_scene load_steps=18 format=3 uid="uid://6oer14tp6evn"]
+
+[ext_resource type="Script" path="res://elements/instructions.gd" id="1_332nv"]
+[ext_resource type="Theme" uid="uid://c6hituudv1grl" path="res://elements/instruction_theme.tres" id="1_hculk"]
+[ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/cats/gatoBolaPelo.png" id="2_e5433"]
+[ext_resource type="Texture2D" uid="uid://syli1dgpm6hg" path="res://assets/robots/roboaspirador.png" id="3_iqpq0"]
+[ext_resource type="Texture2D" uid="uid://538t5ue4oy6k" path="res://assets/misc/rogerio_o_peixe.png" id="3_jx715"]
+[ext_resource type="Texture2D" uid="uid://bcodjyhjsb2db" path="res://assets/cats/gatoPau.png" id="4_gunyw"]
+[ext_resource type="Texture2D" uid="uid://bln16yreji4af" path="res://assets/misc/mouse.png" id="6_ald08"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq148"]
+atlas = ExtResource("2_e5433")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l07n7"]
+atlas = ExtResource("2_e5433")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0k3it"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq148")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l07n7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uplkw"]
+atlas = ExtResource("3_iqpq0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h8t1"]
+atlas = ExtResource("3_iqpq0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ka4w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uplkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h8t1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxkv7"]
+atlas = ExtResource("4_gunyw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sebpb"]
+atlas = ExtResource("4_gunyw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eclkf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxkv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sebpb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_ry8c7"]
+default_font_size = 30
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_332nv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1084.0
+offset_bottom = 731.0
+color = Color(0.990985, 1, 0.815232, 1)
+
+[node name="Gato1" type="AnimatedSprite2D" parent="."]
+position = Vector2(63, 70)
+scale = Vector2(3.4, 3.4)
+sprite_frames = SubResource("SpriteFrames_0k3it")
+
+[node name="Robo1" type="AnimatedSprite2D" parent="."]
+position = Vector2(1012, 69)
+scale = Vector2(3.2, 3.2)
+sprite_frames = SubResource("SpriteFrames_3ka4w")
+
+[node name="Roberto" type="Sprite2D" parent="."]
+position = Vector2(932, 194)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("3_jx715")
+
+[node name="Gato2" type="AnimatedSprite2D" parent="."]
+position = Vector2(74, 317)
+scale = Vector2(3.4, 3.4)
+sprite_frames = SubResource("SpriteFrames_eclkf")
+
+[node name="Mouse" type="Sprite2D" parent="."]
+position = Vector2(1004, 436)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("6_ald08")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 32.0
+offset_right = 934.0
+offset_bottom = 144.0
+theme = ExtResource("1_hculk")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 26
+text = "Os gatinhos são seus aliados para proteger a cozinha dos robôs 
+que querem dominar a casa.
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 154.0
+offset_right = 1667.0
+offset_bottom = 235.0
+theme = ExtResource("1_hculk")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 26
+text = "Os gatos gostam muito de peixes, e é com eles que você pode 
+organizar seu exército para defender sua cozinha."
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 281.0
+offset_right = 1863.0
+offset_bottom = 356.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 26
+text = "Com o preço certo de peixes, você pode utilizar o mouse para selecionar 
+qual gato você quer que te proteja com suas funções específicas."
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 399.0
+offset_right = 1634.0
+offset_bottom = 474.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 26
+text = "Selecionando o gato, você pode ainda com o mouse escolher qual espaço
+ na cozinha ele vai ocupar e qual linha ele vai defender."
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = -265.0
+offset_top = 507.0
+offset_right = 1341.0
+offset_bottom = 582.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 26
+text = "O objetivo é simples: os gatos devem impedir que os robôs atravessem a cozinha. 
+Se eles chegarem aos puffs dos gatos, é fim de jogo. Boa sorte!"
+horizontal_alignment = 1
+
+[node name="Voltar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 617.0
+offset_right = 599.0
+offset_bottom = 692.0
+theme = SubResource("Theme_ry8c7")
+text = "Voltar"
+
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]

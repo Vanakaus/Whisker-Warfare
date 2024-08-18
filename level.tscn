@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d0yxhmun4v8ue"]
+[gd_scene load_steps=21 format=3 uid="uid://d0yxhmun4v8ue"]
 
 [ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/world/tileMap.png" id="1_ao3m3"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_sia1f"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bv4giepyjqs16" path="res://assets/world/cenario1.png" id="11_bl8rt"]
 [ext_resource type="Texture2D" uid="uid://cu536ep2bk4nk" path="res://assets/world/camaverde.png" id="12_xxp62"]
 [ext_resource type="Texture2D" uid="uid://ddxqhg2jblqbq" path="res://assets/world/camaamarela.png" id="13_p23l3"]
+[ext_resource type="Texture2D" uid="uid://ptikibh3bmmb" path="res://assets/misc/botaum.png" id="14_f851n"]
 [ext_resource type="Texture2D" uid="uid://cd0pc6bh7r4ag" path="res://assets/world/camaazul.png" id="14_wanu3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v01ww"]
@@ -46,7 +47,7 @@ sources/0 = SubResource("TileSetAtlasSource_v01ww")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3k68r"]
 size = Vector2(33.25, 130)
 
-[node name="Word" type="Node2D"]
+[node name="World" type="Node2D"]
 script = ExtResource("1_sia1f")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -159,11 +160,16 @@ offset_right = -258.0
 offset_bottom = -191.0
 
 [node name="EndScreen" type="MarginContainer" parent="UI"]
-offset_left = 454.0
-offset_top = 304.0
-offset_right = 597.0
-offset_bottom = 362.0
+offset_left = 300.0
+offset_top = 276.0
+offset_right = 716.0
+offset_bottom = 435.0
 metadata/_edit_group_ = true
+
+[node name="botones" type="Sprite2D" parent="UI/EndScreen"]
+position = Vector2(236.5, 99)
+scale = Vector2(8.39063, 7.1875)
+texture = ExtResource("14_f851n")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/EndScreen"]
 layout_mode = 2
@@ -176,6 +182,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 35
 text = "Teste testoso >.<"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="UI/EndScreen/VBoxContainer"]
 layout_mode = 2
@@ -183,10 +190,16 @@ theme = SubResource("Theme_v8wqr")
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 26
 text = "asdasdasd"
+horizontal_alignment = 1
 
 [node name="PlayAgainButton" type="Button" parent="UI/EndScreen/VBoxContainer"]
 layout_mode = 2
 text = "Jogar Novamente"
+
+[node name="BackToMenuButton" type="Button" parent="UI/EndScreen/VBoxContainer"]
+layout_mode = 2
+text = "Voltar ao Menu
+"
 
 [node name="GameOverArea" type="Area2D" parent="."]
 
@@ -224,4 +237,5 @@ position = Vector2(-116, 122)
 [node name="Projeteis" type="Node2D" parent="."]
 
 [connection signal="pressed" from="UI/EndScreen/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="UI/EndScreen/VBoxContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_entered"]

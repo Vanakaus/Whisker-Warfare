@@ -6,7 +6,7 @@ var tileVariation1 = 0;
 var tileVariation2 = 1;
 
 
-@onready var word = $/root/Word
+@onready var world = $/root/World
 
 
 
@@ -14,8 +14,8 @@ var tileVariation2 = 1;
 func _ready():
 	
 #	Gerando o TileMap
-	for x in range(-1, word.GridSizeX):
-		for y in range(-1, word.GridSizeY):
+	for x in range(-1, world.GridSizeX):
+		for y in range(-1, world.GridSizeY):
 			
 #			Alternando entre as variações do TileMap
 			if (x + y) % 2:

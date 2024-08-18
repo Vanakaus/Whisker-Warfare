@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var mundo = $/root/Word
+@onready var mundo = $/root/World
 @onready var moneyLabel = get_node('FishQtd')
 
 

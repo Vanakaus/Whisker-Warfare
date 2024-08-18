@@ -1,0 +1,247 @@
+[gd_scene load_steps=29 format=3 uid="uid://d0v6soega4j3s"]
+
+[ext_resource type="Script" path="res://elements/main_menu.gd" id="1_i6prg"]
+[ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/cats/gatoBolaPelo.png" id="2_ldtc3"]
+[ext_resource type="Texture2D" uid="uid://bcodjyhjsb2db" path="res://assets/cats/gatoPau.png" id="3_f6vid"]
+[ext_resource type="Texture2D" uid="uid://bjw4np5ggxg1u" path="res://assets/cats/gatoSonico.png" id="4_7yi78"]
+[ext_resource type="Texture2D" uid="uid://cc5h7jq1ur57j" path="res://assets/robots/roborobo.png" id="5_d7r15"]
+[ext_resource type="Texture2D" uid="uid://b6pxp88ihted7" path="res://assets/robots/roborrifador.png" id="6_c76vr"]
+[ext_resource type="Texture2D" uid="uid://syli1dgpm6hg" path="res://assets/robots/roboaspirador.png" id="7_ycqmo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58rmy"]
+atlas = ExtResource("2_ldtc3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8p2r"]
+atlas = ExtResource("2_ldtc3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvx3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58rmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8p2r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t14e7"]
+atlas = ExtResource("3_f6vid")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dol3a"]
+atlas = ExtResource("3_f6vid")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xur1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t14e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dol3a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yr22"]
+atlas = ExtResource("4_7yi78")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sdxj"]
+atlas = ExtResource("4_7yi78")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6l8ge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yr22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sdxj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s4vd"]
+atlas = ExtResource("5_d7r15")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvnbg"]
+atlas = ExtResource("5_d7r15")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ees0w"]
+atlas = ExtResource("5_d7r15")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aqjfe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s4vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvnbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s4vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ees0w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plyi0"]
+atlas = ExtResource("6_c76vr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdhyw"]
+atlas = ExtResource("6_c76vr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yn16"]
+atlas = ExtResource("6_c76vr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hysn"]
+atlas = ExtResource("6_c76vr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8qmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plyi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdhyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yn16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hysn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jabxl"]
+atlas = ExtResource("7_ycqmo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn2gg"]
+atlas = ExtResource("7_ycqmo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rfr57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jabxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn2gg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i6prg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1082.0
+offset_bottom = 726.0
+color = Color(0.999999, 0.917192, 0.956545, 1)
+
+[node name="Gato1" type="AnimatedSprite2D" parent="."]
+position = Vector2(86, 252)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_jvx3r")
+
+[node name="Gato2" type="AnimatedSprite2D" parent="."]
+position = Vector2(193, 354)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_xur1l")
+
+[node name="Gato3" type="AnimatedSprite2D" parent="."]
+position = Vector2(83, 447)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_6l8ge")
+
+[node name="Robo1" type="AnimatedSprite2D" parent="."]
+position = Vector2(869, 352)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_aqjfe")
+
+[node name="Robo2" type="AnimatedSprite2D" parent="."]
+position = Vector2(988, 245)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_l8qmj")
+
+[node name="Robo3" type="AnimatedSprite2D" parent="."]
+position = Vector2(988, 453)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_rfr57")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 203.0
+offset_right = 542.0
+offset_bottom = 354.0
+scale = Vector2(2, 2)
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Whiskey Warfare"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameStart" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Jogar!"
+
+[node name="Instructions" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Instruções"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sair"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GameStart" to="." method="_on_game_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
