@@ -1,7 +1,7 @@
 extends Area2D
 
-@onready var mundo = $/root/Word
-@onready var projeteis = $/root/Word/Projeteis
+@onready var mundo = $/root/World
+@onready var projeteis = $/root/World/Projeteis
 
 var enemies_at_area = 0
 var ativa_ataque = 100

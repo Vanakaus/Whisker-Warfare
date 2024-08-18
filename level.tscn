@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d0yxhmun4v8ue"]
+[gd_scene load_steps=22 format=3 uid="uid://d0yxhmun4v8ue"]
 
 [ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/world/tileMap.png" id="1_ao3m3"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_sia1f"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cu536ep2bk4nk" path="res://assets/world/camaverde.png" id="12_xxp62"]
 [ext_resource type="Texture2D" uid="uid://ddxqhg2jblqbq" path="res://assets/world/camaamarela.png" id="13_p23l3"]
 [ext_resource type="Texture2D" uid="uid://ptikibh3bmmb" path="res://assets/misc/botaum.png" id="14_f851n"]
+[ext_resource type="Script" path="res://end_screen.gd" id="14_nmm6s"]
 [ext_resource type="Texture2D" uid="uid://cd0pc6bh7r4ag" path="res://assets/world/camaazul.png" id="14_wanu3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v01ww"]
@@ -151,6 +152,7 @@ position = Vector2(130, 22)
 zoom = Vector2(2.2, 2.2)
 
 [node name="UI" type="CanvasLayer" parent="."]
+process_mode = 2
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("2_kln6b")]
 visible = false
@@ -164,6 +166,7 @@ offset_left = 300.0
 offset_top = 276.0
 offset_right = 716.0
 offset_bottom = 435.0
+script = ExtResource("14_nmm6s")
 metadata/_edit_group_ = true
 
 [node name="botones" type="Sprite2D" parent="UI/EndScreen"]
@@ -204,7 +207,7 @@ text = "Voltar ao Menu
 [node name="GameOverArea" type="Area2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="GameOverArea"]
-position = Vector2(-18, 60)
+position = Vector2(289, 59)
 shape = SubResource("RectangleShape2D_3k68r")
 
 [node name="Gatos" type="Node2D" parent="."]

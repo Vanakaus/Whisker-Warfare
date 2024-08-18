@@ -113,17 +113,7 @@ func _process(delta):
 			
 			esperando = false
 
-func gameover():
-	# talvez limpar o cenário ou só fazer os bicho parar tem que ver isso dps
-	print("entrou na func do gameover")
-	$UI/EndScreen/VBoxContainer/Label.text = "Game Over"
-	$UI/EndScreen/VBoxContainer/Label2.text = "Os robôs superaram a defensa felina."
-	end_screen.visible = true
 
-func gamewon():
-	$UI/EndScreen/VBoxContainer/Label.text = "Level Concluído!"
-	$UI/EndScreen/VBoxContainer/Label2.text =  "Os gatinhos salvam o dia! :D"
-	end_screen.visible = true
 
 func selecionarGato(gatoEscolhido):
 	gato = gatoEscolhido
@@ -188,13 +178,15 @@ func limpaGridTile(mousePosition):
 func _on_game_over_area_entered(area):
 	if area.get_meta("tipo") == "Robot":
 		print("entrou na area do gameover")
-		gameover()
+		end_screen.gameover()
 		
 
 
 func _on_play_again_button_pressed() -> void:
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 
 func _on_back_to_menu_button_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://elements/main_menu.tscn")
