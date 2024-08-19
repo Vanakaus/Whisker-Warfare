@@ -37,6 +37,7 @@ func _process(delta):
 			fire_counter = 0
 			
 			$AnimatedSprite2D.play("idle")
+			$Attack.play()
 			$AnimatedSprite2D.play("attack")
 			await get_tree().create_timer(0.75).timeout
 			get_node("soco").position = Vector2(0, 0)

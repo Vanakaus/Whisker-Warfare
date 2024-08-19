@@ -17,7 +17,7 @@ var price
 
 
 func _ready():
-	pass
+	$Sons/Miado.play()
 
 
 
@@ -47,6 +47,7 @@ func _process(delta):
 			var bola = bolaPelo.instantiate()
 			
 			bola.atacar(global_position)
+			$Sons/Cuspe.play()
 			mundo.get_node('Projeteis').add_child(bola)
 			
 			verificador_ataque = 0

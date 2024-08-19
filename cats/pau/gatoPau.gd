@@ -15,7 +15,7 @@ var price
 
 
 func _ready():
-	pass
+	$Miado.play()
 
 
 
@@ -54,6 +54,8 @@ func _process(delta):
 			verificador_ataque = 0
 			
 			$AnimatedSprite2D.play("attack")
+			if randf_range(0, 100) < 40:
+				$Ataque.play()
 			porrete.atacar(global_position)
 			await get_tree().create_timer(0.2).timeout
 			$AnimatedSprite2D.play("idle")

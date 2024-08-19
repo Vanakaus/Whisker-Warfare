@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://d1on3dvn3gvo0"]
+[gd_scene load_steps=17 format=3 uid="uid://d1on3dvn3gvo0"]
 
 [ext_resource type="Script" path="res://robots/chappie/chappie.gd" id="1_354e8"]
 [ext_resource type="Texture2D" uid="uid://cc5h7jq1ur57j" path="res://assets/robots/roborobo.png" id="2_dyqgp"]
 [ext_resource type="Script" path="res://robots/chappie/chappieAtaque.gd" id="3_jxapc"]
+[ext_resource type="AudioStream" uid="uid://fq76m13wf46" path="res://assets/sons/robotsound.ogg" id="4_ym63t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iix2g"]
 atlas = ExtResource("2_dyqgp")
@@ -120,6 +121,9 @@ script = ExtResource("3_jxapc")
 position = Vector2(17, 12)
 shape = SubResource("RectangleShape2D_oa5dm")
 debug_color = Color(0.724584, 0.00248066, 0.940573, 0.42)
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ym63t")
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]

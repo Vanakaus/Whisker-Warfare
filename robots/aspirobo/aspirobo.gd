@@ -20,7 +20,7 @@ func _ready():
 	name = "Aspirobo"
 	set_meta("tipo", "Robot")
 	life = 150
-
+	$Aspirador.play()
 
 
 func _process(delta):

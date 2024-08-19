@@ -16,7 +16,7 @@ var price
 
 
 func _ready():
-	pass
+	$Miado.play()
 
 
 
@@ -47,6 +47,7 @@ func _process(delta):
 		
 		if verificador_ataque > delay_ataque:
 			var onda = ondas.instantiate()
+			$Grito.play()
 			onda.atacar(global_position)
 			mundo.get_node('Projeteis').add_child(onda)
 			verificador_ataque = 0

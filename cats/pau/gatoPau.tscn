@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8vx2rhbeu1mu"]
+[gd_scene load_steps=16 format=3 uid="uid://b8vx2rhbeu1mu"]
 
 [ext_resource type="Script" path="res://cats/pau/gatoPau.gd" id="1_75ibh"]
 [ext_resource type="Texture2D" uid="uid://bcodjyhjsb2db" path="res://assets/cats/gatoPau.png" id="2_wovh3"]
 [ext_resource type="Script" path="res://cats/pau/Porrada.gd" id="3_qyur0"]
+[ext_resource type="AudioStream" uid="uid://by24kjigw6o83" path="res://assets/sons/catmeowing.ogg" id="4_wpmgp"]
+[ext_resource type="AudioStream" uid="uid://rkjlducpbuj2" path="res://assets/sons/catattackclaws.ogg" id="5_k1s1k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6kgl"]
 atlas = ExtResource("2_wovh3")
@@ -106,6 +108,12 @@ script = ExtResource("3_qyur0")
 position = Vector2(17, 12)
 shape = SubResource("RectangleShape2D_oa5dm")
 debug_color = Color(0.724584, 0.00248066, 0.940573, 0.42)
+
+[node name="Miado" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wpmgp")
+
+[node name="Ataque" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_k1s1k")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
