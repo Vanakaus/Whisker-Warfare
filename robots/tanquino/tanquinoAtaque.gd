@@ -1,13 +1,13 @@
 extends Area2D
 
 var dano
-var speed = 0.4
+var speed = 0.35
 
 
 func _ready():
 	name = 'Pepino'
 	set_meta("tipo", "soco")
-	dano = 50
+	dano = 100
 
 
 func atacar(posicao):

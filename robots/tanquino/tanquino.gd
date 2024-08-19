@@ -7,7 +7,7 @@ var mundo
 
 
 var moving = true
-var speed = 0.35
+var speed = 0.16
 var lentidao = 1
 var lentidaoTimer = 1
 

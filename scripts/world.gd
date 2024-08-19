@@ -88,6 +88,7 @@ func _process(delta):
 					if robos[3].get_child_count() == 0:
 						if robos[4].get_child_count() == 0:
 							print("Acabou a fase")
+							end_screen.gamewon()
 							fimFase = true
 		
 		

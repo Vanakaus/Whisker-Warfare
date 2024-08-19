@@ -14,7 +14,7 @@ var tileVariation2 = 1;
 func _ready():
 	
 #	Gerando o TileMap
-	for x in range(-1, world.GridSizeX):
+	for x in range(0, world.GridSizeX):
 		for y in range(-1, world.GridSizeY):
 			
 #			Alternando entre as variações do TileMap

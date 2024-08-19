@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var mundo = $/root/Word
+@onready var mundo = $/root/World
 
 
 var enemies_at_area = 0
