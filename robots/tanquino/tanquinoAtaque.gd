@@ -18,7 +18,7 @@ func excluir():
 	queue_free()
 
 
-func _process(delta):
+func _process(_delta):
 	global_position -= Vector2(speed, 0)
 
 

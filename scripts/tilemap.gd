@@ -25,7 +25,7 @@ func _ready():
 
 
 
-func _process(delta):
+func _process(_delta):
 	# Seleção do tile com o mouse
 	if tileSelect != null and tileSelect[0] >= 0 and tileSelect[1] >= 0 and tileSelect[0] < 9  && tileSelect[1] < 5:
 		erase_cell(1, tileSelect)

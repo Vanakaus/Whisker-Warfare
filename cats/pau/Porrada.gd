@@ -17,5 +17,5 @@ func carregar():
 	global_position = Vector2(-1000, -1000)
 
 
-func _process(delta):
+func _process(_delta):
 	pass

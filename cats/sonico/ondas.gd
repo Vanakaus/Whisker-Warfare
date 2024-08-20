@@ -20,7 +20,7 @@ func excluir():
 	queue_free()
 
 
-func _process(delta):
+func _process(_delta):
 	global_position += Vector2(0.6, 0)
 
 

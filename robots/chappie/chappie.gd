@@ -79,23 +79,25 @@ func atualizaPosicao(posicao, mundoPai):
 func _on_detection_area_area_entered(area):
 	
 	
-	if area.get_meta("tipo") == "Cat":
-		moving = false
+	if area.has_meta("tipo"):
+		if area.get_meta("tipo") == "Cat":
+			moving = false
+		
+		
+		if area.get_meta("tipo") == "projetil":
+			life -= area.dano
+			area.excluir()
+		
+		
+		if area.get_meta("tipo") == "porrada":
+			life -= area.dano
 	
 	
-	if area.get_meta("tipo") == "projetil":
-		life -= area.dano
-		area.excluir()
-	
-	
-	if area.get_meta("tipo") == "porrada":
-		life -= area.dano
-	
-	
-	if area.get_meta("efeito") == "lentidao":
-		if area.lentidao < lentidao:
-			lentidao = area.lentidao
-			lentidaoTimer = 2
+	if area.has_meta("efeito"):
+		if area.get_meta("efeito") == "lentidao":
+			if area.lentidao < lentidao:
+				lentidao = area.lentidao
+				lentidaoTimer = 2
 	
 	
 	if life <= 0:

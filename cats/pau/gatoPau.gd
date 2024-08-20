@@ -19,7 +19,7 @@ func _ready():
 
 
 
-func criar(posicao):
+func criar():
 	name = "Gato da Dn Chica"
 	set_meta("tipo", "Cat")
 	life = 500

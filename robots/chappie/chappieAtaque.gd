@@ -9,5 +9,5 @@ func _ready():
 	dano = 28
 
 
-func _process(delta):
+func _process(_delta):
 	pass

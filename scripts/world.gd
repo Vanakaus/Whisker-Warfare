@@ -31,7 +31,7 @@ var grid = {};
 
 @onready var level
 
-@onready var money = 10000
+@onready var money = 500
 
 @onready var timerMoney = 0
 @onready var timer = 0
@@ -138,7 +138,7 @@ func _input(event):
 			if not grid[str(tileSelect)]["used"] and gato:
 				
 				var novoGato = gato.instantiate()
-				novoGato.criar(tileSelect)
+				novoGato.criar()
 				
 				if money >= novoGato.price:
 					grid[str(tileSelect)]["used"] = true
@@ -177,9 +177,10 @@ func limpaGridTile(mousePosition):
 
 
 func _on_game_over_area_entered(area):
-	if area.get_meta("tipo") == "Robot":
-		print("entrou na area do gameover")
-		end_screen.gameover()
+	if area.has_meta("tipo"):
+		if area.get_meta("tipo") == "Robot":
+			print("entrou na area do gameover")
+			end_screen.gameover()
 		
 
 
