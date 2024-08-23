@@ -7,10 +7,12 @@ extends Node2D
 @onready var gatoPelo = preload("res://cats/bolaDePelo/gatoPelo.tscn")
 @onready var gatoSonico = preload("res://cats/sonico/gatoSonico.tscn")
 @onready var gatoPau = preload("res://cats/pau/gatoPau.tscn")
+@onready var gatoDeGarras = preload("res://cats/garras/gatoGarras.tscn")
 
 @onready var gatoPeloButton = $GatoBolaDePeloButton
 @onready var gatoPauButton = $GatoDePauButton
 @onready var gatoSonicoButton = $GatoSonicButton
+@onready var gatoDeGarrasButton = $GatoDeGarrasButton
 
 func _ready():
 	pass # Replace with function body.
@@ -27,24 +29,32 @@ func setMoney(money):
 
 
 func limparEscolhas(escolha):
-	if escolha != 1:
-		gatoPeloButton.deselaciona()
 	if escolha != 2:
-		gatoPauButton.deselaciona()
+		gatoPeloButton.deselaciona()
 	if escolha != 3:
+		gatoPauButton.deselaciona()
+	if escolha != 4:
 		gatoSonicoButton.deselaciona()
+	if escolha != 5:
+		gatoDeGarrasButton.deselaciona()
 
 
 
 func _on_gato_bola_de_pelo_button_pressed():
-	limparEscolhas(1)
+	limparEscolhas(2)
 	mundo.selecionarGato(gatoPelo)
 
 
 func _on_gato_de_pau_button_pressed():
-	limparEscolhas(2)
+	limparEscolhas(3)
 	mundo.selecionarGato(gatoPau)
 
+
 func _on_gato_sonic_button_pressed():
-	limparEscolhas(3)
+	limparEscolhas(4)
 	mundo.selecionarGato(gatoSonico)
+
+
+func _on_gato_de_garras_button_pressed():
+	limparEscolhas(5)
+	mundo.selecionarGato(gatoDeGarras)

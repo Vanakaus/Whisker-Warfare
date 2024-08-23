@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://k8wpbqqbyid2"]
+[gd_scene load_steps=44 format=3 uid="uid://k8wpbqqbyid2"]
 
 [ext_resource type="Script" path="res://scripts/hotbar.gd" id="1_xwrf6"]
 [ext_resource type="Texture2D" uid="uid://c43c73j7fgfx2" path="res://assets/misc/parede.png" id="2_i221g"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://scripts/GatoDePauButton.gd" id="9_63rba"]
 [ext_resource type="Texture2D" uid="uid://bjw4np5ggxg1u" path="res://assets/cats/gatoSonico.png" id="9_cq5v3"]
 [ext_resource type="Script" path="res://scripts/GatoSonicButton.gd" id="10_bah8f"]
+[ext_resource type="Script" path="res://scripts/gatoDeGarrasButton.gd" id="12_oqfyp"]
+[ext_resource type="Texture2D" uid="uid://dr6bhgkud4t3m" path="res://assets/cats/gatoDeGarras.png" id="13_8t64m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdmrm"]
 texture = ExtResource("2_i221g")
@@ -208,6 +210,74 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_llbjn"]
+atlas = ExtResource("13_8t64m")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfcvk"]
+atlas = ExtResource("13_8t64m")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjhp3"]
+atlas = ExtResource("13_8t64m")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qdgq"]
+atlas = ExtResource("13_8t64m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p5ib"]
+atlas = ExtResource("13_8t64m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um8ek"]
+atlas = ExtResource("13_8t64m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxykr"]
+atlas = ExtResource("13_8t64m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xg0nm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llbjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfcvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjhp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qdgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p5ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qdgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p5ib")
+}],
+"loop": true,
+"name": &"action",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um8ek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxykr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
 [node name="Hotbar" type="Node2D"]
 script = ExtResource("1_xwrf6")
 
@@ -219,16 +289,16 @@ layer_0/tile_data = PackedInt32Array(0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0
 
 [node name="LevelLabel" type="Label" parent="."]
 offset_left = 14.0
-offset_top = 6.0
+offset_top = 8.0
 offset_right = 68.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 theme_override_font_sizes/font_size = 16
 text = "Level 1"
 
 [node name="FishQtd" type="Label" parent="."]
-offset_left = 43.0
+offset_left = 40.0
 offset_top = 34.0
-offset_right = 97.0
+offset_right = 94.0
 offset_bottom = 57.0
 theme_override_font_sizes/font_size = 16
 text = "275
@@ -236,14 +306,26 @@ text = "275
 
 [node name="Rogério" type="Sprite2D" parent="."]
 self_modulate = Color(0.964742, 0.964742, 0.964742, 1)
-position = Vector2(8, 30)
+position = Vector2(6, 32)
 texture = ExtResource("3_wx4di")
 centered = false
 
-[node name="GatoBolaDePeloButton" type="Button" parent="."]
-offset_left = 97.0
+[node name="AquarioButton" type="Button" parent="."]
+visible = false
+offset_left = 84.0
 offset_top = 8.0
-offset_right = 145.0
+offset_right = 132.0
+offset_bottom = 56.0
+metadata/_edit_group_ = true
+
+[node name="Frame" type="Sprite2D" parent="AquarioButton"]
+position = Vector2(24, 24)
+texture = ExtResource("5_fwt8m")
+
+[node name="GatoBolaDePeloButton" type="Button" parent="."]
+offset_left = 142.0
+offset_top = 8.0
+offset_right = 190.0
 offset_bottom = 56.0
 script = ExtResource("5_vq4bl")
 metadata/_edit_group_ = true
@@ -255,13 +337,13 @@ texture = ExtResource("5_fwt8m")
 [node name="GatoBolaDePelo" type="AnimatedSprite2D" parent="GatoBolaDePeloButton"]
 position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_n7gk4")
-animation = &"action"
-frame_progress = 0.38254
+animation = &"idle"
+frame_progress = 0.996054
 
 [node name="GatoDePauButton" type="Button" parent="."]
-offset_left = 158.0
+offset_left = 200.0
 offset_top = 8.0
-offset_right = 206.0
+offset_right = 248.0
 offset_bottom = 56.0
 script = ExtResource("9_63rba")
 metadata/_edit_group_ = true
@@ -274,12 +356,13 @@ texture = ExtResource("5_fwt8m")
 position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_wkhn0")
 animation = &"action"
+frame_progress = 0.140488
 
 [node name="GatoSonicButton" type="Button" parent="."]
-offset_left = 219.0
-offset_top = 9.0
-offset_right = 267.0
-offset_bottom = 57.0
+offset_left = 258.0
+offset_top = 8.0
+offset_right = 306.0
+offset_bottom = 56.0
 script = ExtResource("10_bah8f")
 metadata/_edit_group_ = true
 
@@ -292,9 +375,59 @@ position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_aypya")
 animation = &"idle"
 
+[node name="GatoDeGarrasButton" type="Button" parent="."]
+offset_left = 316.0
+offset_top = 8.0
+offset_right = 364.0
+offset_bottom = 56.0
+script = ExtResource("12_oqfyp")
+metadata/_edit_group_ = true
+
+[node name="Frame" type="Sprite2D" parent="GatoDeGarrasButton"]
+position = Vector2(24, 24)
+texture = ExtResource("5_fwt8m")
+
+[node name="GatoDeGarras" type="AnimatedSprite2D" parent="GatoDeGarrasButton"]
+position = Vector2(24, 24)
+sprite_frames = SubResource("SpriteFrames_xg0nm")
+animation = &"action"
+frame_progress = 0.521523
+
+[node name="AquarioButton3" type="Button" parent="."]
+visible = false
+offset_left = 374.0
+offset_top = 8.0
+offset_right = 422.0
+offset_bottom = 56.0
+metadata/_edit_group_ = true
+
+[node name="Frame" type="Sprite2D" parent="AquarioButton3"]
+position = Vector2(24, 24)
+texture = ExtResource("5_fwt8m")
+
+[node name="AquarioButton4" type="Button" parent="."]
+visible = false
+offset_left = 432.0
+offset_top = 8.0
+offset_right = 480.0
+offset_bottom = 56.0
+metadata/_edit_group_ = true
+
+[node name="Frame" type="Sprite2D" parent="AquarioButton4"]
+position = Vector2(24, 24)
+texture = ExtResource("5_fwt8m")
+
+[connection signal="pressed" from="AquarioButton" to="." method="_on_gato_bola_de_pelo_button_pressed"]
+[connection signal="pressed" from="AquarioButton" to="AquarioButton" method="_on_pressed"]
 [connection signal="pressed" from="GatoBolaDePeloButton" to="." method="_on_gato_bola_de_pelo_button_pressed"]
 [connection signal="pressed" from="GatoBolaDePeloButton" to="GatoBolaDePeloButton" method="_on_pressed"]
 [connection signal="pressed" from="GatoDePauButton" to="." method="_on_gato_de_pau_button_pressed"]
 [connection signal="pressed" from="GatoDePauButton" to="GatoDePauButton" method="_on_pressed"]
 [connection signal="pressed" from="GatoSonicButton" to="." method="_on_gato_sonic_button_pressed"]
 [connection signal="pressed" from="GatoSonicButton" to="GatoSonicButton" method="_on_pressed"]
+[connection signal="pressed" from="GatoDeGarrasButton" to="." method="_on_gato_de_garras_button_pressed"]
+[connection signal="pressed" from="GatoDeGarrasButton" to="GatoDeGarrasButton" method="_on_pressed"]
+[connection signal="pressed" from="AquarioButton3" to="." method="_on_gato_bola_de_pelo_button_pressed"]
+[connection signal="pressed" from="AquarioButton3" to="AquarioButton3" method="_on_pressed"]
+[connection signal="pressed" from="AquarioButton4" to="." method="_on_gato_bola_de_pelo_button_pressed"]
+[connection signal="pressed" from="AquarioButton4" to="AquarioButton4" method="_on_pressed"]
