@@ -8,6 +8,7 @@ extends Node2D
 @onready var gatoSonico = preload("res://cats/sonico/gatoSonico.tscn")
 @onready var gatoPau = preload("res://cats/pau/gatoPau.tscn")
 @onready var gatoDeGarras = preload("res://cats/garras/gatoGarras.tscn")
+@onready var gatoDeBotas = preload("res://cats/botas/gatoBotas.tscn")
 
 @onready var gatoPeloButton = $GatoBolaDePeloButton
 @onready var gatoPauButton = $GatoDePauButton
@@ -37,6 +38,8 @@ func limparEscolhas(escolha):
 		gatoSonicoButton.deselaciona()
 	if escolha != 5:
 		gatoDeGarrasButton.deselaciona()
+	if escolha != 6:
+		gatoDeGarrasButton.deselaciona()
 
 
 
@@ -58,3 +61,8 @@ func _on_gato_sonic_button_pressed():
 func _on_gato_de_garras_button_pressed():
 	limparEscolhas(5)
 	mundo.selecionarGato(gatoDeGarras)
+
+
+func _on_gato_de_botas_button_pressed():
+	limparEscolhas(6)
+	mundo.selecionarGato(gatoDeBotas)

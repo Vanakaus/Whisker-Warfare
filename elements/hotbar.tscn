@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://k8wpbqqbyid2"]
+[gd_scene load_steps=53 format=3 uid="uid://k8wpbqqbyid2"]
 
 [ext_resource type="Script" path="res://scripts/hotbar.gd" id="1_xwrf6"]
 [ext_resource type="Texture2D" uid="uid://c43c73j7fgfx2" path="res://assets/misc/parede.png" id="2_i221g"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://scripts/GatoSonicButton.gd" id="10_bah8f"]
 [ext_resource type="Script" path="res://scripts/gatoDeGarrasButton.gd" id="12_oqfyp"]
 [ext_resource type="Texture2D" uid="uid://dr6bhgkud4t3m" path="res://assets/cats/gatoDeGarras.png" id="13_8t64m"]
+[ext_resource type="Script" path="res://elements/GatoDeBotasButton.gd" id="14_p2ngi"]
+[ext_resource type="Texture2D" uid="uid://6vncte55otew" path="res://assets/cats/gatoDeBotas.png" id="15_mmyvq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdmrm"]
 texture = ExtResource("2_i221g")
@@ -278,6 +280,70 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lec02"]
+atlas = ExtResource("15_mmyvq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcxw2"]
+atlas = ExtResource("15_mmyvq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yib82"]
+atlas = ExtResource("15_mmyvq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kfp2"]
+atlas = ExtResource("15_mmyvq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g426l"]
+atlas = ExtResource("15_mmyvq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0r2u"]
+atlas = ExtResource("15_mmyvq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qdlvp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lec02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lec02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcxw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lec02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yib82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kfp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcxw2")
+}],
+"loop": true,
+"name": &"action",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g426l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0r2u")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
 [node name="Hotbar" type="Node2D"]
 script = ExtResource("1_xwrf6")
 
@@ -356,7 +422,7 @@ texture = ExtResource("5_fwt8m")
 position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_wkhn0")
 animation = &"action"
-frame_progress = 0.140488
+frame_progress = 0.618384
 
 [node name="GatoSonicButton" type="Button" parent="."]
 offset_left = 258.0
@@ -391,19 +457,24 @@ texture = ExtResource("5_fwt8m")
 position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_xg0nm")
 animation = &"action"
-frame_progress = 0.521523
 
-[node name="AquarioButton3" type="Button" parent="."]
-visible = false
+[node name="GatoDeBotasButton" type="Button" parent="."]
 offset_left = 374.0
 offset_top = 8.0
 offset_right = 422.0
 offset_bottom = 56.0
+script = ExtResource("14_p2ngi")
 metadata/_edit_group_ = true
 
-[node name="Frame" type="Sprite2D" parent="AquarioButton3"]
+[node name="Frame" type="Sprite2D" parent="GatoDeBotasButton"]
 position = Vector2(24, 24)
 texture = ExtResource("5_fwt8m")
+
+[node name="GatoDeBotas" type="AnimatedSprite2D" parent="GatoDeBotasButton"]
+position = Vector2(24, 24)
+sprite_frames = SubResource("SpriteFrames_qdlvp")
+animation = &"action"
+frame_progress = 0.659131
 
 [node name="AquarioButton4" type="Button" parent="."]
 visible = false
@@ -427,7 +498,7 @@ texture = ExtResource("5_fwt8m")
 [connection signal="pressed" from="GatoSonicButton" to="GatoSonicButton" method="_on_pressed"]
 [connection signal="pressed" from="GatoDeGarrasButton" to="." method="_on_gato_de_garras_button_pressed"]
 [connection signal="pressed" from="GatoDeGarrasButton" to="GatoDeGarrasButton" method="_on_pressed"]
-[connection signal="pressed" from="AquarioButton3" to="." method="_on_gato_bola_de_pelo_button_pressed"]
-[connection signal="pressed" from="AquarioButton3" to="AquarioButton3" method="_on_pressed"]
+[connection signal="pressed" from="GatoDeBotasButton" to="." method="_on_gato_de_botas_button_pressed"]
+[connection signal="pressed" from="GatoDeBotasButton" to="GatoDeBotasButton" method="_on_pressed"]
 [connection signal="pressed" from="AquarioButton4" to="." method="_on_gato_bola_de_pelo_button_pressed"]
 [connection signal="pressed" from="AquarioButton4" to="AquarioButton4" method="_on_pressed"]

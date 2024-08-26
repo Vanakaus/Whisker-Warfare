@@ -1,0 +1,120 @@
+[gd_scene load_steps=16 format=3 uid="uid://c6kwkdlnyfu3d"]
+
+[ext_resource type="Script" path="res://cats/botas/gatoBotas.gd" id="1_dpk2v"]
+[ext_resource type="Texture2D" uid="uid://6vncte55otew" path="res://assets/cats/gatoDeBotas.png" id="3_2be3d"]
+[ext_resource type="Script" path="res://cats/botas/Porrada.gd" id="3_yt0ns"]
+[ext_resource type="AudioStream" uid="uid://by24kjigw6o83" path="res://assets/sons/catmeowing.ogg" id="4_08mov"]
+[ext_resource type="AudioStream" uid="uid://rkjlducpbuj2" path="res://assets/sons/catattackclaws.ogg" id="5_1gjhr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix165"]
+atlas = ExtResource("3_2be3d")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fri6"]
+atlas = ExtResource("3_2be3d")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cp1g"]
+atlas = ExtResource("3_2be3d")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho7jk"]
+atlas = ExtResource("3_2be3d")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw2y6"]
+atlas = ExtResource("3_2be3d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx3po"]
+atlas = ExtResource("3_2be3d")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2fqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix165")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fri6")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cp1g")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho7jk")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw2y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx3po")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgo47"]
+size = Vector2(25.5, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhufm"]
+size = Vector2(34, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oa5dm"]
+size = Vector2(34, 22)
+
+[node name="Gato" type="Area2D"]
+script = ExtResource("1_dpk2v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 6)
+sprite_frames = SubResource("SpriteFrames_o2fqj")
+animation = &"hit"
+autoplay = "idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(16.75, 12)
+shape = SubResource("RectangleShape2D_dgo47")
+debug_color = Color(0.846966, 0.376408, 3.85046e-07, 0.42)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="DetectionCollision" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(17, 12)
+shape = SubResource("RectangleShape2D_vhufm")
+debug_color = Color(0, 0.590072, 0.753842, 0.42)
+
+[node name="Porrada" type="Area2D" parent="."]
+script = ExtResource("3_yt0ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Porrada"]
+position = Vector2(17, 12)
+shape = SubResource("RectangleShape2D_oa5dm")
+debug_color = Color(0.724584, 0.00248066, 0.940573, 0.42)
+
+[node name="Miado" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_08mov")
+
+[node name="Ataque" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_1gjhr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
