@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://k8wpbqqbyid2"]
+[gd_scene load_steps=61 format=3 uid="uid://k8wpbqqbyid2"]
 
 [ext_resource type="Script" path="res://scripts/hotbar.gd" id="1_xwrf6"]
 [ext_resource type="Texture2D" uid="uid://c43c73j7fgfx2" path="res://assets/misc/parede.png" id="2_i221g"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dr6bhgkud4t3m" path="res://assets/cats/gatoDeGarras.png" id="13_8t64m"]
 [ext_resource type="Script" path="res://elements/GatoDeBotasButton.gd" id="14_p2ngi"]
 [ext_resource type="Texture2D" uid="uid://6vncte55otew" path="res://assets/cats/gatoDeBotas.png" id="15_mmyvq"]
+[ext_resource type="Script" path="res://elements/CaixaDeAreiaButton.gd" id="16_eitd4"]
+[ext_resource type="Texture2D" uid="uid://b4uqp62c7rm75" path="res://assets/cats/gatoAreia.png" id="16_h7r8q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdmrm"]
 texture = ExtResource("2_i221g")
@@ -344,6 +346,54 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jntd"]
+atlas = ExtResource("16_h7r8q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsehv"]
+atlas = ExtResource("16_h7r8q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej7rc"]
+atlas = ExtResource("16_h7r8q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usr6r"]
+atlas = ExtResource("16_h7r8q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppiq4"]
+atlas = ExtResource("16_h7r8q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w4i3c"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_5jntd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsehv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej7rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usr6r")
+}],
+"loop": true,
+"name": &"action",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppiq4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="Hotbar" type="Node2D"]
 script = ExtResource("1_xwrf6")
 
@@ -422,7 +472,7 @@ texture = ExtResource("5_fwt8m")
 position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_wkhn0")
 animation = &"action"
-frame_progress = 0.618384
+frame_progress = 0.945431
 
 [node name="GatoSonicButton" type="Button" parent="."]
 offset_left = 258.0
@@ -474,19 +524,25 @@ texture = ExtResource("5_fwt8m")
 position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_qdlvp")
 animation = &"action"
-frame_progress = 0.659131
+frame_progress = 0.814784
 
-[node name="AquarioButton4" type="Button" parent="."]
-visible = false
+[node name="CaixaDeAreiaButton" type="Button" parent="."]
 offset_left = 432.0
 offset_top = 8.0
 offset_right = 480.0
 offset_bottom = 56.0
+script = ExtResource("16_eitd4")
 metadata/_edit_group_ = true
 
-[node name="Frame" type="Sprite2D" parent="AquarioButton4"]
+[node name="Frame" type="Sprite2D" parent="CaixaDeAreiaButton"]
 position = Vector2(24, 24)
 texture = ExtResource("5_fwt8m")
+
+[node name="CaixaDeAreia" type="AnimatedSprite2D" parent="CaixaDeAreiaButton"]
+position = Vector2(24, 25)
+sprite_frames = SubResource("SpriteFrames_w4i3c")
+animation = &"action"
+frame_progress = 0.159413
 
 [connection signal="pressed" from="AquarioButton" to="." method="_on_gato_bola_de_pelo_button_pressed"]
 [connection signal="pressed" from="AquarioButton" to="AquarioButton" method="_on_pressed"]
@@ -500,5 +556,5 @@ texture = ExtResource("5_fwt8m")
 [connection signal="pressed" from="GatoDeGarrasButton" to="GatoDeGarrasButton" method="_on_pressed"]
 [connection signal="pressed" from="GatoDeBotasButton" to="." method="_on_gato_de_botas_button_pressed"]
 [connection signal="pressed" from="GatoDeBotasButton" to="GatoDeBotasButton" method="_on_pressed"]
-[connection signal="pressed" from="AquarioButton4" to="." method="_on_gato_bola_de_pelo_button_pressed"]
-[connection signal="pressed" from="AquarioButton4" to="AquarioButton4" method="_on_pressed"]
+[connection signal="pressed" from="CaixaDeAreiaButton" to="." method="_on_caixa_de_areia_button_pressed"]
+[connection signal="pressed" from="CaixaDeAreiaButton" to="CaixaDeAreiaButton" method="_on_pressed"]
