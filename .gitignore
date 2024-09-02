@@ -5,6 +5,9 @@
 *.tmp
 */*.tmp
 
+# Pasta com os builds do jogo
+builds/*
+
 # Godot-specific ignores
 .import/
 export.cfg
