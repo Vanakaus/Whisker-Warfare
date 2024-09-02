@@ -6,7 +6,7 @@
 */*.tmp
 
 # Pasta com os builds do jogo
-builds/*
+builds/
 
 # Godot-specific ignores
 .import/
