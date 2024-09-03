@@ -1,0 +1,83 @@
+extends Area2D
+
+@onready var mundo = $/root/World
+
+
+var estagio = 0
+
+var life
+var price
+
+
+var ativa = 20
+var timer = 0
+var dinheiro = 50
+
+
+
+func _ready():
+	#$Miado.play()
+	pass
+
+
+
+func criar():
+	name = "Aquario"
+	set_meta("tipo", "Cat")
+	life = 100
+	price = 50
+
+
+
+func colocar(posicao, mundo):
+	global_position = posicao * Vector2i(mundo.tileSizeX, mundo.tileSizeY)
+
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	timer += delta
+	
+	if timer >= ativa:
+		mundo.geraDinheiro(dinheiro)
+		timer = 0
+
+
+
+func _input(event):
+	# Verificar se o evento é um clique de mouse
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE and event.is_pressed():
+		var mouseClick = get_local_mouse_position()
+		if mouseClick[0] > 0 and mouseClick[0] < mundo.tileSizeX:
+			if mouseClick[1] > 0 and mouseClick[1] < mundo.tileSizeY:
+				excluir()
+
+
+
+func excluir():
+	if global_position:
+		mundo.limpaGridTile(global_position)
+	queue_free()
+	
+
+
+func _on_area_entered(area):
+	if area.has_meta("tipo"):
+		if area.get_meta("tipo") == "soco":
+			life -= area.dano
+		
+		if life <= 300 and estagio != 1:
+			estagio = 1
+			$AnimatedSprite2D.play("estagio1")
+		
+		if life <= 200 and estagio != 2:
+			estagio = 2
+			$AnimatedSprite2D.play("estagio2")
+		
+		if life <= 100 and estagio != 1:
+			estagio = 3
+			$AnimatedSprite2D.play("estagio3")
+		
+		if life <= 0:
+			excluir()

@@ -7,12 +7,12 @@ var tileSizeY = 24
 var detectionIncrementX = tileSizeX/2
 var detectionIncrementY = tileSizeY/2
 
-var GridSizeX = 9;
-var GridSizeY = 5;
-var grid = {};
+var GridSizeX = 9
+var GridSizeY = 5
+var grid = {}
 
-@onready var gatos = [$Gatos/Lane1, $Gatos/Lane2, $Gatos/Lane3, $Gatos/Lane4, $Gatos/Lane5]
-@onready var robos = [$Robos/Lane1, $Robos/Lane2, $Robos/Lane3, $Robos/Lane4, $Robos/Lane5]
+@onready var gatos = [$Lanes/Lane1/Gatos, $Lanes/Lane2/Gatos, $Lanes/Lane3/Gatos, $Lanes/Lane4/Gatos, $Lanes/Lane5/Gatos]
+@onready var robos = [$Lanes/Lane1/Robos, $Lanes/Lane2/Robos, $Lanes/Lane3/Robos, $Lanes/Lane4/Robos, $Lanes/Lane5/Robos]
 @onready var tileMap = $TileMap
 @onready var hotbar = $Hotbar
 @onready var pause_menu = $UI/PauseMenu
@@ -31,7 +31,7 @@ var grid = {};
 
 @onready var level
 
-@onready var money = 500
+@onready var money = 200
 
 @onready var timerMoney = 0
 @onready var timer = 0
@@ -76,8 +76,8 @@ func _process(delta):
 	if fimFase:
 		return
 	
-	if timerMoney >= 5:
-		money += 20;
+	if timerMoney >= 30:
+		money += 50;
 		hotbar.setMoney(money)
 		timerMoney = 0
 	
@@ -118,6 +118,14 @@ func _process(delta):
 
 func selecionarGato(gatoEscolhido):
 	gato = gatoEscolhido
+
+
+
+
+func geraDinheiro(dinheiro):
+	money += dinheiro
+	hotbar.setMoney(money)
+
 
 
 

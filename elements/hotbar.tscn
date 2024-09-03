@@ -1,13 +1,15 @@
-[gd_scene load_steps=61 format=3 uid="uid://k8wpbqqbyid2"]
+[gd_scene load_steps=80 format=3 uid="uid://k8wpbqqbyid2"]
 
 [ext_resource type="Script" path="res://scripts/hotbar.gd" id="1_xwrf6"]
 [ext_resource type="Texture2D" uid="uid://c43c73j7fgfx2" path="res://assets/misc/parede.png" id="2_i221g"]
 [ext_resource type="Texture2D" uid="uid://dwp23o46saojc" path="res://assets/misc/parede_borda.png" id="3_ukb0h"]
 [ext_resource type="Texture2D" uid="uid://538t5ue4oy6k" path="res://assets/misc/rogerio_o_peixe.png" id="3_wx4di"]
 [ext_resource type="Texture2D" uid="uid://10hoae4dhy3r" path="res://assets/misc/parede_gato.png" id="5_fwt8m"]
+[ext_resource type="Script" path="res://elements/aquarioButton.gd" id="5_ktej8"]
 [ext_resource type="Script" path="res://scripts/GatoBolaDePeloButton.gd" id="5_vq4bl"]
 [ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/cats/gatoBolaPelo.png" id="6_gny0a"]
 [ext_resource type="Texture2D" uid="uid://bcodjyhjsb2db" path="res://assets/cats/gatoPau.png" id="7_bh45y"]
+[ext_resource type="Texture2D" uid="uid://cx71t7g7alniq" path="res://assets/cats/aquario.png" id="7_y0dhe"]
 [ext_resource type="Script" path="res://scripts/GatoDePauButton.gd" id="9_63rba"]
 [ext_resource type="Texture2D" uid="uid://bjw4np5ggxg1u" path="res://assets/cats/gatoSonico.png" id="9_cq5v3"]
 [ext_resource type="Script" path="res://scripts/GatoSonicButton.gd" id="10_bah8f"]
@@ -32,6 +34,131 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_pdmrm")
 sources/1 = SubResource("TileSetAtlasSource_xwwsn")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yis0"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blsbc"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qldvm"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krw82"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxbwb"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suinl"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddge7"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7pi3"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6vco"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ujlf"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v2v2"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkjpf"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fona"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqeas"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e6gm"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ts1f"]
+atlas = ExtResource("7_y0dhe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dsuoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yis0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blsbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qldvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krw82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxbwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suinl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddge7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7pi3")
+}],
+"loop": true,
+"name": &"action",
+"speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6vco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ujlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v2v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkjpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fona")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqeas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e6gm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ts1f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3g6o6"]
 atlas = ExtResource("6_gny0a")
@@ -427,16 +554,22 @@ texture = ExtResource("3_wx4di")
 centered = false
 
 [node name="AquarioButton" type="Button" parent="."]
-visible = false
 offset_left = 84.0
 offset_top = 8.0
 offset_right = 132.0
 offset_bottom = 56.0
+script = ExtResource("5_ktej8")
 metadata/_edit_group_ = true
 
 [node name="Frame" type="Sprite2D" parent="AquarioButton"]
 position = Vector2(24, 24)
 texture = ExtResource("5_fwt8m")
+
+[node name="Aquario" type="AnimatedSprite2D" parent="AquarioButton"]
+position = Vector2(24, 24)
+sprite_frames = SubResource("SpriteFrames_dsuoj")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="GatoBolaDePeloButton" type="Button" parent="."]
 offset_left = 142.0
@@ -544,7 +677,7 @@ sprite_frames = SubResource("SpriteFrames_w4i3c")
 animation = &"action"
 frame_progress = 0.159413
 
-[connection signal="pressed" from="AquarioButton" to="." method="_on_gato_bola_de_pelo_button_pressed"]
+[connection signal="pressed" from="AquarioButton" to="." method="_on_aquario_button_pressed"]
 [connection signal="pressed" from="AquarioButton" to="AquarioButton" method="_on_pressed"]
 [connection signal="pressed" from="GatoBolaDePeloButton" to="." method="_on_gato_bola_de_pelo_button_pressed"]
 [connection signal="pressed" from="GatoBolaDePeloButton" to="GatoBolaDePeloButton" method="_on_pressed"]

@@ -214,29 +214,37 @@ text = "Voltar ao Menu
 position = Vector2(-16, 59)
 shape = SubResource("RectangleShape2D_3k68r")
 
-[node name="Gatos" type="Node2D" parent="."]
+[node name="Lanes" type="Node2D" parent="."]
 
-[node name="Lane1" type="Node2D" parent="Gatos"]
+[node name="Lane1" type="Node2D" parent="Lanes"]
 
-[node name="Lane2" type="Node2D" parent="Gatos"]
+[node name="Gatos" type="Node2D" parent="Lanes/Lane1"]
 
-[node name="Lane3" type="Node2D" parent="Gatos"]
+[node name="Robos" type="Node2D" parent="Lanes/Lane1"]
 
-[node name="Lane4" type="Node2D" parent="Gatos"]
+[node name="Lane2" type="Node2D" parent="Lanes"]
 
-[node name="Lane5" type="Node2D" parent="Gatos"]
+[node name="Gatos" type="Node2D" parent="Lanes/Lane2"]
 
-[node name="Robos" type="Node2D" parent="."]
+[node name="Robos" type="Node2D" parent="Lanes/Lane2"]
 
-[node name="Lane1" type="Node2D" parent="Robos"]
+[node name="Lane3" type="Node2D" parent="Lanes"]
 
-[node name="Lane2" type="Node2D" parent="Robos"]
+[node name="Gatos" type="Node2D" parent="Lanes/Lane3"]
 
-[node name="Lane3" type="Node2D" parent="Robos"]
+[node name="Robos" type="Node2D" parent="Lanes/Lane3"]
 
-[node name="Lane4" type="Node2D" parent="Robos"]
+[node name="Lane4" type="Node2D" parent="Lanes"]
 
-[node name="Lane5" type="Node2D" parent="Robos"]
+[node name="Gatos" type="Node2D" parent="Lanes/Lane4"]
+
+[node name="Robos" type="Node2D" parent="Lanes/Lane4"]
+
+[node name="Lane5" type="Node2D" parent="Lanes"]
+
+[node name="Gatos" type="Node2D" parent="Lanes/Lane5"]
+
+[node name="Robos" type="Node2D" parent="Lanes/Lane5"]
 
 [node name="Hotbar" parent="." instance=ExtResource("6_sqnmg")]
 position = Vector2(-116, 122)

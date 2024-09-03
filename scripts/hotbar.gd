@@ -4,6 +4,7 @@ extends Node2D
 @onready var moneyLabel = get_node('FishQtd')
 
 
+@onready var aquario = preload("res://cats/aquario/aquario.tscn")
 @onready var gatoPelo = preload("res://cats/bolaDePelo/gatoPelo.tscn")
 @onready var gatoSonico = preload("res://cats/sonico/gatoSonico.tscn")
 @onready var gatoPau = preload("res://cats/pau/gatoPau.tscn")
@@ -11,6 +12,7 @@ extends Node2D
 @onready var gatoDeBotas = preload("res://cats/botas/gatoBotas.tscn")
 @onready var caixaDeAreia = preload("res://cats/caixa/caixaDeAreia.tscn")
 
+@onready var aquarioButton = $AquarioButton
 @onready var gatoPeloButton = $GatoBolaDePeloButton
 @onready var gatoPauButton = $GatoDePauButton
 @onready var gatoSonicoButton = $GatoSonicButton
@@ -33,6 +35,8 @@ func setMoney(money):
 
 
 func limparEscolhas(escolha):
+	if escolha != 1:
+		aquarioButton.deselaciona()
 	if escolha != 2:
 		gatoPeloButton.deselaciona()
 	if escolha != 3:
@@ -46,6 +50,11 @@ func limparEscolhas(escolha):
 	if escolha != 7:
 		caixaDeAreiaButton.deselaciona()
 
+
+
+func _on_aquario_button_pressed():
+	limparEscolhas(1)
+	mundo.selecionarGato(aquario)
 
 
 func _on_gato_bola_de_pelo_button_pressed():
