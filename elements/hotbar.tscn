@@ -594,6 +594,7 @@ offset_left = 200.0
 offset_top = 8.0
 offset_right = 248.0
 offset_bottom = 56.0
+action_mode = 0
 script = ExtResource("9_63rba")
 metadata/_edit_group_ = true
 

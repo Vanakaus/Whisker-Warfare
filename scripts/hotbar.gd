@@ -20,8 +20,51 @@ extends Node2D
 @onready var gatoDeBotasButton = $GatoDeBotasButton
 @onready var caixaDeAreiaButton = $CaixaDeAreiaButton
 
+
+@onready var plantas
+
+
+
 func _ready():
-	pass # Replace with function body.
+	#Carregando o script do level 1
+	var file = FileAccess.open("res://scripts/leveis/level_plantas.json", FileAccess.READ)
+	var content = file.get_as_text()
+	file.close()
+	
+	plantas = JSON.new()
+	var error = plantas.parse(content)
+	if not error == OK:
+		print("JSON Parse Error: ", plantas.get_error_message(), " in ", content, " at line ", plantas.get_error_line())
+	else:
+		
+		if not plantas.data.aquario[0]:
+			aquarioButton.get_node("Aquario").modulate = Color(0.1, 0.1, 0.1, 1)
+			aquarioButton.disabled = false
+		
+		if not plantas.data.gatoPelo[0]:
+			gatoPeloButton.get_node("GatoBolaDePelo").modulate = Color(0.1, 0.1, 0.1, 1)
+			gatoPeloButton.disabled = false
+		
+		if not plantas.data.gatoPau[0]:
+			gatoPauButton.get_node("GatoDePau").modulate = Color(0.1, 0.1, 0.1, 1)
+			gatoPauButton.disabled = false
+		
+		if not plantas.data.gatoSonico[0]:
+			gatoSonicoButton.get_node("GatoSonico").modulate = Color(0.1, 0.1, 0.1, 1)
+			gatoSonicoButton.disabled = false
+		
+		if not plantas.data.gatGarras[0]:
+			gatoDeGarrasButton.get_node("GatoDeGarras").modulate = Color(0.1, 0.1, 0.1, 1)
+			gatoDeGarrasButton.disabled = false
+		
+		if not plantas.data.gatoBotas[0]:
+			gatoDeBotasButton.get_node("GatoDeBotas").modulate = Color(0.1, 0.1, 0.1, 1)
+			gatoDeBotasButton.disabled = false
+		
+		if not plantas.data.caixaAreia[0]:
+			caixaDeAreiaButton.get_node("CaixaDeAreia").modulate = Color(0.1, 0.1, 0.1, 1)
+			caixaDeAreiaButton.disabled = false
+	
 
 
 
@@ -35,6 +78,8 @@ func setMoney(money):
 
 
 func limparEscolhas(escolha):
+	mundo.selecionarGato(null)
+	
 	if escolha != 1:
 		aquarioButton.deselaciona()
 	if escolha != 2:
@@ -63,8 +108,11 @@ func _on_gato_bola_de_pelo_button_pressed():
 
 
 func _on_gato_de_pau_button_pressed():
-	limparEscolhas(3)
-	mundo.selecionarGato(gatoPau)
+	if plantas.data.gatoPau[0]:
+		limparEscolhas(3)
+		mundo.selecionarGato(gatoPau)
+	else:
+		limparEscolhas(0)
 
 
 func _on_gato_sonic_button_pressed():
