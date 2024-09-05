@@ -20,6 +20,7 @@ var grid = {}
 
 @onready var inimigos = [
 	preload("res://robots/chappie/chappie.tscn"),
+	preload("res://robots/eurobo/eurobo.tscn"),
 	preload("res://robots/aspirobo/aspirobo.tscn"),
 	preload("res://robots/roborrifador/roborrifador.tscn"),
 	preload("res://robots/tanquino/tanquino.tscn"),
@@ -193,7 +194,6 @@ func _on_game_over_area_entered(area):
 
 
 func _on_play_again_button_pressed() -> void:
-	LevelData.level += 1
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 

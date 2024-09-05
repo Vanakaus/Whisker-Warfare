@@ -39,12 +39,6 @@ func _ready():
 	if not error == OK:
 		print("JSON Parse Error: ", plantas.get_error_message(), " in ", content, " at line ", plantas.get_error_line())
 	else:
-		
-		print(plantas)
-		print(plantas.data)
-		print(plantas.data.gatoPau)
-		print(plantas.data.gatoPau[LevelData.level-1])
-		
 		if not plantas.data.aquario[LevelData.level-1]:
 			aquarioButton.get_node("Aquario").modulate = Color(0.1, 0.1, 0.1, 1)
 			aquarioButton.disabled = false

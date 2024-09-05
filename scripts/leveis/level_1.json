@@ -1,32 +1,47 @@
 [
 	{
-		"tempo": 15,
+		"tempo": 16,
 		"inimigos": [0],
 		"fim": false
 	},
 	{
-		"tempo": 26,
+		"tempo": 24,
 		"inimigos": [0],
 		"fim": false
 	},
 	{
-		"tempo": 36,
+		"tempo": 38,
 		"inimigos": [0, 0],
 		"fim": false
 	},
 	{
 		"tempo": 48,
-		"inimigos": [0, 1],
+		"inimigos": [0],
 		"fim": false
 	},
 	{
-		"tempo": 65,
+		"tempo": 52,
+		"inimigos": [0],
+		"fim": false
+	},
+	{
+		"tempo": 62,
 		"inimigos": [0, 0],
 		"fim": false
 	},
 	{
-		"tempo": 82,
-		"inimigos": [1],
+		"tempo": 72,
+		"inimigos": [0],
+		"fim": false
+	},
+	{
+		"tempo": 85,
+		"inimigos": [0, 0, 0],
+		"fim": false
+	},
+	{
+		"tempo": 92,
+		"inimigos": [0],
 		"fim": false
 	},
 	{
@@ -35,28 +50,68 @@
 		"fim": false
 	},
 	{
-		"tempo": 125,
-		"inimigos": [0, 1, 0],
+		"tempo": 122,
+		"inimigos": [0, 0],
 		"fim": false
 	},
 	{
-		"tempo": 140,
-		"inimigos": [0, 2],
+		"tempo": 130,
+		"inimigos": [0, 0],
 		"fim": false
 	},
 	{
-		"tempo": 155,
-		"inimigos": [0, 0, 2],
+		"tempo": 135,
+		"inimigos": [0],
+		"fim": false
+	},
+	{
+		"tempo": 145,
+		"inimigos": [0, 0, 0],
+		"fim": false
+	},
+	{
+		"tempo": 153,
+		"inimigos": [0, 0],
+		"fim": false
+	},
+	{
+		"tempo": 156,
+		"inimigos": [0],
+		"fim": false
+	},
+	{
+		"tempo": 162,
+		"inimigos": [0, 0],
+		"fim": false
+	},
+	{
+		"tempo": 170,
+		"inimigos": [0, 0, 0],
+		"fim": false
+	},
+	{
+		"tempo": 176,
+		"inimigos": [0],
+		"fim": false
+	},
+	{
+		"tempo": 180,
+		"inimigos": [0, 0],
+		"fim": false
+	},
+	{
+		"tempo": 185,
+		"inimigos": [0, 0, 0],
 		"fim": false
 	},
 	{
 		"tempo": 190,
-		"inimigos": [0, 2, 1, 0, 0, 2, 0, 1, 1, 0, 0, 1, 2],
+		"inimigos": [0, 0],
 		"fim": false
 	},
 	{
-		"tempo": 200,
-		"inimigos": [3],
+		"tempo": 202,
+		"inimigos": [0, 0, 0, 0, 0, 0, 0, 0, 0],
 		"fim": true
 	},
 ]

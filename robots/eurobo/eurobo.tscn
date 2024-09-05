@@ -1,0 +1,146 @@
+[gd_scene load_steps=20 format=3 uid="uid://bfv7033cdecpt"]
+
+[ext_resource type="Script" path="res://robots/eurobo/eurobo.gd" id="1_7o7hd"]
+[ext_resource type="Texture2D" uid="uid://b61lswng706nt" path="res://assets/robots/robov2.png" id="2_o08oh"]
+[ext_resource type="Texture2D" uid="uid://cc5h7jq1ur57j" path="res://assets/robots/roborobo.png" id="2_x42hl"]
+[ext_resource type="Script" path="res://robots/eurobo/euroboAtaque.gd" id="3_wg8kr"]
+[ext_resource type="AudioStream" uid="uid://fq76m13wf46" path="res://assets/sons/robotsound.ogg" id="4_ky6dr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxlns"]
+atlas = ExtResource("2_o08oh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky7uc"]
+atlas = ExtResource("2_o08oh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hq4k"]
+atlas = ExtResource("2_o08oh")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bf4d"]
+atlas = ExtResource("2_o08oh")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7m1e"]
+atlas = ExtResource("2_x42hl")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pym5h"]
+atlas = ExtResource("2_x42hl")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibq3f"]
+atlas = ExtResource("2_o08oh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t10j"]
+atlas = ExtResource("2_o08oh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd17g"]
+atlas = ExtResource("2_o08oh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7bua"]
+atlas = ExtResource("2_o08oh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2fqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxlns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky7uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hq4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bf4d")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7m1e")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pym5h")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibq3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t10j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd17g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7bua")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgo47"]
+size = Vector2(25.5, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhufm"]
+size = Vector2(34, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oa5dm"]
+size = Vector2(34, 22)
+
+[node name="Chappie" type="Area2D"]
+script = ExtResource("1_7o7hd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 6)
+sprite_frames = SubResource("SpriteFrames_o2fqj")
+animation = &"attack"
+autoplay = "idle"
+frame = 3
+frame_progress = 1.0
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(16.75, 12)
+shape = SubResource("RectangleShape2D_dgo47")
+debug_color = Color(0.846966, 0.376408, 3.85046e-07, 0.42)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="DetectionCollision" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(17, 12)
+shape = SubResource("RectangleShape2D_vhufm")
+debug_color = Color(0, 0.590072, 0.753842, 0.42)
+
+[node name="Soco" type="Area2D" parent="."]
+script = ExtResource("3_wg8kr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Soco"]
+position = Vector2(17, 12)
+shape = SubResource("RectangleShape2D_oa5dm")
+debug_color = Color(0.724584, 0.00248066, 0.940573, 0.42)
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ky6dr")
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
