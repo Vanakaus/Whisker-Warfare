@@ -558,6 +558,7 @@ offset_left = 84.0
 offset_top = 8.0
 offset_right = 132.0
 offset_bottom = 56.0
+action_mode = 0
 script = ExtResource("5_ktej8")
 metadata/_edit_group_ = true
 
@@ -576,6 +577,7 @@ offset_left = 142.0
 offset_top = 8.0
 offset_right = 190.0
 offset_bottom = 56.0
+action_mode = 0
 script = ExtResource("5_vq4bl")
 metadata/_edit_group_ = true
 
@@ -613,6 +615,7 @@ offset_left = 258.0
 offset_top = 8.0
 offset_right = 306.0
 offset_bottom = 56.0
+action_mode = 0
 script = ExtResource("10_bah8f")
 metadata/_edit_group_ = true
 
@@ -630,6 +633,7 @@ offset_left = 316.0
 offset_top = 8.0
 offset_right = 364.0
 offset_bottom = 56.0
+action_mode = 0
 script = ExtResource("12_oqfyp")
 metadata/_edit_group_ = true
 
@@ -647,6 +651,7 @@ offset_left = 374.0
 offset_top = 8.0
 offset_right = 422.0
 offset_bottom = 56.0
+action_mode = 0
 script = ExtResource("14_p2ngi")
 metadata/_edit_group_ = true
 
@@ -665,6 +670,7 @@ offset_left = 432.0
 offset_top = 8.0
 offset_right = 480.0
 offset_bottom = 56.0
+action_mode = 0
 script = ExtResource("16_eitd4")
 metadata/_edit_group_ = true
 

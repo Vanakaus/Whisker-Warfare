@@ -11,13 +11,14 @@ func _process(_delta):
 	pass
 
 func _on_pressed():
-	if not selected:
-		$GatoSonico.play("action")
-		selected = true
-	else:
-		release_focus()
-		$GatoSonico.play("idle")
-		selected = false
+	if not self.disabled:
+		if not selected:
+			$GatoSonico.play("action")
+			selected = true
+		else:
+			release_focus()
+			$GatoSonico.play("idle")
+			selected = false
 
 
 func deselaciona():

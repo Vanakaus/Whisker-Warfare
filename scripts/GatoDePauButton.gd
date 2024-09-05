@@ -11,7 +11,7 @@ func _process(_delta):
 	pass
 
 func _on_pressed():
-	if self.disabled:
+	if not self.disabled:
 		if not selected:
 			$GatoDePau.play("action")
 			selected = true

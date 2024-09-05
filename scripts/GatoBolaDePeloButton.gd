@@ -13,13 +13,14 @@ func _process(_delta):
 
 
 func _on_pressed():
-	if not selected:
-		$GatoBolaDePelo.play("action")
-		selected = true
-	else:
-		release_focus()
-		$GatoBolaDePelo.play("idle")
-		selected = false
+	if not self.disabled:
+		if not selected:
+			$GatoBolaDePelo.play("action")
+			selected = true
+		else:
+			release_focus()
+			$GatoBolaDePelo.play("idle")
+			selected = false
 
 
 func deselaciona():

@@ -13,7 +13,7 @@ func _process(_delta):
 
 
 func _on_pressed():
-	if not selected:
+	if not self.disabled:
 		$Aquario.play("action")
 		selected = true
 	else:

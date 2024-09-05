@@ -44,7 +44,8 @@ var grid = {}
 
 
 
-func _ready():
+
+func _ready():	
 	for x in GridSizeX:
 		for y in GridSizeY:
 			grid[str(Vector2(x, y))] = {
@@ -54,7 +55,7 @@ func _ready():
 	hotbar.setMoney(money)
 	
 #	Carregando o script do level 1
-	var file = FileAccess.open("res://scripts/leveis/level_1.json", FileAccess.READ)
+	var file = FileAccess.open("res://scripts/leveis/level_" + str(LevelData.level) + ".json", FileAccess.READ)
 	var content = file.get_as_text()
 	file.close()
 	
@@ -87,7 +88,6 @@ func _process(delta):
 				if robos[2].get_child_count() == 0:
 					if robos[3].get_child_count() == 0:
 						if robos[4].get_child_count() == 0:
-							print("Acabou a fase")
 							end_screen.gamewon()
 							fimFase = true
 		
@@ -193,6 +193,7 @@ func _on_game_over_area_entered(area):
 
 
 func _on_play_again_button_pressed() -> void:
+	LevelData.level += 1
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
