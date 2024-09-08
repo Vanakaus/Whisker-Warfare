@@ -1,62 +1,172 @@
 [
 	{
-		"tempo": 15,
-		"inimigos": [0],
-		"fim": false
-	},
-	{
-		"tempo": 26,
-		"inimigos": [0],
-		"fim": false
-	},
-	{
-		"tempo": 36,
-		"inimigos": [0, 0],
-		"fim": false
-	},
-	{
-		"tempo": 48,
+		"tempo": 16,
 		"inimigos": [0, 1],
 		"fim": false
 	},
 	{
-		"tempo": 65,
-		"inimigos": [0, 0],
+		"tempo": 22,
+		"inimigos": [0, 3],
 		"fim": false
 	},
 	{
-		"tempo": 82,
-		"inimigos": [1],
-		"fim": false
-	},
-	{
-		"tempo": 110,
-		"inimigos": [0, 0],
-		"fim": false
-	},
-	{
-		"tempo": 125,
-		"inimigos": [0, 1, 0],
-		"fim": false
-	},
-	{
-		"tempo": 140,
-		"inimigos": [0, 2],
-		"fim": false
-	},
-	{
-		"tempo": 155,
+		"tempo": 32,
 		"inimigos": [0, 0, 2],
 		"fim": false
 	},
 	{
-		"tempo": 190,
-		"inimigos": [0, 2, 1, 0, 0, 2, 0, 1, 1, 0, 0, 1, 2],
+		"tempo": 38,
+		"inimigos": [0, 3],
 		"fim": false
 	},
 	{
-		"tempo": 200,
-		"inimigos": [3],
-		"fim": true
+		"tempo": 48,
+		"inimigos": [0, 3, 1],
+		"fim": false
 	},
+	{
+		"tempo": 55,
+		"inimigos": [3, 2, 1],
+		"fim": false
+	},
+	{
+		"tempo": 66,
+		"inimigos": [2, 1, 2, 2],
+		"fim": false
+	},
+	{
+		"tempo": 78,
+		"inimigos": [3, 0],
+		"fim": false
+	},
+	{
+		"tempo": 83,
+		"inimigos": [3, 2, 0],
+		"fim": false
+	},
+	{
+		"tempo": 85,
+		"inimigos": [0, 0, 3, 0],
+		"fim": false
+	},
+	{
+		"tempo": 92,
+		"inimigos": [0, 3, 2, 0],
+		"fim": false
+	},
+	{
+		"tempo": 106,
+		"inimigos": [2, 3, 3, 1],
+		"fim": false
+	},
+	{
+		"tempo": 114,
+		"inimigos": [0, 1, 1],
+		"fim": false
+	},
+	{
+		"tempo": 120,
+		"inimigos": [0, 3, 0, 2],
+		"fim": false
+	},
+	{
+		"tempo": 125,
+		"inimigos": [0, 1, 3, 3],
+		"fim": false
+	},
+	{
+		"tempo": 130,
+		"inimigos": [2, 2, 3, 0],
+		"fim": false
+	},
+	{
+		"tempo": 134,
+		"inimigos": [0, 0, 0, 3, 1],
+		"fim": false
+	},
+	{
+		"tempo": 136,
+		"inimigos": [1, 1, 2, 2],
+		"fim": false
+	},
+	{
+		"tempo": 140,
+		"inimigos": [1, 2, 1],
+		"fim": false
+	},
+	{
+		"tempo": 145,
+		"inimigos": [0, 3, 3, 2, 0],
+		"fim": false
+	},
+	{
+		"tempo": 155,
+		"inimigos": [2, 2, 0, 3, 2],
+		"fim": false
+	},
+	{
+		"tempo": 162,
+		"inimigos": [1, 1, 1, 3, 2],
+		"fim": false
+	},
+	{
+		"tempo": 175,
+		"inimigos": [1, 2, 0, 3, 3],
+		"fim": false
+	},
+	{
+		"tempo": 190,
+		"inimigos": [0, 2, 0, 0, 2, 0, 1, 3, 3, 3, 3],
+		"fim": false
+	},
+	{
+		"tempo": 199,
+		"inimigos": [0, 1, 0, 3, 0],
+		"fim": false
+	},
+	{
+		"tempo": 206,
+		"inimigos": [0, 0, 2, 3],
+		"fim": false
+	},
+	{
+		"tempo": 215,
+		"inimigos": [1, 0, 0, 3, 3, 2],
+		"fim": false
+	},
+	{
+		"tempo": 222,
+		"inimigos": [0, 3, 0, 0],
+		"fim": false
+	},
+	{
+		"tempo": 230,
+		"inimigos": [1, 2, 2, 3],
+		"fim": false
+	},
+	{
+		"tempo": 235,
+		"inimigos": [3, 2, 2, 2],
+		"fim": false
+	},
+	{
+		"tempo": 242,
+		"inimigos": [0, 1, 1, 1, 1],
+		"fim": false
+	},
+	{
+		"tempo": 255,
+		"inimigos": [0, 0, 3, 0],
+		"fim": false
+	},
+	{
+		"tempo": 257,
+		"inimigos": [0, 2, 2, 1],
+		"fim": false
+	},
+	{
+		"tempo": 272,
+		"inimigos": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2],
+		"fim": true
+	}
 ]

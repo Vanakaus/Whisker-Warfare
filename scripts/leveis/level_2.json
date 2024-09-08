@@ -1,11 +1,11 @@
 [
 	{
-		"tempo": 15,
+		"tempo": 16,
 		"inimigos": [0],
 		"fim": false
 	},
 	{
-		"tempo": 26,
+		"tempo": 24,
 		"inimigos": [0],
 		"fim": false
 	},
@@ -15,23 +15,58 @@
 		"fim": false
 	},
 	{
+		"tempo": 32,
+		"inimigos": [0],
+		"fim": false
+	},
+	{
 		"tempo": 48,
 		"inimigos": [0, 1],
 		"fim": false
 	},
 	{
-		"tempo": 65,
+		"tempo": 55,
 		"inimigos": [0, 0],
 		"fim": false
 	},
 	{
-		"tempo": 82,
+		"tempo": 66,
+		"inimigos": [0, 1],
+		"fim": false
+	},
+	{
+		"tempo": 78,
+		"inimigos": [0],
+		"fim": false
+	},
+	{
+		"tempo": 83,
 		"inimigos": [1],
 		"fim": false
 	},
 	{
-		"tempo": 110,
+		"tempo": 85,
+		"inimigos": [0],
+		"fim": false
+	},
+	{
+		"tempo": 92,
+		"inimigos": [0, 0, 1],
+		"fim": false
+	},
+	{
+		"tempo": 106,
+		"inimigos": [1, 0, 1],
+		"fim": false
+	},
+	{
+		"tempo": 114,
 		"inimigos": [0, 0],
+		"fim": false
+	},
+	{
+		"tempo": 120,
+		"inimigos": [0],
 		"fim": false
 	},
 	{
@@ -40,23 +75,68 @@
 		"fim": false
 	},
 	{
+		"tempo": 130,
+		"inimigos": [0],
+		"fim": false
+	},
+	{
+		"tempo": 134,
+		"inimigos": [1],
+		"fim": false
+	},
+	{
+		"tempo": 136,
+		"inimigos": [0],
+		"fim": false
+	},
+	{
 		"tempo": 140,
-		"inimigos": [0, 2],
+		"inimigos": [0, 1],
+		"fim": false
+	},
+	{
+		"tempo": 145,
+		"inimigos": [0],
 		"fim": false
 	},
 	{
 		"tempo": 155,
-		"inimigos": [0, 0, 2],
+		"inimigos": [1, 1, 0],
+		"fim": false
+	},
+	{
+		"tempo": 162,
+		"inimigos": [0, 1, 0],
+		"fim": false
+	},
+	{
+		"tempo": 175,
+		"inimigos": [1, 0, 1, 0],
 		"fim": false
 	},
 	{
 		"tempo": 190,
-		"inimigos": [0, 2, 1, 0, 0, 2, 0, 1, 1, 0, 0, 1, 2],
+		"inimigos": [1, 0, 0, 1, 0, 0, 0],
 		"fim": false
 	},
 	{
-		"tempo": 200,
-		"inimigos": [3],
+		"tempo": 199,
+		"inimigos": [0, 1, 0],
+		"fim": false
+	},
+	{
+		"tempo": 206,
+		"inimigos": [0, 0],
+		"fim": false
+	},
+	{
+		"tempo": 215,
+		"inimigos": [1, 0, 1, 0],
+		"fim": false
+	},
+	{
+		"tempo": 222,
+		"inimigos": [0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0],
 		"fim": true
 	},
 ]

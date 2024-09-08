@@ -166,14 +166,14 @@ func _input(event):
 
 
 	# Verificar se o evento é um clique de mouse
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
-		var tileSelect = tileMap.local_to_map(get_global_mouse_position())
-		
-		if grid.has(str(tileSelect)):
-			var roboTeste = inimigos[1].instantiate()
-			
-			roboTeste.atualizaPosicao(tileSelect[1], self)
-			robos[tileSelect[1]].call_deferred("add_child", roboTeste)
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+		#var tileSelect = tileMap.local_to_map(get_global_mouse_position())
+		#
+		#if grid.has(str(tileSelect)):
+			#var roboTeste = inimigos[1].instantiate()
+			#
+			#roboTeste.atualizaPosicao(tileSelect[1], self)
+			#robos[tileSelect[1]].call_deferred("add_child", roboTeste)
 
 
 

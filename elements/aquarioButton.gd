@@ -14,12 +14,13 @@ func _process(_delta):
 
 func _on_pressed():
 	if not self.disabled:
-		$Aquario.play("action")
-		selected = true
-	else:
-		release_focus()
-		$Aquario.play("idle")
-		selected = false
+		if not selected:
+			$Aquario.play("action")
+			selected = true
+		else:
+			release_focus()
+			$Aquario.play("idle")
+			selected = false
 
 
 func deselaciona():

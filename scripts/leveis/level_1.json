@@ -90,27 +90,7 @@
 		"fim": false
 	},
 	{
-		"tempo": 176,
-		"inimigos": [0],
-		"fim": false
-	},
-	{
-		"tempo": 180,
-		"inimigos": [0, 0],
-		"fim": false
-	},
-	{
-		"tempo": 185,
-		"inimigos": [0, 0, 0],
-		"fim": false
-	},
-	{
-		"tempo": 190,
-		"inimigos": [0, 0],
-		"fim": false
-	},
-	{
-		"tempo": 202,
+		"tempo": 182,
 		"inimigos": [0, 0, 0, 0, 0, 0, 0, 0, 0],
 		"fim": true
 	},

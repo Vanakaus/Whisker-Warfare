@@ -1,3 +1,21 @@
 extends Node
 
-var level := 1
+var level := 4
+
+
+#var aquario = [true, true, true, true, true, true, true, true, true, true]
+#var gatoPelo = [true, true, true, true, true, true, true, true, true, true]
+	#"gatoPau": 		[false, false, false, true, true, true, true, true, true, true],
+	#"gatoSonico": 	[false, false, false, false, true, true, true, true, false, true],
+	#"gatGarras": 	[false, false, true, true, true, true, true, true, true, true],
+	#"gatoBotas": 	[false, false, false, false, false, true, true, true, true, false],
+	#"caixaAreia": 	[false, true, true, true, true, true, true, false, true, true]
+
+var gatos = { "aquario" : [true, true, true, true, true, true, true, true, true, true],
+	"gatoPelo" : [true, true, true, true, true, true, true, true, true, true],
+	"gatoPau" : [false, false, false, true, true, true, true, true, true, true],
+	"gatoSonico": 	[false, false, false, false, true, true, true, true, false, true],
+	"gatGarras": 	[false, false, true, true, true, true, true, true, true, true],
+	"gatoBotas": 	[false, false, false, false, false, true, true, true, true, false],
+	"caixaAreia": 	[false, true, true, true, true, true, true, false, true, true]
+}
