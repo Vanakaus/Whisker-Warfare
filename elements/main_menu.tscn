@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d0v6soega4j3s"]
+[gd_scene load_steps=30 format=3 uid="uid://d0v6soega4j3s"]
 
 [ext_resource type="Script" path="res://elements/main_menu.gd" id="1_i6prg"]
 [ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/cats/gatoBolaPelo.png" id="2_ldtc3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cc5h7jq1ur57j" path="res://assets/robots/roborobo.png" id="5_d7r15"]
 [ext_resource type="Texture2D" uid="uid://b6pxp88ihted7" path="res://assets/robots/roborrifador.png" id="6_c76vr"]
 [ext_resource type="Texture2D" uid="uid://syli1dgpm6hg" path="res://assets/robots/roboaspirador.png" id="7_ycqmo"]
+[ext_resource type="Texture2D" uid="uid://b383ln0f01wtx" path="res://assets/misc/titulo.png" id="8_ff5q1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_58rmy"]
 atlas = ExtResource("2_ldtc3")
@@ -212,9 +213,8 @@ sprite_frames = SubResource("SpriteFrames_rfr57")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 296.0
-offset_top = 203.0
-offset_right = 542.0
-offset_bottom = 354.0
+offset_right = 545.0
+offset_bottom = 360.0
 scale = Vector2(2, 2)
 metadata/_edit_group_ = true
 
@@ -223,12 +223,17 @@ layout_mode = 2
 alignment = 1
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
 text = "Whiskey Warfare"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_ff5q1")
 
 [node name="GameStart" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

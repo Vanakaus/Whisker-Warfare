@@ -574,10 +574,9 @@ autoplay = "idle"
 
 [node name="PriceLabel" type="Label" parent="AquarioButton"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 49.0
-offset_right = 40.0
-offset_bottom = 69.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 66.0
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -603,10 +602,9 @@ frame_progress = 0.996054
 
 [node name="PriceLabel" type="Label" parent="GatoBolaDePeloButton"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 49.0
-offset_right = 39.0
-offset_bottom = 69.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 66.0
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -632,10 +630,9 @@ frame_progress = 0.945431
 
 [node name="PriceLabel" type="Label" parent="GatoDePauButton"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 49.0
-offset_right = 40.0
-offset_bottom = 72.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 66.0
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -660,10 +657,9 @@ animation = &"idle"
 
 [node name="PriceLabel" type="Label" parent="GatoSonicButton"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 49.0
-offset_right = 41.0
-offset_bottom = 69.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 66.0
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -688,10 +684,9 @@ animation = &"action"
 
 [node name="PriceLabel" type="Label" parent="GatoDeGarrasButton"]
 layout_mode = 0
-offset_left = 11.0
 offset_top = 48.0
-offset_right = 41.0
-offset_bottom = 68.0
+offset_right = 48.0
+offset_bottom = 66.0
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -717,10 +712,9 @@ frame_progress = 0.814784
 
 [node name="PriceLabel" type="Label" parent="GatoDeBotasButton"]
 layout_mode = 0
-offset_left = 11.0
 offset_top = 48.0
-offset_right = 41.0
-offset_bottom = 68.0
+offset_right = 48.0
+offset_bottom = 66.0
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -746,10 +740,9 @@ frame_progress = 0.159413
 
 [node name="PriceLabel" type="Label" parent="CaixaDeAreiaButton"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 47.0
-offset_right = 41.0
-offset_bottom = 70.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 66.0
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 2
