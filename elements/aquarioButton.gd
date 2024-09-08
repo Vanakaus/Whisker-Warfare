@@ -16,13 +16,12 @@ func set_price(price):
 
 func _on_pressed():
 	if not self.disabled:
-		if not selected:
-			$Aquario.play("action")
-			selected = true
-		else:
-			release_focus()
-			$Aquario.play("idle")
-			selected = false
+		$Aquario.play("action")
+		selected = true
+	else:
+		release_focus()
+		$Aquario.play("idle")
+		selected = false
 
 
 func deselaciona():
