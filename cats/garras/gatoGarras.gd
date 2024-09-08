@@ -31,14 +31,14 @@ func criar():
 
 
 
-func colocar(posicao, mundo):
-	var gridIncrementVector = Vector2( 1.5 * mundo.detectionIncrementX, mundo.detectionIncrementY)
+func colocar(posicao):
+	var gridIncrementVector = Vector2( 1.5 * LevelData.detectionIncrementX, LevelData.detectionIncrementY)
 	
 	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
 	get_node("DetectionArea/DetectionCollision").shape.extents = gridIncrementVector
 	get_node("DetectionArea/DetectionCollision").position = gridIncrementVector
 	
-	global_position = posicao * Vector2i(mundo.tileSizeX, mundo.tileSizeY)
+	global_position = posicao * Vector2i(LevelData.tileSizeX, LevelData.tileSizeY)
 	
 
 
@@ -70,8 +70,8 @@ func _input(event):
 	# Verificar se o evento é um clique de mouse
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE and event.is_pressed():
 		var mouseClick = get_local_mouse_position()
-		if mouseClick[0] > 0 and mouseClick[0] < mundo.tileSizeX:
-			if mouseClick[1] > 0 and mouseClick[1] < mundo.tileSizeY:
+		if mouseClick[0] > 0 and mouseClick[0] < LevelData.tileSizeX:
+			if mouseClick[1] > 0 and mouseClick[1] < LevelData.tileSizeY:
 				excluir()
 
 

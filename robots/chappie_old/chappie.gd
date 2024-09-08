@@ -98,6 +98,7 @@ func _on_detection_area_area_entered(area):
 	
 	
 	if life <= 0:
+		LevelData.numInimigos -=1
 		queue_free()
 
 

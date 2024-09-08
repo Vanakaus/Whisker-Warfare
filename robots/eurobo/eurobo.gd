@@ -1,8 +1,6 @@
 extends Area2D
 
 
-var mundo
-
 var moving = true
 var speed = 0.2
 var lentidao = 1
@@ -54,10 +52,9 @@ func _process(delta):
 
 
 
-func atualizaPosicao(posicao, mundoPai):
-	mundo = mundoPai
+func atualizaPosicao(posicao):
 	
-	var gridIncrementVector = Vector2(mundo.detectionIncrementX, mundo.detectionIncrementY)
+	var gridIncrementVector = Vector2(LevelData.detectionIncrementX, LevelData.detectionIncrementY)
 	
 	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
 	get_node("DetectionArea/DetectionCollision").shape.extents = gridIncrementVector
@@ -69,7 +66,7 @@ func atualizaPosicao(posicao, mundoPai):
 	
 	get_node("Soco").position = Vector2(0, 0)
 	
-	global_position = Vector2(11, posicao) * Vector2(mundo.tileSizeX, mundo.tileSizeY)
+	global_position = Vector2(11, posicao) * Vector2(LevelData.tileSizeX, LevelData.tileSizeY)
 
 
 
@@ -101,6 +98,7 @@ func _on_detection_area_area_entered(area):
 	
 	
 	if life <= 0:
+		LevelData.numInimigos -=1
 		queue_free()
 
 

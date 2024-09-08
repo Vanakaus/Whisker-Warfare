@@ -6,16 +6,12 @@ var tileVariation1 = 0;
 var tileVariation2 = 1;
 
 
-@onready var world = $/root/World
-
-
-
 
 func _ready():
 	
 #	Gerando o TileMap
-	for x in range(0, world.GridSizeX):
-		for y in range(-1, world.GridSizeY):
+	for x in range(0, LevelData.GridSizeX):
+		for y in range(-1, LevelData.GridSizeY):
 			
 #			Alternando entre as variações do TileMap
 			if (x + y) % 2:

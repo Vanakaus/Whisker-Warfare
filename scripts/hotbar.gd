@@ -5,81 +5,33 @@ extends Node2D
 @onready var levelLabel = get_node('LevelLabel')
 
 
-@onready var aquario = preload("res://cats/aquario/aquario.tscn")
-@onready var gatoPelo = preload("res://cats/bolaDePelo/gatoPelo.tscn")
-@onready var gatoSonico = preload("res://cats/sonico/gatoSonico.tscn")
-@onready var gatoPau = preload("res://cats/pau/gatoPau.tscn")
-@onready var gatoDeGarras = preload("res://cats/garras/gatoGarras.tscn")
-@onready var gatoDeBotas = preload("res://cats/botas/gatoBotas.tscn")
-@onready var caixaDeAreia = preload("res://cats/caixa/caixaDeAreia.tscn")
 
-@onready var aquarioButton = $AquarioButton
-@onready var gatoPeloButton = $GatoBolaDePeloButton
-@onready var gatoPauButton = $GatoDePauButton
-@onready var gatoSonicoButton = $GatoSonicButton
-@onready var gatoDeGarrasButton = $GatoDeGarrasButton
-@onready var gatoDeBotasButton = $GatoDeBotasButton
-@onready var caixaDeAreiaButton = $CaixaDeAreiaButton
+@onready var botoes = [
+	$AquarioButton,
+	$GatoBolaDePeloButton,
+	$GatoDePauButton,
+	$GatoSonicButton,
+	$GatoDeGarrasButton,
+	$GatoDeBotasButton,
+	$CaixaDeAreiaButton,
+]
 
-
-@onready var plantas
+@onready var gatoEscolhido = 0
 
 
 
 func _ready():
 	levelLabel.text = "Level " + str(LevelData.level)
 	
-	#Carregando o script do level 1
-	var file = FileAccess.open("res://scripts/leveis/level_plantas.json", FileAccess.READ)
-	var content = file.get_as_text()
-	file.close()
 	
-	plantas = JSON.new()
-	var error = plantas.parse(content)
-	if not error == OK:
-		print("JSON Parse Error: ", plantas.get_error_message(), " in ", content, " at line ", plantas.get_error_line())
-	else:
-		if plantas.data.aquario[LevelData.level-1]:
-			aquarioButton.set_price(plantas.data.precos.aquario)
-		else:
-			aquarioButton.get_node("Aquario").modulate = Color(0.1, 0.1, 0.1, 1)
-			aquarioButton.disabled = false
+	for i in range(LevelData.gatos.size()):
 		
-		if plantas.data.gatoPelo[LevelData.level-1]:
-			gatoPeloButton.set_price(plantas.data.precos.gatoPelo)
+		if LevelData.gatos[i].desbloqueio[LevelData.level-1]:
+			botoes[i].set_price(LevelData.gatos[i].preco)
 		else:
-			gatoPeloButton.get_node("GatoBolaDePelo").modulate = Color(0.1, 0.1, 0.1, 1)
-			gatoPeloButton.disabled = false
+			botoes[i].get_node(LevelData.gatos[i].codigo).modulate = Color(0.1, 0.1, 0.1, 1)
+			botoes[i].disabled = false
 		
-		if plantas.data.gatoPau[LevelData.level-1]:
-			gatoPauButton.set_price(plantas.data.precos.gatoPau)
-		else:
-			gatoPauButton.get_node("GatoDePau").modulate = Color(0.1, 0.1, 0.1, 1)
-			gatoPauButton.disabled = false
-		
-		if plantas.data.gatoSonico[LevelData.level-1]:
-			gatoSonicoButton.set_price(plantas.data.precos.gatoSonico)
-		else:
-			gatoSonicoButton.get_node("GatoSonico").modulate = Color(0.1, 0.1, 0.1, 1)
-			gatoSonicoButton.disabled = false
-		
-		if plantas.data.gatGarras[LevelData.level-1]:
-			gatoDeGarrasButton.set_price(plantas.data.precos.gatoGarras)
-		else:
-			gatoDeGarrasButton.get_node("GatoDeGarras").modulate = Color(0.1, 0.1, 0.1, 1)
-			gatoDeGarrasButton.disabled = false
-		
-		if plantas.data.gatoBotas[LevelData.level-1]:
-			gatoDeBotasButton.set_price(plantas.data.precos.gatoBotas)
-		else:
-			gatoDeBotasButton.get_node("GatoDeBotas").modulate = Color(0.1, 0.1, 0.1, 1)
-			gatoDeBotasButton.disabled = false
-		
-		if plantas.data.caixaAreia[LevelData.level-1]:
-			caixaDeAreiaButton.set_price(plantas.data.precos.caixaAreia)
-		else:
-			caixaDeAreiaButton.get_node("CaixaDeAreia").modulate = Color(0.1, 0.1, 0.1, 1)
-			caixaDeAreiaButton.disabled = false
 	
 
 
@@ -93,77 +45,78 @@ func setMoney(money):
 	
 
 
-func limparEscolhas(escolha):
-	mundo.selecionarGato(null)
+func escolher(escolha):
+	gatoEscolhido = escolha
+	mundo.selecionarGato(escolha)
 	
 	if escolha != 1:
-		aquarioButton.deselaciona()
+		botoes[0].deselaciona()
 	if escolha != 2:
-		gatoPeloButton.deselaciona()
+		botoes[1].deselaciona()
 	if escolha != 3:
-		gatoPauButton.deselaciona()
+		botoes[2].deselaciona()
 	if escolha != 4:
-		gatoSonicoButton.deselaciona()
+		botoes[3].deselaciona()
 	if escolha != 5:
-		gatoDeGarrasButton.deselaciona()
+		botoes[4].deselaciona()
 	if escolha != 6:
-		gatoDeBotasButton.deselaciona()
+		botoes[5].deselaciona()
 	if escolha != 7:
-		caixaDeAreiaButton.deselaciona()
+		botoes[6].deselaciona()
 
 
 
 func _on_aquario_button_pressed():
-	if plantas.data.aquario[LevelData.level-1]:
-		limparEscolhas(1)
-		mundo.selecionarGato(aquario)
+	if LevelData.gatos[0].desbloqueio[LevelData.level-1] and gatoEscolhido != 1:
+		escolher(1)
+		#mundo.selecionarGato(aquario)
 	else:
-		limparEscolhas(0)
+		escolher(0)
 
 
 func _on_gato_bola_de_pelo_button_pressed():
-	if plantas.data.gatoPelo[LevelData.level-1]:
-		limparEscolhas(2)
-		mundo.selecionarGato(gatoPelo)
+	if LevelData.gatos[1].desbloqueio[LevelData.level-1] and gatoEscolhido != 2:
+		escolher(2)
+		#mundo.selecionarGato(gatoPelo)
 	else:
-		limparEscolhas(0)
+		escolher(0)
 
 
 func _on_gato_de_pau_button_pressed():
-	if plantas.data.gatoPau[LevelData.level-1]:
-		limparEscolhas(3)
-		mundo.selecionarGato(gatoPau)
+	if LevelData.gatos[2].desbloqueio[LevelData.level-1] and gatoEscolhido != 3:
+		escolher(3)
+		#mundo.selecionarGato(gatoPau)
 	else:
-		limparEscolhas(0)
+		escolher(0)
 
 
 func _on_gato_sonic_button_pressed():
-	if plantas.data.gatoSonico[LevelData.level-1]:
-		limparEscolhas(4)
-		mundo.selecionarGato(gatoSonico)
+	if LevelData.gatos[3].desbloqueio[LevelData.level-1] and gatoEscolhido != 4:
+		escolher(4)
+		#mundo.selecionarGato(gatoSonico)
 	else:
-		limparEscolhas(0)
+		escolher(0)
 
 
 func _on_gato_de_garras_button_pressed():
-	if plantas.data.gatGarras[LevelData.level-1]:
-		limparEscolhas(5)
-		mundo.selecionarGato(gatoDeGarras)
+	if LevelData.gatos[4].desbloqueio[LevelData.level-1] and gatoEscolhido != 5:
+		escolher(5)
+		#mundo.selecionarGato(gatoDeGarras)
 	else:
-		limparEscolhas(0)
+		escolher(0)
 
 
 func _on_gato_de_botas_button_pressed():
-	if plantas.data.gatoBotas[LevelData.level-1]:
-		limparEscolhas(6)
-		mundo.selecionarGato(gatoDeBotas)
+	if LevelData.gatos[5].desbloqueio[LevelData.level-1] and gatoEscolhido != 6:
+		escolher(6)
+		#mundo.selecionarGato(gatoDeBotas)
 	else:
-		limparEscolhas(0)
+		escolher(0)
 
 
 func _on_caixa_de_areia_button_pressed():
-	if plantas.data.caixaAreia[LevelData.level-1]:
-		limparEscolhas(7)
-		mundo.selecionarGato(caixaDeAreia)
+	if LevelData.gatos[6].desbloqueio[LevelData.level-1] and gatoEscolhido != 7:
+		escolher(7)
+		#mundo.selecionarGato(caixaDeAreia)
 	else:
-		limparEscolhas(0)
+		escolher(0)

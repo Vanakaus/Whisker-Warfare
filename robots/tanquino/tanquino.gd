@@ -1,8 +1,7 @@
 extends Area2D
 
 
-var mundo
-
+@onready var mundo = $/root/World
 @onready var pepinoCena = preload("res://robots/tanquino/tanquinoAtaque.tscn")
 
 
@@ -57,16 +56,15 @@ func _process(delta):
 
 
 
-func atualizaPosicao(posicao, mundoPai):
-	mundo = mundoPai
+func atualizaPosicao(posicao):
 	
-	var gridIncrementVector = Vector2(mundo.detectionIncrementX*3, mundo.detectionIncrementY)
+	var gridIncrementVector = Vector2(LevelData.detectionIncrementX*3, LevelData.detectionIncrementY)
 	
 	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
 	get_node("DetectionArea/DetectionCollision").shape.extents = gridIncrementVector
-	get_node("DetectionArea/DetectionCollision").position = Vector2(-gridIncrementVector[0]+mundo.detectionIncrementX*2, gridIncrementVector[1])
+	get_node("DetectionArea/DetectionCollision").position = Vector2(-gridIncrementVector[0]+LevelData.detectionIncrementX*2, gridIncrementVector[1])
 	
-	global_position = Vector2(11, posicao) * Vector2(mundo.tileSizeX, mundo.tileSizeY)
+	global_position = Vector2(11, posicao) * Vector2(LevelData.tileSizeX, LevelData.tileSizeY)
 
 
 
@@ -107,4 +105,5 @@ func _on_area_entered(area):
 	
 	
 	if life <= 0:
+		LevelData.numInimigos -=1
 		queue_free()
