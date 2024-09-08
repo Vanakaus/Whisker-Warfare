@@ -572,6 +572,16 @@ sprite_frames = SubResource("SpriteFrames_dsuoj")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="PriceLabel" type="Label" parent="AquarioButton"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 49.0
+offset_right = 40.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="GatoBolaDePeloButton" type="Button" parent="."]
 offset_left = 142.0
 offset_top = 8.0
@@ -590,6 +600,16 @@ position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_n7gk4")
 animation = &"idle"
 frame_progress = 0.996054
+
+[node name="PriceLabel" type="Label" parent="GatoBolaDePeloButton"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 49.0
+offset_right = 39.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="GatoDePauButton" type="Button" parent="."]
 offset_left = 200.0
@@ -610,6 +630,16 @@ sprite_frames = SubResource("SpriteFrames_wkhn0")
 animation = &"action"
 frame_progress = 0.945431
 
+[node name="PriceLabel" type="Label" parent="GatoDePauButton"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 49.0
+offset_right = 40.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="GatoSonicButton" type="Button" parent="."]
 offset_left = 258.0
 offset_top = 8.0
@@ -628,6 +658,16 @@ position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_aypya")
 animation = &"idle"
 
+[node name="PriceLabel" type="Label" parent="GatoSonicButton"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 49.0
+offset_right = 41.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="GatoDeGarrasButton" type="Button" parent="."]
 offset_left = 316.0
 offset_top = 8.0
@@ -645,6 +685,16 @@ texture = ExtResource("5_fwt8m")
 position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_xg0nm")
 animation = &"action"
+
+[node name="PriceLabel" type="Label" parent="GatoDeGarrasButton"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 48.0
+offset_right = 41.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="GatoDeBotasButton" type="Button" parent="."]
 offset_left = 374.0
@@ -665,6 +715,16 @@ sprite_frames = SubResource("SpriteFrames_qdlvp")
 animation = &"action"
 frame_progress = 0.814784
 
+[node name="PriceLabel" type="Label" parent="GatoDeBotasButton"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 48.0
+offset_right = 41.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="CaixaDeAreiaButton" type="Button" parent="."]
 offset_left = 432.0
 offset_top = 8.0
@@ -683,6 +743,16 @@ position = Vector2(24, 25)
 sprite_frames = SubResource("SpriteFrames_w4i3c")
 animation = &"action"
 frame_progress = 0.159413
+
+[node name="PriceLabel" type="Label" parent="CaixaDeAreiaButton"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 47.0
+offset_right = 41.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [connection signal="pressed" from="AquarioButton" to="." method="_on_aquario_button_pressed"]
 [connection signal="pressed" from="AquarioButton" to="AquarioButton" method="_on_pressed"]

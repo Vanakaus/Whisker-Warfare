@@ -39,31 +39,45 @@ func _ready():
 	if not error == OK:
 		print("JSON Parse Error: ", plantas.get_error_message(), " in ", content, " at line ", plantas.get_error_line())
 	else:
-		if not plantas.data.aquario[LevelData.level-1]:
+		if plantas.data.aquario[LevelData.level-1]:
+			aquarioButton.set_price(plantas.data.precos.aquario)
+		else:
 			aquarioButton.get_node("Aquario").modulate = Color(0.1, 0.1, 0.1, 1)
 			aquarioButton.disabled = false
 		
-		if not plantas.data.gatoPelo[LevelData.level-1]:
+		if plantas.data.gatoPelo[LevelData.level-1]:
+			gatoPeloButton.set_price(plantas.data.precos.gatoPelo)
+		else:
 			gatoPeloButton.get_node("GatoBolaDePelo").modulate = Color(0.1, 0.1, 0.1, 1)
 			gatoPeloButton.disabled = false
 		
-		if not plantas.data.gatoPau[LevelData.level-1]:
+		if plantas.data.gatoPau[LevelData.level-1]:
+			gatoPauButton.set_price(plantas.data.precos.gatoPau)
+		else:
 			gatoPauButton.get_node("GatoDePau").modulate = Color(0.1, 0.1, 0.1, 1)
 			gatoPauButton.disabled = false
 		
-		if not plantas.data.gatoSonico[LevelData.level-1]:
+		if plantas.data.gatoSonico[LevelData.level-1]:
+			gatoSonicoButton.set_price(plantas.data.precos.gatoSonico)
+		else:
 			gatoSonicoButton.get_node("GatoSonico").modulate = Color(0.1, 0.1, 0.1, 1)
 			gatoSonicoButton.disabled = false
 		
-		if not plantas.data.gatGarras[LevelData.level-1]:
+		if plantas.data.gatGarras[LevelData.level-1]:
+			gatoDeGarrasButton.set_price(plantas.data.precos.gatoGarras)
+		else:
 			gatoDeGarrasButton.get_node("GatoDeGarras").modulate = Color(0.1, 0.1, 0.1, 1)
 			gatoDeGarrasButton.disabled = false
 		
-		if not plantas.data.gatoBotas[LevelData.level-1]:
+		if plantas.data.gatoBotas[LevelData.level-1]:
+			gatoDeBotasButton.set_price(plantas.data.precos.gatoBotas)
+		else:
 			gatoDeBotasButton.get_node("GatoDeBotas").modulate = Color(0.1, 0.1, 0.1, 1)
 			gatoDeBotasButton.disabled = false
 		
-		if not plantas.data.caixaAreia[LevelData.level-1]:
+		if plantas.data.caixaAreia[LevelData.level-1]:
+			caixaDeAreiaButton.set_price(plantas.data.precos.caixaAreia)
+		else:
 			caixaDeAreiaButton.get_node("CaixaDeAreia").modulate = Color(0.1, 0.1, 0.1, 1)
 			caixaDeAreiaButton.disabled = false
 	
