@@ -2,15 +2,6 @@ extends Node2D
 
 var paused = false
 
-var tileSizeX = 34
-var tileSizeY = 24
-var detectionIncrementX = tileSizeX/2
-var detectionIncrementY = tileSizeY/2
-
-var GridSizeX = 9
-var GridSizeY = 5
-var grid = {}
-
 @onready var gatos = [$Lanes/Lane1/Gatos, $Lanes/Lane2/Gatos, $Lanes/Lane3/Gatos, $Lanes/Lane4/Gatos, $Lanes/Lane5/Gatos]
 @onready var robos = [$Lanes/Lane1/Robos, $Lanes/Lane2/Robos, $Lanes/Lane3/Robos, $Lanes/Lane4/Robos, $Lanes/Lane5/Robos]
 @onready var tileMap = $TileMap
@@ -18,13 +9,6 @@ var grid = {}
 @onready var pause_menu = $UI/PauseMenu
 @onready var end_screen = $UI/EndScreen
 
-@onready var inimigos = [
-	preload("res://robots/chappie/chappie.tscn"),
-	preload("res://robots/eurobo/eurobo.tscn"),
-	preload("res://robots/aspirobo/aspirobo.tscn"),
-	preload("res://robots/roborrifador/roborrifador.tscn"),
-	preload("res://robots/tanquino/tanquino.tscn"),
-	]
 
 
 
@@ -32,7 +16,7 @@ var grid = {}
 
 @onready var level
 
-@onready var money = 200
+@onready var money = LevelData.dinheiroInicial
 
 @onready var timerMoney = 0
 @onready var timer = 0
@@ -47,9 +31,9 @@ var grid = {}
 
 
 func _ready():	
-	for x in GridSizeX:
-		for y in GridSizeY:
-			grid[str(Vector2(x, y))] = {
+	for x in LevelData.GridSizeX:
+		for y in LevelData.GridSizeY:
+			LevelData.grid[str(Vector2(x, y))] = {
 				"used" : false
 			}
 	
@@ -84,14 +68,9 @@ func _process(delta):
 		timerMoney = 0
 	
 	if fimInimigos:
-		if  robos[0].get_child_count() == 0:
-			if robos[1].get_child_count() == 0:
-				if robos[2].get_child_count() == 0:
-					if robos[3].get_child_count() == 0:
-						if robos[4].get_child_count() == 0:
-							end_screen.gamewon()
-							fimFase = true
-		
+		if LevelData.numInimigos == 0:
+			end_screen.gamewon()
+			fimFase = true
 		
 	else:
 		if timer >= level.data[index].tempo and not esperando:
@@ -99,10 +78,12 @@ func _process(delta):
 			esperando = true
 			
 			for inimigo in level.data[index].inimigos:
-				var robo = inimigos[inimigo].instantiate()
+				var robo = LevelData.robosCenas[inimigo].instantiate()
 				var tile = RandomNumberGenerator.new().randi_range(0, 4)
 				
-				robo.atualizaPosicao(tile, self)
+				LevelData.numInimigos += 1
+				
+				robo.atualizaPosicao(tile)
 				robos[tile].call_deferred("add_child", robo)
 				
 				await get_tree().create_timer(0.25).timeout
@@ -118,7 +99,13 @@ func _process(delta):
 
 
 func selecionarGato(gatoEscolhido):
-	gato = gatoEscolhido
+	print(gatoEscolhido)
+	#gato = gatoEscolhido
+	if gatoEscolhido != 0:
+		gato = LevelData.gatos[gatoEscolhido-1]
+	else:
+		gato = null
+	
 
 
 
@@ -138,29 +125,28 @@ func _input(event):
 		
 		print('\n')
 		print('Tile: ', tileSelect)
-		print('Tile.has: ', grid.has(str(tileSelect)))
+		print('Tile.has: ', LevelData.grid.has(str(tileSelect)))
 		
-		if grid.has(str(tileSelect)):
+		if LevelData.grid.has(str(tileSelect)):
 			
-			print('Usado: ', grid[str(tileSelect)]["used"])
+			print('Usado: ', LevelData.grid[str(tileSelect)]["used"])
 			
-			if not grid[str(tileSelect)]["used"] and gato:
+			if not LevelData.grid[str(tileSelect)]["used"] and gato:
 				
-				var novoGato = gato.instantiate()
-				novoGato.criar()
 				
-				if money >= novoGato.price:
-					grid[str(tileSelect)]["used"] = true
+				if money >= gato.preco:
+					LevelData.grid[str(tileSelect)]["used"] = true
 					
-					novoGato.colocar(tileSelect, self)
+					var novoGato = gato.cena.instantiate()
+					novoGato.criar()
+					
+					novoGato.colocar(tileSelect)
 					gatos[tileSelect[1]].call_deferred("add_child", novoGato)
 					
-					money -= novoGato.price
+					money -= gato.preco
 					hotbar.setMoney(money)
-				else:
-					novoGato.excluir()
 				
-				hotbar.limparEscolhas(0)
+				hotbar.escolher(0)
 				gato = null
 
 
@@ -169,10 +155,10 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 		var tileSelect = tileMap.local_to_map(get_global_mouse_position())
 		
-		if grid.has(str(tileSelect)):
-			var roboTeste = inimigos[1].instantiate()
+		if LevelData.grid.has(str(tileSelect)):
+			var roboTeste = LevelData.robosCenas[5].instantiate()
 			
-			roboTeste.atualizaPosicao(tileSelect[1], self)
+			roboTeste.atualizaPosicao(tileSelect[1])
 			robos[tileSelect[1]].call_deferred("add_child", roboTeste)
 
 
@@ -180,8 +166,8 @@ func _input(event):
 func limpaGridTile(mousePosition):
 	var tileSelect = tileMap.local_to_map(mousePosition)
 	
-	if grid.has(str(tileSelect)):
-		grid[str(tileSelect)]["used"] = false
+	if LevelData.grid.has(str(tileSelect)):
+		LevelData.grid[str(tileSelect)]["used"] = false
 
 
 
