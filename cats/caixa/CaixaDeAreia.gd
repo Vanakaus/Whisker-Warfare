@@ -6,7 +6,6 @@ extends Area2D
 var estagio = 0;
 
 var life
-var price
 
 
 
@@ -20,7 +19,6 @@ func criar():
 	name = "Caixa de Areia"
 	set_meta("tipo", "Cat")
 	life = 400
-	price = 75
 
 
 

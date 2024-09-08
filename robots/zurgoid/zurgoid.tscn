@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://dg8v8u4nw7ghm"]
+
+[ext_resource type="Script" path="res://robots/zurgoid/zurgoid.gd" id="1_4p8jm"]
+[ext_resource type="Texture2D" uid="uid://dc87of37cevql" path="res://assets/robots/zurgoid.png" id="2_0rtlc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juh1q"]
+atlas = ExtResource("2_0rtlc")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjkdd"]
+atlas = ExtResource("2_0rtlc")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmv0p"]
+atlas = ExtResource("2_0rtlc")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wvok"]
+atlas = ExtResource("2_0rtlc")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwulw"]
+atlas = ExtResource("2_0rtlc")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ko6h"]
+atlas = ExtResource("2_0rtlc")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2fqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juh1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjkdd")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmv0p")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wvok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwulw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ko6h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgo47"]
+size = Vector2(30, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhufm"]
+size = Vector2(34, 24)
+
+[node name="RoboTanquino" type="Area2D"]
+script = ExtResource("1_4p8jm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 6)
+sprite_frames = SubResource("SpriteFrames_o2fqj")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(18, 10)
+shape = SubResource("RectangleShape2D_dgo47")
+debug_color = Color(0.846966, 0.376408, 3.85046e-07, 0.42)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="DetectionCollision" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(17, 12)
+shape = SubResource("RectangleShape2D_vhufm")
+debug_color = Color(0, 0.590072, 0.753842, 0.42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]

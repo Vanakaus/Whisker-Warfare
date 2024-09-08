@@ -10,7 +10,6 @@ var delay_ataque = 2
 
 
 var life
-var price
 @onready var bolaPelo = preload("res://cats/bolaDePelo/bolaPelo.tscn")
 
 
@@ -25,7 +24,6 @@ func criar():
 	name = "Gato de Pelo"
 	set_meta("tipo", "Cat")
 	life = 100
-	price = 100
 
 
 

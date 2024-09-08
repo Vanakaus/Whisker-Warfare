@@ -9,7 +9,6 @@ var delay_ataque = 0.5
 var porrete
 
 var life
-var price
 
 
 
@@ -23,7 +22,6 @@ func criar():
 	name = "Gato de Botas"
 	set_meta("tipo", "Cat")
 	life = 300
-	price = 250
 
 
 

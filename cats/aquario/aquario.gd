@@ -6,7 +6,6 @@ extends Area2D
 var estagio = 0
 
 var life
-var price
 
 
 var ativa = 20
@@ -25,7 +24,6 @@ func criar():
 	name = "Aquario"
 	set_meta("tipo", "Cat")
 	life = 100
-	price = 50
 
 
 

@@ -11,7 +11,6 @@ var delay_ataque = 1.5
 
 
 var life
-var price
 @onready var garras = preload("res://cats/garras/garras.tscn")
 
 
@@ -27,7 +26,6 @@ func criar():
 	name = "Gato de Garras"
 	set_meta("tipo", "Cat")
 	life = 400
-	price = 125
 
 
 

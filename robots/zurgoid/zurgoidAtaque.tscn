@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://utl14n1t60a4"]
+
+[ext_resource type="Script" path="res://robots/zurgoid/zurgoidAtaque.gd" id="1_v5oi0"]
+[ext_resource type="Texture2D" uid="uid://dc87of37cevql" path="res://assets/robots/zurgoid.png" id="2_y1eyl"]
+[ext_resource type="Texture2D" uid="uid://b6pxp88ihted7" path="res://assets/robots/roborrifador.png" id="3_k17ne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiqyl"]
+atlas = ExtResource("3_k17ne")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrmnq"]
+atlas = ExtResource("3_k17ne")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eixtx"]
+atlas = ExtResource("3_k17ne")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17422"]
+atlas = ExtResource("3_k17ne")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0idy"]
+atlas = ExtResource("3_k17ne")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ean4"]
+atlas = ExtResource("3_k17ne")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nigoj"]
+atlas = ExtResource("3_k17ne")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihuvf"]
+atlas = ExtResource("3_k17ne")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_851nq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiqyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrmnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eixtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17422")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0idy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ean4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nigoj")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihuvf")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vo8t"]
+size = Vector2(18.5, 8)
+
+[node name="Soco" type="Area2D"]
+script = ExtResource("1_v5oi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, 6)
+scale = Vector2(0.8, 1)
+texture = ExtResource("2_y1eyl")
+region_enabled = true
+region_rect = Rect2(160, 16, 32, 32)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(17, -2)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_851nq")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(16.75, 6)
+shape = SubResource("RectangleShape2D_7vo8t")
+debug_color = Color(0.846966, 0.376408, 3.85046e-07, 0.42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

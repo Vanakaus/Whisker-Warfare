@@ -9,7 +9,6 @@ var verificador_ataque = ativa_ataque
 var delay_ataque = 2.4
 
 var life
-var price
 @onready var ondas = preload("res://cats/sonico/ondas.tscn")
 
 
@@ -24,7 +23,6 @@ func criar():
 	name = "Gato Sonico"
 	set_meta("tipo", "Cat")
 	life = 100
-	price = 125
 
 
 

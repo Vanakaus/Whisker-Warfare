@@ -156,7 +156,7 @@ func _input(event):
 		var tileSelect = tileMap.local_to_map(get_global_mouse_position())
 		
 		if LevelData.grid.has(str(tileSelect)):
-			var roboTeste = LevelData.robosCenas[4].instantiate()
+			var roboTeste = LevelData.robosCenas[5].instantiate()
 			
 			roboTeste.atualizaPosicao(tileSelect[1])
 			robos[tileSelect[1]].call_deferred("add_child", roboTeste)

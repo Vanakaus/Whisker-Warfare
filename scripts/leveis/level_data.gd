@@ -20,6 +20,7 @@ var robosCenas = [
 	preload("res://robots/aspirobo/aspirobo.tscn"),
 	preload("res://robots/roborrifador/roborrifador.tscn"),
 	preload("res://robots/tanquino/tanquino.tscn"),
+	preload("res://robots/zurgoid/zurgoid.tscn"),
 	]
 
 
