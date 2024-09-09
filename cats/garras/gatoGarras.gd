@@ -25,7 +25,7 @@ func _ready():
 func criar():
 	name = "Gato de Garras"
 	set_meta("tipo", "Cat")
-	life = 400
+	life = 350
 
 
 

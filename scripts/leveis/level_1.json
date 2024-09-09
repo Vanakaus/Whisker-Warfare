@@ -1,10 +1,5 @@
 [
 	{
-		"tempo": 16,
-		"inimigos": [0],
-		"fim": false
-	},
-	{
 		"tempo": 24,
 		"inimigos": [0],
 		"fim": false

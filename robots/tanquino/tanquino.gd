@@ -58,13 +58,13 @@ func _process(delta):
 
 func atualizaPosicao(posicao):
 	
-	var gridIncrementVector = Vector2(LevelData.detectionIncrementX*3, LevelData.detectionIncrementY)
+	var gridIncrementVector = Vector2(LevelData.detectionIncrementX*2.8, LevelData.detectionIncrementY)
 	
 	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
 	get_node("DetectionArea/DetectionCollision").shape.extents = gridIncrementVector
 	get_node("DetectionArea/DetectionCollision").position = Vector2(-gridIncrementVector[0]+LevelData.detectionIncrementX*2, gridIncrementVector[1])
 	
-	global_position = Vector2(11, posicao) * Vector2(LevelData.tileSizeX, LevelData.tileSizeY)
+	global_position = Vector2(LevelData.spawnRobots, posicao) * Vector2(LevelData.tileSizeX, LevelData.tileSizeY)
 
 
 

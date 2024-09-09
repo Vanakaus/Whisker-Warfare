@@ -1,11 +1,11 @@
 [
 	{
-		"tempo": 16,
+		"tempo": 20,
 		"inimigos": [0],
 		"fim": false
 	},
 	{
-		"tempo": 24,
+		"tempo": 26,
 		"inimigos": [0],
 		"fim": false
 	},

@@ -21,7 +21,7 @@ var life
 func _ready():
 	name = "Zurgoid"
 	set_meta("tipo", "Robot")
-	life = 1000
+	life = 3000
 
 
 
@@ -58,13 +58,13 @@ func _process(delta):
 
 func atualizaPosicao(posicao):
 	
-	var gridIncrementVector = Vector2(LevelData.detectionIncrementX*4, LevelData.detectionIncrementY*5)
+	var gridIncrementVector = Vector2(LevelData.detectionIncrementX*3, LevelData.detectionIncrementY*5)
 	
 	get_node("DetectionArea/DetectionCollision").shape = get_node("DetectionArea/DetectionCollision").shape.duplicate()
 	get_node("DetectionArea/DetectionCollision").shape.extents = gridIncrementVector 
 	get_node("DetectionArea/DetectionCollision").position = Vector2(-gridIncrementVector[0]+LevelData.detectionIncrementX*2, (0.5 * LevelData.tileSizeY))
 	
-	global_position = Vector2(11, posicao) * Vector2(LevelData.tileSizeX, LevelData.tileSizeY)
+	global_position = Vector2(LevelData.spawnRobots, posicao) * Vector2(LevelData.tileSizeX, LevelData.tileSizeY)
 
 
 

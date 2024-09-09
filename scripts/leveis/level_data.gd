@@ -4,6 +4,8 @@ var level := 1
 var numInimigos := 0
 var dinheiroInicial := 200
 
+var spawnRobots := 11.3
+
 var tileSizeX = 34
 var tileSizeY = 24
 var detectionIncrementX = tileSizeX/2
@@ -66,7 +68,7 @@ var gatos = [
 		"cena": preload("res://cats/botas/gatoBotas.tscn"),
 		"Nome": "Gato de Botas",
 		"preco": 250,
-		"desbloqueio": [false, false, false, false, false, true, true, true, true, false],
+		"desbloqueio": [false, false, false, false, false, true, true, true, true, true],
 	},
 	{
 		"codigo": "CaixaDeAreia",

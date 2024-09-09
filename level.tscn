@@ -152,7 +152,7 @@ position = Vector2(127, -53)
 texture = ExtResource("11_bl8rt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(130, 38)
+position = Vector2(143, 38)
 zoom = Vector2(2.2, 2.2)
 
 [node name="UI" type="CanvasLayer" parent="."]

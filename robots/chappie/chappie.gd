@@ -66,7 +66,7 @@ func atualizaPosicao(posicao):
 	
 	get_node("Soco").position = Vector2(0, 0)
 	
-	global_position = Vector2(11, posicao) * Vector2(LevelData.tileSizeX, LevelData.tileSizeY)
+	global_position = Vector2(LevelData.spawnRobots, posicao) * Vector2(LevelData.tileSizeX, LevelData.tileSizeY)
 
 
 

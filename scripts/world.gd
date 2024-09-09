@@ -68,9 +68,13 @@ func _process(delta):
 		timerMoney = 0
 	
 	if fimInimigos:
-		if LevelData.numInimigos == 0:
-			end_screen.gamewon()
-			fimFase = true
+		if  robos[0].get_child_count() == 0:
+			if robos[1].get_child_count() == 0:
+				if robos[2].get_child_count() == 0:
+					if robos[3].get_child_count() == 0:
+						if robos[4].get_child_count() == 0:
+							end_screen.gamewon()
+							fimFase = true
 		
 	else:
 		if timer >= level.data[index].tempo and not esperando:
@@ -78,13 +82,19 @@ func _process(delta):
 			esperando = true
 			
 			for inimigo in level.data[index].inimigos:
-				var robo = LevelData.robosCenas[inimigo].instantiate()
-				var tile = RandomNumberGenerator.new().randi_range(0, 4)
 				
-				LevelData.numInimigos += 1
+				var robo = LevelData.robosCenas[inimigo].instantiate()
+				var tile
+				
+				if inimigo == 5:
+					tile = 2
+				else:
+					tile = RandomNumberGenerator.new().randi_range(0, 4)
 				
 				robo.atualizaPosicao(tile)
 				robos[tile].call_deferred("add_child", robo)
+				
+				LevelData.numInimigos += 1
 				
 				await get_tree().create_timer(0.25).timeout
 			
