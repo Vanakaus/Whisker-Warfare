@@ -31,6 +31,7 @@ var paused = false
 
 
 func _ready():	
+	$Ingame.play()
 	for x in LevelData.GridSizeX:
 		for y in LevelData.GridSizeY:
 			LevelData.grid[str(Vector2(x, y))] = {

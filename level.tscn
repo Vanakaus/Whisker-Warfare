@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d0yxhmun4v8ue"]
+[gd_scene load_steps=23 format=3 uid="uid://d0yxhmun4v8ue"]
 
 [ext_resource type="Texture2D" uid="uid://dvyac2y16o5i0" path="res://assets/world/tileMap.png" id="1_ao3m3"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_sia1f"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://ptikibh3bmmb" path="res://assets/misc/botaum.png" id="14_f851n"]
 [ext_resource type="Script" path="res://end_screen.gd" id="14_nmm6s"]
 [ext_resource type="Texture2D" uid="uid://cd0pc6bh7r4ag" path="res://assets/world/camaazul.png" id="14_wanu3"]
+[ext_resource type="AudioStream" uid="uid://b1vko5skhshq6" path="res://assets/sons/ingamemusic.ogg" id="17_exe3q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v01ww"]
 texture = ExtResource("1_ao3m3")
@@ -250,6 +251,10 @@ shape = SubResource("RectangleShape2D_3k68r")
 position = Vector2(-116, 122)
 
 [node name="Projeteis" type="Node2D" parent="."]
+
+[node name="Ingame" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_exe3q")
+volume_db = -10.133
 
 [connection signal="pressed" from="UI/EndScreen/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="UI/EndScreen/VBoxContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]

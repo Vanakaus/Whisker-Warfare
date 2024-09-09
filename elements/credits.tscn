@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://7qj3anir8npx"]
+[gd_scene load_steps=10 format=3 uid="uid://7qj3anir8npx"]
 
 [ext_resource type="Script" path="res://elements/credits.gd" id="1_7dpnw"]
 [ext_resource type="FontFile" uid="uid://ymdxkgsnys4m" path="res://assets/fonts/SF Atarian System Bold.ttf" id="2_nog2k"]
 [ext_resource type="Texture2D" uid="uid://4k57sbbvfkw4" path="res://assets/credits/credits.png" id="3_prapl"]
+[ext_resource type="AudioStream" uid="uid://cnnoambc8ecxb" path="res://assets/sons/credits.ogg" id="4_5irgg"]
 
 [sub_resource type="Animation" id="Animation_8q8vm"]
 resource_name = "Fade"
-length = 3.0
+length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,7 +15,7 @@ tracks/0/path = NodePath("VBoxContainer/Title:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"times": PackedFloat32Array(0, 0.5, 7.1, 7.66667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -26,10 +27,37 @@ tracks/1/path = NodePath("VBoxContainer/Name:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"times": PackedFloat32Array(0, 0.5, 7.1, 7.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qxibt"]
+resource_name = "Fixated"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Name:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_yqd1i"]
@@ -58,11 +86,41 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SkipCredits:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vt4jk"]
+resource_name = "SkipCutsceneText"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkipCredits:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.06667, 3.56667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ya77"]
 _data = {
 "Fade": SubResource("Animation_8q8vm"),
-"RESET": SubResource("Animation_yqd1i")
+"Fixated": SubResource("Animation_qxibt"),
+"RESET": SubResource("Animation_yqd1i"),
+"SkipCutsceneText": SubResource("Animation_vt4jk")
 }
 
 [node name="Credits" type="Control"]
@@ -77,13 +135,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 355.0
-offset_top = 256.0
-offset_right = 465.0
-offset_bottom = 410.0
+offset_left = 336.0
+offset_top = 147.0
+offset_right = 446.0
+offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.695, 1)
+scale = Vector2(2.695, 1.7)
+alignment = 1
+metadata/_edit_group_ = true
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
@@ -91,7 +151,8 @@ custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.0336343, 0.00927619, 0.0921312, 1)
-theme_override_colors/font_outline_color = Color(0.843184, 0.843184, 0.843184, 1)
+theme_override_colors/font_outline_color = Color(0.703807, 0.703808, 0.703808, 1)
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("2_nog2k")
 theme_override_font_sizes/font_size = 26
 text = "oioioioioioioioi"
@@ -103,7 +164,8 @@ modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_colors/font_color = Color(0.243622, 0.305513, 0.571157, 1)
+theme_override_colors/font_color = Color(0.343596, 0.419032, 0.72196, 1)
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("2_nog2k")
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
@@ -113,7 +175,7 @@ uppercase = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(500, 0)
+motion_mirroring = Vector2(1050, 0)
 
 [node name="Background" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
 offset_left = 8.0
@@ -123,11 +185,24 @@ scale = Vector2(0.476873, 0.452621)
 texture = ExtResource("3_prapl")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4ya77")
 }
+
+[node name="CreditsSong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5irgg")
+
+[node name="SkipCredits" type="Label" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 680.0
+offset_right = 576.0
+offset_bottom = 716.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Pressione BACKSPACE para pular os créditos."
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

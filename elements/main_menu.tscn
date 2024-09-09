@@ -1,13 +1,17 @@
-[gd_scene load_steps=30 format=3 uid="uid://d0v6soega4j3s"]
+[gd_scene load_steps=44 format=3 uid="uid://d0v6soega4j3s"]
 
 [ext_resource type="Script" path="res://elements/main_menu.gd" id="1_i6prg"]
 [ext_resource type="Texture2D" uid="uid://q8bwegeqbvb2" path="res://assets/cats/gatoBolaPelo.png" id="2_ldtc3"]
 [ext_resource type="Texture2D" uid="uid://bcodjyhjsb2db" path="res://assets/cats/gatoPau.png" id="3_f6vid"]
+[ext_resource type="FontFile" uid="uid://db2mkuc2dxohs" path="res://assets/fonts/CatComic-0vvG4.ttf" id="3_rvgw6"]
 [ext_resource type="Texture2D" uid="uid://bjw4np5ggxg1u" path="res://assets/cats/gatoSonico.png" id="4_7yi78"]
 [ext_resource type="Texture2D" uid="uid://cc5h7jq1ur57j" path="res://assets/robots/roborobo.png" id="5_d7r15"]
 [ext_resource type="Texture2D" uid="uid://b6pxp88ihted7" path="res://assets/robots/roborrifador.png" id="6_c76vr"]
 [ext_resource type="Texture2D" uid="uid://syli1dgpm6hg" path="res://assets/robots/roboaspirador.png" id="7_ycqmo"]
 [ext_resource type="Texture2D" uid="uid://b383ln0f01wtx" path="res://assets/misc/titulo.png" id="8_ff5q1"]
+[ext_resource type="AudioStream" uid="uid://y63xln8f1wc4" path="res://assets/sons/title.ogg" id="9_kkkye"]
+[ext_resource type="Texture2D" uid="uid://538t5ue4oy6k" path="res://assets/misc/rogerio_o_peixe.png" id="10_ltybe"]
+[ext_resource type="Theme" uid="uid://c6hituudv1grl" path="res://elements/instruction_theme.tres" id="12_x0su4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_58rmy"]
 atlas = ExtResource("2_ldtc3")
@@ -165,6 +169,75 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Theme" id="Theme_i40m4"]
+default_font_size = 30
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq148"]
+atlas = ExtResource("2_ldtc3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l07n7"]
+atlas = ExtResource("2_ldtc3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ca3dd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq148")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l07n7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uplkw"]
+atlas = ExtResource("7_ycqmo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h8t1"]
+atlas = ExtResource("7_ycqmo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gm1ga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uplkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h8t1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxkv7"]
+atlas = ExtResource("3_f6vid")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sebpb"]
+atlas = ExtResource("3_f6vid")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_urt0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxkv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sebpb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -180,37 +253,7 @@ offset_right = 1082.0
 offset_bottom = 726.0
 color = Color(0.999999, 0.917192, 0.956545, 1)
 
-[node name="Gato1" type="AnimatedSprite2D" parent="."]
-position = Vector2(86, 252)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_jvx3r")
-
-[node name="Gato2" type="AnimatedSprite2D" parent="."]
-position = Vector2(193, 354)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_xur1l")
-
-[node name="Gato3" type="AnimatedSprite2D" parent="."]
-position = Vector2(83, 447)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_6l8ge")
-
-[node name="Robo1" type="AnimatedSprite2D" parent="."]
-position = Vector2(869, 352)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_aqjfe")
-
-[node name="Robo2" type="AnimatedSprite2D" parent="."]
-position = Vector2(988, 245)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_l8qmj")
-
-[node name="Robo3" type="AnimatedSprite2D" parent="."]
-position = Vector2(988, 453)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_rfr57")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MenuElements" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 296.0
 offset_right = 545.0
@@ -218,35 +261,176 @@ offset_bottom = 360.0
 scale = Vector2(2, 2)
 metadata/_edit_group_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuElements"]
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 30
-text = "Whiskey Warfare"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MenuElements/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("8_ff5q1")
 
-[node name="GameStart" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="GameStart" type="Button" parent="MenuElements/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_rvgw6")
+theme_override_font_sizes/font_size = 25
 text = "Jogar!"
+flat = true
 
-[node name="Instructions" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Instructions" type="Button" parent="MenuElements/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_rvgw6")
+theme_override_font_sizes/font_size = 25
 text = "Instruções"
+flat = true
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Credits" type="Button" parent="MenuElements/VBoxContainer"]
 layout_mode = 2
-text = "Sair"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_rvgw6")
+theme_override_font_sizes/font_size = 25
+text = "Créditos"
+flat = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/GameStart" to="." method="_on_game_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Instructions" to="." method="_on_instructions_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Quit" type="Button" parent="MenuElements/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_rvgw6")
+theme_override_font_sizes/font_size = 25
+text = "Sair"
+flat = true
+
+[node name="MenuBackground" type="Node2D" parent="."]
+
+[node name="Gato1" type="AnimatedSprite2D" parent="MenuBackground"]
+position = Vector2(86, 252)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_jvx3r")
+
+[node name="Gato2" type="AnimatedSprite2D" parent="MenuBackground"]
+position = Vector2(193, 354)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_xur1l")
+
+[node name="Gato3" type="AnimatedSprite2D" parent="MenuBackground"]
+position = Vector2(83, 447)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_6l8ge")
+
+[node name="Robo1" type="AnimatedSprite2D" parent="MenuBackground"]
+position = Vector2(887, 365)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_aqjfe")
+
+[node name="Robo2" type="AnimatedSprite2D" parent="MenuBackground"]
+position = Vector2(988, 245)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_l8qmj")
+
+[node name="Robo3" type="AnimatedSprite2D" parent="MenuBackground"]
+position = Vector2(988, 453)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_rfr57")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Instructions" type="MarginContainer" parent="CanvasLayer"]
+offset_top = 153.0
+offset_right = 1077.0
+offset_bottom = 664.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Instructions"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Instructions/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("12_x0su4")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 26
+text = "Os gatinhos são seus aliados para proteger a cozinha dos robôs  
+que querem dominar a casa. Os gatos gostam muito de peixes, e é com eles que você 
+pode organizar seu exército para defender sua cozinha.
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Instructions/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("12_x0su4")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 26
+
+[node name="Label3" type="Label" parent="CanvasLayer/Instructions/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 26
+text = "Com o preço certo de peixes, você pode utilizar o mouse para selecionar 
+qual gato você quer que te proteja com suas funções específicas. Selecionando o gato, 
+você pode ainda com o mouse escolher qual espaço na cozinha ele vai ocupar 
+e qual linha ele vai defender."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CanvasLayer/Instructions/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 26
+
+[node name="Label5" type="Label" parent="CanvasLayer/Instructions/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 26
+text = "O objetivo é simples: os gatos devem impedir que os robôs atravessem a cozinha. 
+Se eles chegarem aos puffs dos gatos, é fim de jogo. Boa sorte!"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="CanvasLayer/Instructions/VBoxContainer"]
+layout_mode = 2
+
+[node name="Voltar" type="Button" parent="CanvasLayer/Instructions/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_i40m4")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_rvgw6")
+theme_override_font_sizes/font_size = 40
+text = "Voltar"
+flat = true
+
+[node name="Gato1" type="AnimatedSprite2D" parent="CanvasLayer/Instructions"]
+position = Vector2(105.263, -69.4737)
+scale = Vector2(3.4, 3.4)
+sprite_frames = SubResource("SpriteFrames_ca3dd")
+
+[node name="Robo2" type="AnimatedSprite2D" parent="CanvasLayer/Instructions"]
+position = Vector2(963.158, -69.4737)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_aqjfe")
+
+[node name="Robo1" type="AnimatedSprite2D" parent="CanvasLayer/Instructions"]
+position = Vector2(235.789, -45.2632)
+scale = Vector2(3.2, 3.2)
+sprite_frames = SubResource("SpriteFrames_gm1ga")
+
+[node name="Roberto" type="Sprite2D" parent="CanvasLayer/Instructions"]
+position = Vector2(967.368, 102.105)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("10_ltybe")
+
+[node name="Gato2" type="AnimatedSprite2D" parent="CanvasLayer/Instructions"]
+position = Vector2(877.895, -63.1579)
+scale = Vector2(3.4, 3.4)
+sprite_frames = SubResource("SpriteFrames_urt0t")
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-92, 150)
+stream = ExtResource("9_kkkye")
+
+[connection signal="pressed" from="MenuElements/VBoxContainer/GameStart" to="." method="_on_game_start_pressed"]
+[connection signal="pressed" from="MenuElements/VBoxContainer/Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="MenuElements/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MenuElements/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Instructions/VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]
