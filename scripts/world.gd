@@ -73,8 +73,12 @@ func _process(delta):
 				if robos[2].get_child_count() == 0:
 					if robos[3].get_child_count() == 0:
 						if robos[4].get_child_count() == 0:
-							end_screen.gamewon()
-							fimFase = true
+							if LevelData.level == 10:
+								print("Obaa! Os robos não voltarão tão cedo!!")
+								LevelData.level = 0
+							else:
+								end_screen.gamewon()
+								fimFase = true
 		
 	else:
 		if timer >= level.data[index].tempo and not esperando:
