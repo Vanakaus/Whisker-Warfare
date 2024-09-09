@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://7qj3anir8npx"]
 
 [ext_resource type="Script" path="res://elements/credits.gd" id="1_7dpnw"]
+[ext_resource type="FontFile" uid="uid://ymdxkgsnys4m" path="res://assets/fonts/SF Atarian System Bold.ttf" id="2_nog2k"]
 [ext_resource type="Texture2D" uid="uid://4k57sbbvfkw4" path="res://assets/credits/credits.png" id="3_prapl"]
-[ext_resource type="FontFile" uid="uid://no5go36dyej0" path="res://assets/fonts/Kenney Pixel.ttf" id="3_xexgo"]
 
 [sub_resource type="Animation" id="Animation_8q8vm"]
 resource_name = "Fade"
@@ -77,10 +77,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 23.0
-offset_top = 263.0
-offset_right = 373.0
-offset_bottom = 403.0
+offset_left = 355.0
+offset_top = 256.0
+offset_right = 465.0
+offset_bottom = 410.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.695, 1)
@@ -92,22 +92,23 @@ layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.0336343, 0.00927619, 0.0921312, 1)
 theme_override_colors/font_outline_color = Color(0.843184, 0.843184, 0.843184, 1)
-theme_override_fonts/font = ExtResource("3_xexgo")
-theme_override_font_sizes/font_size = 18
+theme_override_fonts/font = ExtResource("2_nog2k")
+theme_override_font_sizes/font_size = 26
 text = "oioioioioioioioi"
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 
 [node name="Name" type="Label" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_colors/font_color = Color(0.556863, 0.192157, 0.341176, 1)
-theme_override_fonts/font = ExtResource("3_xexgo")
-theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.243622, 0.305513, 0.571157, 1)
+theme_override_fonts/font = ExtResource("2_nog2k")
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

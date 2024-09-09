@@ -17,7 +17,7 @@ func _ready() -> void:
 	$Timer.start()
 
 func _process(delta: float) -> void:
-	$ParallaxBackground/ParallaxLayer.motion_offset.x -= scroll_speed * delta	
+	$ParallaxBackground/ParallaxLayer.motion_offset.x -= scroll_speed * delta
 
 func _on_timer_timeout() -> void:
 	$VBoxContainer/Title.text  = credit_list[counter][0]
